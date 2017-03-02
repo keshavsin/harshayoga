@@ -112,7 +112,18 @@ p{text-align:justify;}
 .batch_card .buy:hover{background:#fff !important;color:#454545 !important;}
 .batch_card .viewdetails{border:1px #fff solid;transition:all 0.3s linear;}
 .batch_card .viewdetails:hover{background:#fff;color:#454545;-webkit-box-shadow: 0 2px 4px rgba(0,0,0,.5);-moz-box-shadow: 0 2px 4px rgba(0,0,0,.5);box-shadow: 0 2px 4px rgba(0,0,0,.5);}
+.floating_thumb, .floating_thumbr, .floating_thumbcntr{margin:0 auto;margin-bottom:20px;max-width:500px;box-shadow:8px 8px 8px #d9d9d9;padding:0;display:block;width:100%;}
+.floating_thumbr{box-shadow:-8px 8px 8px #d9d9d9;}
+.list-group{font-size:16px;}
+.list-group .disabled{font-size:18px;font-weight:300;text-transform:uppercase;}
+.badge_cstom{display:inline-block;background:#f0f0f0;padding:5px 10px;border-radius:30px;margin-bottom:10px;margin-right:10px;}
+.pd10{padding:0px 10px;}
+.pd_bttm{padding-bottom:30px;}
+.mrgnbtm20{margin-bottom:10px;}
+#retreat_pages{max-width:500px;margin:0 auto;box-shadow:8px 8px 8px #d9d9d9;margin-bottom:30px;}
 @media all and (min-width:991px){
+    .floating_thumb{margin:0px 20px 20px 0px;display:inline;float:left;max-width:400px;}
+    .floating_thumbr{float:right;margin:0px 0px 20px 20px;display:inline;float:right;max-width:400px;}
     .navbar-default .navbar-nav>li>a{padding:15px;}
     .navbar-default .navbar-nav>li>a.apply_btn{padding: 5px 12px;margin: 8px 20px 0px 10px;}
     .classes_wrapcenter{max-width:450px;margin:0 auto;}
