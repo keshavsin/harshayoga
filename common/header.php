@@ -50,36 +50,77 @@
               class="icon-bar"></span> <span class="icon-bar"></span> <span
               class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html"><img src="assets/images/harsha-yoga-logo.jpg" alt="harsha yoga logo"></a>
+          <a class="navbar-brand" href="index.php"><img src="assets/images/harsha-yoga-logo.jpg" alt="harsha yoga logo"></a>
         </div>
         <div class="collapse navbar-collapse" id="hamburger_menu">
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">About <b class="caret"></b></a>
+          <?php if($currentPage == 'about'){
+                echo '<li class="dropdown active">';
+          }else{
+              echo '<li class="dropdown">';
+          }
+          ?>
+           <a href="javascript:vooid(0);" data-toggle="dropdown" class="dropdown-toggle">About Us</a>
               <ul class="dropdown-menu">
-                <li><a href="javascript:void(0);">Harsha Nagraj</a></li>
-                <li><a href="#">Ashtanga Yoga</a></li>
+                <li><a href="harsha-nagraj.php">Harsha Nagraj</a></li>
+                <li><a href="ashtanga-yoga.php">Ashtanga Yoga</a></li>
+                <li><a href="iyengar.php">Iyengar Yoga</a></li>
+                <li><a href="hatha-yoga.php">Hatha Yoga</a></li>
               </ul>
             </li>
-            <li>                                                 
-                <a href="classes.html">Classes</a>
+          <?php if($currentPage == 'classes'){
+                echo '<li class="active">';
+          }else{
+              echo '<li>';
+          }
+          ?>                                                 
+                <a href="classes.php">Sessions</a>
             </li>
-            
-            <li>                                                 
-                <a href="#">TRAINER</a>
+          <?php if($currentPage == 'trainers'){
+                echo '<li class="dropdown active">';
+          }else{
+              echo '<li class="dropdown">';
+          }
+          ?>
+              <a href="javascript:vooid(0);" data-toggle="dropdown" class="dropdown-toggle">Trainer Programs</a>
+              <ul class="dropdown-menu">
+			    <li><a href="ashtanga-yoga-level-1.php">Ashtanga yoga level 1</a></li>
+				<li><a href="ashtanga-yoga-level-2.php">Ashtanga yoga level 2</a></li>
+				<li><a href="ashtanga-yoga-level-3.php">Hatha yoga</a></li>
+				<li><a href="ashtanga-yoga-level-4.php">Yoga therapy </a></li>	
+			 </ul>
+            </li>                                                
+           <?php if($currentPage == 'events'){
+                echo '<li class="dropdown active">';
+          }else{
+              echo '<li class="dropdown">';
+          }
+          ?>
+              <a href="javascript:vooid(0);" data-toggle="dropdown" class="dropdown-toggle">Events</a>
+              <ul class="dropdown-menu">
+			    <li><a href="goa.php">Goa</a></li>
+				<li><a href="mysore.php">Mysuru</a></li>
+				<li><a href="bali.php">Bali</a></li>
+			 </ul>
             </li> 
-            <li>                                                 
-                <a href="#">EVENTS</a>
+            <?php if($currentPage == 'blog'){
+                echo '<li class="active">';
+          }else{
+              echo '<li>';
+          }
+          ?>                                                
+                <a href="javascript:void(0);">BLOG</a>
+            </li>
+            <?php if($currentPage == 'contact'){
+                echo '<li class="active">';
+          }else{
+              echo '<li>';
+          }
+          ?>                                                  
+                <a href="contact-us.php">CONTACT</a>
             </li>
             <li>                                                 
-                <a href="#">BLOG</a>
-            </li>
-            <li>                                                 
-                <a href="contact-us.html">CONTACT</a>
-            </li>
-            
-            <li>                                                 
-                <a href="#" class="apply_btn">APPLY NOW</a>
+                <a href="login.php" class="apply_btn">Login</a>
             </li>
           </ul>
         </div>
@@ -87,53 +128,3 @@
     </nav>
     </div>
   </header>
-  <section id="about_harsha">
-      <div class="about_innr">
-      <div class="container-fluid">
-        <div class="row">
-        <div class="col-sm-6 about_text">
-          <h2 class="heading1 colr_h">Harsha Nagraj</h2>
-          <h3 class="heading2">Welcome to the path of realistic evolution.</h3>
-          <p>
-            I believe it is my birth right to tread the path of Yoga, thought it took me almost a decade and a half to realize that… the reason for my birth & to know the secrets of one’s own life has always been my core question since birth.
-<br/><br/>
-When the study of Yoga and Prasthanathrayas (Brahma Sutras, Upanisads ,the Bhagavad Gita) and the mother of all languages, Sanskrit began, I knew that I had found what I was searching for all these years. Studying these brought a whole new dimension in my thinking as I stood as a mere witness, spell bound.
-<br/><br/>
-I found a new meaning in life In fact I found the true meaning of life. A subtle understanding of the philosophy of yoga has revolutionized the evolution in me as I Learn to live in the world, but not the part of the world.
-<br/><br/>
-This ancient Indian knowledge has completely changed my life. Come and change yours. Be reborn every day!!!! Hari Om !!!
-            </p>
-        </div>
-        <div class="col-sm-6 thumb_wrap">
-          <img src="assets/images/harsha-nagraj.jpg" alt="harsha nagraj" class="img-responsive">
-          </div>
-        </div>
-        </div>
-      </div>
-    </section>
-  <footer class="footer_main text-center">
-  	<h2 class="footer_h">Harsha Yoga Pathashala</h2>
-    <div class="footer_address">
-      Ideal Homes Main Road, Above Sangeetha Mobiles<br/>
-Rajarajeshwarinagar, Bangalore.<br/>
-Mobile: <a href="tel:+919483852050">9483852050</a><br/>
-Email: <a href="mailto:harsha@harshayog.com">harsha@harshayog.com</a><br/>
-Web: www.harshayoga.com<br/>
-      </div>
-      <div class="footer_small">
-          <div class="row">
-            <div class="col-md-7">
-            <a href="index.html">Home</a> &nbsp; | &nbsp; <a href="javascript:void(0);">About</a> &nbsp; | &nbsp; <a href="contact-us.html">Contact</a> &nbsp; | &nbsp; <a href="#">Terms</a> &nbsp; | &nbsp; <a href="#">FAQ</a>
-            </div>
-            <div class="col-md-5">
-           Copyright &copy; 2016 Harsha Yoga Pathashala
-            </div>
-            </div>
-        </div>
-  </footer>
-</main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="assets/js/script.js"></script>
-</body>
-</html>
-
