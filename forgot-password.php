@@ -35,11 +35,7 @@ include 'common/header.php';
                  </div>
             </div>
             </div>
-        
-        
-       
-      
-    </section>
+     </section>
 <?php include 'common/footer.php';?>
 </body>
 </html>
