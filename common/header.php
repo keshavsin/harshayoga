@@ -1,3 +1,6 @@
+<?php
+include 'base/common/dbconf.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +43,7 @@
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="social_header clearfix">
         <div class="tel_wrap">Call Us: <a href="tel:+919483852050">+91-9483852050</a></div>
-        <div class="social_lnkwrap"><a href="https://www.facebook.com/pages/Harsha-yoga/1401642140138021?ref=hl" class="social_lnk fb" target="_blank"></a><a href="https://www.youtube.com/channel/UCEpNMWkPBJR8EEtwiOVf1QA/videos" class="social_lnk yu" target="_blank"></a><a href="https://plus.google.com/u/0/b/106183654970680576937/dashboard/overview" class="social_lnk gp" target="_blank"></a><a href="http://instagram.com/harsha_yoga" class="social_lnk in" target="_blank"></a></div>
+        <div class="social_lnkwrap"><a href="https://www.facebook.com/pages/Harsha-yoga/1401642140138021?ref=hl" class="social_lnk fb" target="_blank"></a><a href="https://www.youtube.com/channel/UCEpNMWkPBJR8EEtwiOVf1QA/videos" class="social_lnk yu" target="_blank"></a><a href="http://instagram.com/harsha_yoga" class="social_lnk in" target="_blank"></a></div>
       </div>
       <nav id="myNavbar" class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
@@ -65,7 +68,7 @@
                 <li><a href="harsha-nagraj.php">Harsha Nagraj</a></li>
                 <li><a href="ashtanga-yoga.php">Ashtanga Yoga</a></li>
                 <li><a href="iyengar.php">Iyengar Yoga</a></li>
-                <li><a href="hatha-yoga.php">Hatha Yoga</a></li>
+                <li><a href="hathayoga.php">Hatha Yoga</a></li>
               </ul>
             </li>
           <?php if($currentPage == 'classes'){
@@ -73,42 +76,59 @@
           }else{
               echo '<li>';
           }
-          ?>                                                 
+          ?>
                 <a href="classes.php">Sessions</a>
             </li>
-          <?php if($currentPage == 'trainers'){
+          <?php if($currentPage == 'trainer-programs'){
                 echo '<li class="dropdown active">';
           }else{
               echo '<li class="dropdown">';
           }
           ?>
-              <a href="javascript:vooid(0);" data-toggle="dropdown" class="dropdown-toggle">Trainer Programs</a>
+              <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Trainer Programs</a>
               <ul class="dropdown-menu">
-			    <li><a href="ashtanga-yoga-level-1.php">Ashtanga yoga level 1</a></li>
-				<li><a href="ashtanga-yoga-level-2.php">Ashtanga yoga level 2</a></li>
-				<li><a href="ashtanga-yoga-level-3.php">Hatha yoga</a></li>
-				<li><a href="ashtanga-yoga-level-4.php">Yoga therapy </a></li>	
+                <?php
+                $sql = "SELECT id, menu_text FROM product where type = 'ttc'";
+                $result = $db->query($sql);
+                if ($result->num_rows > 0) {
+                  while($row = $result->fetch_assoc()) {
+                    $plnk = str_replace(' ', '-', strtolower($row['menu_text']));
+                    echo '<li><a href="trainer-programs.php?id='.$row["id"].'">'.$row["menu_text"].'</a></li>';
+                  }
+                } else {
+                  echo '<li><a>Nothing to show</a></li>';
+                }
+                ?>
 			 </ul>
-            </li>                                                
+            </li>
            <?php if($currentPage == 'events'){
                 echo '<li class="dropdown active">';
           }else{
               echo '<li class="dropdown">';
           }
           ?>
-              <a href="javascript:vooid(0);" data-toggle="dropdown" class="dropdown-toggle">Events</a>
+              <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Events</a>
               <ul class="dropdown-menu">
-			    <li><a href="goa.php">Goa</a></li>
-				<li><a href="mysore.php">Mysuru</a></li>
-				<li><a href="bali.php">Bali</a></li>
+                <?php
+                $sql = "SELECT id, menu_text FROM product where type = 'retreat'";
+                $result = $db->query($sql);
+                if ($result->num_rows > 0) {
+                  while($row = $result->fetch_assoc()) {
+                    $plnk = str_replace(' ', '-', strtolower($row['menu_text']));
+                    echo '<li><a href="events.php?id='.$row["id"].'">'.$row['menu_text'].'</a></li>';
+                  }
+                } else {
+                  echo '<li><a>Nothing to show</a></li>';
+                }
+                ?>
 			 </ul>
-            </li> 
+            </li>
             <?php if($currentPage == 'blog'){
                 echo '<li class="active">';
           }else{
               echo '<li>';
           }
-          ?>                                                
+          ?>
                 <a href="javascript:void(0);">BLOG</a>
             </li>
             <?php if($currentPage == 'contact'){
@@ -116,12 +136,39 @@
           }else{
               echo '<li>';
           }
-          ?>                                                  
+          ?>
                 <a href="contact-us.php">CONTACT</a>
             </li>
-            <li>                                                 
+            <?php if(isset($_SESSION['loggedin_user'])){
+              $email = $_SESSION['loggedin_user'];
+              $sql_user = "SELECT * FROM users where email = '$email'";
+              $result_user = $db->query($sql_user);
+              if ($result_user->num_rows > 0) {
+                while($row_user = $result_user->fetch_assoc()) {
+                  $name = $row_user['name'];
+                  $mobile = $row_user['mobile'];
+                  $image = $row_user['image'];
+                  $city = $row_user['city'];
+                  $country = $row_user['country'];
+                }
+              }
+              ?>
+              <li class="dropdown" id="btn_menu">
+				<button class="btn dropdown-toggle" type="button" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<img src="assets/images/users/<?php echo $image;?>" /><span class="caret"></span></button>
+				<ul class="dropdown-menu dropdown-menu-right user_headermenu" aria-labelledby="user_menu">
+          <li>
+          <li class="menu_footer"><a href="dashboard.php" class="btn_menulnk">Dashboard</a></li>
+					<li class="menu_footer"><a href="bookings.php"class="btn_menulnk">My Bookings</a></li>
+          <li class="menu_footer"><a href="changepassword.php" class="btn_menulnk">Change Password</a></li>
+          <li class="menu_footer"><a href="logout.php"class="btn_menulnk">Logout</a></li>
+				</ul>
+              </li>
+            <?php } else { ?>
+            <li>
                 <a href="login.php" class="apply_btn">Login</a>
             </li>
+            <?php } ?>
           </ul>
         </div>
       </div>

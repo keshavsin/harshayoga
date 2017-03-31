@@ -3,7 +3,7 @@ if(isset($_SESSION['loggedin_user'])) {
    header("Location: dashboard.php");
   exit;
 }else{
-$currentPage = "login";
+$currentPage = "registration";
 include 'common/header.php';
 }
 ?>
@@ -12,11 +12,10 @@ include 'common/header.php';
       <div class="container-fluid">
         <div class="row">
         <div class="col-sm-12 contact_text">
-          <h2 class="heading1 colr_h">Log In</h2>
-          <h3 class="heading2">To Gain Access</h3>
+          <h2 class="heading1 colr_h">Sign Up</h2>
+          <h3 class="heading2">Fill out the form below</h3>
           <div class="container-fluid">
-            <form name="sign_inform" action="" method="post">
-              <div class="error_msg"></div>
+            <div class="error_msg"></div>
             <div class="row">
               <div class="col-sm-12">
                 <div class="form-group">
@@ -24,13 +23,23 @@ include 'common/header.php';
                 </div>
               </div>
               <div class="col-sm-12">
-                <div class="form-group nomrgn">
+                <div class="form-group">
                   <input type="password" class="form-control form-shadow" placeholder="Password" id="password">
                 </div>
               </div>
               <div class="col-sm-12">
-                <div class="form-group text-right">
-                  <a href="forgot-password.php" class="fp_lnk">Forgot password ?</a>
+                <div class="form-group">
+                  <input type="tel" class="form-control form-shadow" placeholder="Mobile" id="mobile">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <input type="text" class="form-control form-shadow" placeholder="Country" id="country">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <input type="text" class="form-control form-shadow" placeholder="City" id="city">
                 </div>
               </div>
                 <div class='col-xs-12'>
@@ -39,12 +48,11 @@ include 'common/header.php';
                 </div>
                 </div>
                 </div>
-              </form>
-               <div class="noaccount_h"><span>Do not have an account?</span></div>
+               <div class="noaccount_h"><span>Already have an account?</span></div>
                <div class="row">
                    <div class='col-xs-12'>
                 <div class="form-group">
-                 <a href="register.php" class="btn btn-default btn-block btn_signup">Create Account</a>
+                 <a href="login.php" class="btn btn-default btn-block btn_signup">Sign In</a>
                 </div>
                    </div>
                 </div>
@@ -58,8 +66,12 @@ include 'common/header.php';
 <script>
 $(function(){
   function validateEmail(email) {
-  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(email);
+  var emaildef = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return emaildef.test(email);
+}
+function validateMobile(mobile){
+    var phonedef = /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/;
+    return phonedef.test(mobile);
 }
 		$('#submit_btn').on('click', function(e) {
 			e.preventDefault();
@@ -67,28 +79,32 @@ $(function(){
 			if(!slf.hasClass('loading')){
 				var username = $('#username').val();
 		   		var password = $('#password').val();
-				if (!validateEmail(username)) {
-                  $('.error_msg').html("Invalid Email Id").slideDown();
+          var phone = $('#mobile').val();
+          var country = $('#country').val();
+          var city = $('#city').val();
+				if(!validateEmail(username)) {
+                    $('.error_msg').html("Invalid Email Id").slideDown();
 				}else if($.trim(password) == '') {
                     $('.error_msg').html("Password can't be blank").slideDown();
-                }else{
+        }else if(!validateMobile(phone)) {
+              $('.error_msg').html("Invalid Mobile number").slideDown();
+				}else{
 					slf.addClass('loading');
 					$.ajax({
-					  url: 'logincheck.php',
-					  data: {'uname': username, 'pass': password},
+					  url: 'registrationcheck.php',
+					  data: {'uname': username, 'pass': password, 'phone':phone, 'country':country, 'city':city},
 					  type: 'POST',
 					  success: function(response){
 						if(response == 'error'){
 							$('.error_msg').html("Invalid User").slideDown();
 							slf.removeClass('loading');
 						}else if(response == 'success'){
-            window.location.href = 'dashboard.php';
-						}else if(response == 'notactive'){
-              $('.error_msg').html("Sorry! Your account is not active").slideDown();
+              window.location.href = 'registrationsuccess.php';
+						}else if(response == 'exist'){
+              $('.error_msg').html("User already exist").slideDown();
               slf.removeClass('loading');
-            }
-            else{
-              $('.error_msg').html("Something Went Wrong ! please try again").slideDown();
+            } else{
+              $('.error_msg').html(response).slideDown();
               slf.removeClass('loading');
 						}
 					  }

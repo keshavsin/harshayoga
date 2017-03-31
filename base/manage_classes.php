@@ -13,9 +13,11 @@ include 'common/header.php';
           </div>
         </div>
           <div class="container-fluid" id="booking_container">
+              <div class="error_msg" id="class_emsg">Unable to update</div>
+              <div class="success_msg" id="class_smsg">Successfully updated</div>
               <?php
                   require_once 'common/dbconf.php';
-                  $sql = "select * from classes";
+                  $sql = "select * from product where type='class'";
                   $data = $db->query($sql);
                   $str = '';
                   if($data->num_rows>0){
@@ -25,17 +27,23 @@ include 'common/header.php';
                       $str.= '<tr>';
                       $str.= '<td>'.$row["id"].'</td>';
                       $str.= '<td>'.$row["reference_no"].'</td>';
-                      $str.= '<td>'.$row["type"].'</td>';
+                      $str.= '<td>'.$row["class_type"].'</td>';
                       $str.= '<td>'.$row["duration"].' months</td>';
-                      $str.= '<td>'.$row["amount"].'/-</td>';
+                      $str.= '<td>'.$row["price"].'/-</td>';
                       $str.= '<td>'.$row["currency"].'</td>';
                       if($row["is_active"] == 1){
-                        $str.= '<td class="bg-success">Active</td>';
+                        $str.= '<td class="bg-success" id="act_'.$row["id"].'">Active</td>';
                       }else{
-                        $str.= '<td class="bg-warning">Not Active</td>';
+                        $str.= '<td class="bg-warning" id="act_'.$row["id"].'">Not Active</td>';
                       }
 
-                      $str.= '<td><a href="#classmodal" class="btn btn-default edit_btn" data-toggle="modal" title="edit">E</a> &nbsp; <a href="#classmodal" class="btn btn-danger" title="delete">D</a></td>';
+                      $str.= '<td><a href="#classmodal" class="btn btn-default edit_btn" data-toggle="modal" title="edit">E</a> &nbsp;';
+                      if($row["is_active"] == 1){
+                      $str.= '<a href="javascript:void(0);" class="btn btn-danger deactive_btn" title="Deactivate" id="btn_'.$row["id"].'" data-id="'.$row["id"].'" data-act="'.$row["is_active"].'">D</a>';
+                      }else{
+                        $str.= '<a href="javascript:void(0);" class="btn btn-success deactive_btn" title="Activate" id="btn_'.$row["id"].'" data-id="'.$row["id"].'" data-act="'.$row["is_active"].'">A</a>';
+}
+                      $str.= '</td>';
                   }
                   $str.= '</tbody></table></div>';
                 }else{
@@ -63,7 +71,7 @@ include 'common/header.php';
               <select type="text" class="form-control form-shadow" id="type">
                 <option value="">Type</option>
                 <option value="weekday">Weekday</option>
-                <option value="weekend">Weekwnd</option>
+                <option value="weekend">Weekend</option>
               </select>
             </div>
             <div class="form-group">
@@ -87,5 +95,35 @@ include 'common/header.php';
 
   </div>
 </div>
+<script>
+$(function(){
+    $(document).on('click', '.deactive_btn', function(){
+        $('body').addClass('loading');
+        var cid = $(this).data('id');
+        var act = $(this).data('act');
+        $.post("change_classstatus.php", {'cid':cid, 'act':act}, function(data){
+          $('body').removeClass('loading');
+            if(data == 'success'){
+                if(act == 1){
+                  $('#btn_'+cid).removeClass('btn-danger').addClass('btn-success').attr('title', 'Activate').text('A').data('id', 0);
+                  $('#act_'+cid).removeClass('bg-success').addClass('bg-warning').text('Not Active');
+                }else if(act == 0){
+                  $('#btn_'+cid).removeClass('btn-success').addClass('btn-danger').attr('title', 'Deactivate').text('D').data('id', 1);
+                  $('#act_'+cid).removeClass('bg-warning').addClass('bg-success').text('Active');
+                }
+              $('#class_smsg').slideDown();
+              setTimeout(function(){
+                $('#class_smsg').slideUp();
+              }, 1000);
+            }else{
+              $('#class_emsg').slideDown();
+              setTimeout(function(){
+                $('#class_emsg').slideUp();
+              }, 1000);
+            }
+        });
+    });
+});
+</script>
 </body>
 </html>

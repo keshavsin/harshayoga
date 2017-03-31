@@ -58,7 +58,7 @@ include 'common/header.php';
   <li class="list-group-item">Shankapakshalana</li>
   <li class="list-group-item">Vamana dhouti</li>
   </ul>
-  
+
 <ul class="list-group">
     <li class="list-group-item disabled">Duration and intake</li>
   <li class="list-group-item">Weekday : Every Tuesday , Thursday &amp; Saturday - 2 months</li>
@@ -74,7 +74,7 @@ include 'common/header.php';
   <li class="list-group-item">At the end of the course students are advised to write a thesis on 3 ailments &amp; present the paper along with pre, post data.</li>
   <li class="list-group-item">Students are required to present atleast one paper in any one of the medical journal too and they will be assisted for the same.</li>
   </ul>
-  
+
   <ul class="list-group">
     <li class="list-group-item disabled">Books to be referred</li>
   <li class="list-group-item">Yoga therapy, B.K.S.Iyengar</li>

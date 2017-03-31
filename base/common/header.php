@@ -72,7 +72,7 @@ echo '<body class="loading loginpage">';
           ?>
                 <a href="manage_bookings.php">Manage Bookings</a>
             </li>
-            <?php if($currentPage == 'retreats'){
+            <?php if($currentPage == 'retreat'){
                 echo '<li class="active">';
           }else{
               echo '<li>';

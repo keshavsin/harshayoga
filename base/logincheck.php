@@ -15,7 +15,7 @@ if(isset($_SESSION['username'])) {
        $name = $row['name'];
      }
       $_SESSION["username"] = $name;
-      echo 'dashboard.php';
+      echo 'success';
     }else{
       echo 'error';
     }

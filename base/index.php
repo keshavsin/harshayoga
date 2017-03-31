@@ -43,7 +43,7 @@ $(function(){
 		$('#submit_btn').on('click', function(e) {
 			e.preventDefault();
 			var slf = $(this);
-			if(!$(this).hasClass('loading')){
+			if(!slf.hasClass('loading')){
 				var username = $('#username').val();
 		   		var password = $('#password').val();
 				if ($.trim(username) == '') {
@@ -57,12 +57,16 @@ $(function(){
 					  data: {'uname': username, 'pass': password},
 					  type: 'POST',
 					  success: function(response){
+              console.log(response);
 						if(response == 'error'){
 							$('.error_msg').html("Invalid User").slideDown();
 							slf.removeClass('loading');
-						}else{
- 					 window.location.href = response;
-						}
+						}else if(response == 'success'){
+ 					 window.location.href = 'dashboard.php';
+         }else{
+           $('.error_msg').html("Something Went wrong ! please try again").slideDown();
+           slf.removeClass('loading');
+         }
 					  }
 					});
 				}
