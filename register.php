@@ -1,4 +1,6 @@
 <?php
+session_start();
+session_destroy();
 if(isset($_SESSION['loggedin_user'])) {
    header("Location: dashboard.php");
   exit;
@@ -62,7 +64,8 @@ include 'common/header.php';
             </div>
             </div>
     </section>
-<?php include 'common/footer.php';?>
+<?php include 'common/footer.php'; 
+?>
 <script>
 $(function(){
   function validateEmail(email) {

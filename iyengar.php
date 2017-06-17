@@ -14,7 +14,7 @@ include 'common/header.php';
     Thought not formally introduced to him by any of his adherent ones, this is the closest I could get to him when his bodily presence existed. But yes , his principles and rules do run in my veins to this day. 
 Of all the teachers present during his time , there were none who presented the teaching in the most systematical way that guruji did. His work in the form of book &amp; his life lead principles will be with me till my last breath.
 Thought I dint gets a chance to get a pat from him for my practice during his existence, I’m proud to say that his teaching has forever changed me &amp; the world.
-And with great honor, I proudly do say that I do adopt his method of teaching in each and every class of mine &amp; will continue to do so.
+And with great honor, I proudly do say that I do adopt his method of teaching in each and every class of mine &amp; will continue to do so...
 <br/><br/>
 </p>
 </div>

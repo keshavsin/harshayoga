@@ -30,6 +30,184 @@ include 'common/header.php';
     <li class="list-group-item disabled">Asana</li>
   <li class="list-group-item">The beginners &amp; intermediate level from The light on Yoga &amp; the first few weeks of advance level for those who wish to push their limits.</li>
   <li class="list-group-item">The complete study of teaching method for becoming an expert in therapy, including the introduction of " Yoga for Motherhood ".</li>
+  <li class="list-group-item">
+	<ul class="list-group">
+  <l1 class="disabled"> Standing asana :</li>
+	
+<li>Trikonasana</li>
+<li>Parivritta trikonasana </li>
+<li>Parsva konasana </li>
+<li>Parivritta parsvakonasana</li>
+<li>Veerabhadrasana I</li>
+<li>Veerabhadrasana II</li>
+<li>Veerabhadrasana III</li>
+<li>Arshachandrasana </li>
+<li>Parivritta Ardhachandrasana </li>
+<li>Ardhachandrasana II</li>
+<li>Prasarita paddoatanasana</li>
+<li>Prasarita paddoatanasana II</li>
+<li>Padangushtasana</li>
+<li>Pada Hastasana</li>
+<li>Uttanasana</li>
+<li>Ardhabaddha padma uttanasana</li>
+<li>Garudasana</li>
+<li>Vatayasana</li>
+<li>Uttitahasta padnagustasana step 1, 2 ,3 </li>
+<li>Eka pada uttanasana</li>
+<li>Natarajasana</li>
+
+Sitting forward bending:
+
+Janu sirasana 
+Parivritta Janu sirasana 
+Ardha baddha padma paschimottanasana
+Triangmukaipada paschimottanasana
+Paschimottanasana
+Parivriita paschimottanasana
+Akarana dhanurasana
+Koormasana 
+Supta kurmasana
+
+Baddha konasana
+Upavista konasana I
+Upavista Konasana II
+Samatolasana
+
+
+
+
+
+
+
+
+
+
+
+
+Hand balancing
+
+Adhomukha vrksasana
+Vishwamitrasana
+Vashistasana
+Bhujapidasana
+Ekapada bhujasana
+Ashtavakrasana
+Dwipada bhujasana
+Tittibasana
+
+Mayurasana
+Padma mayurasana
+Bakasana
+Parsva bakasana
+
+Pincha mayurasana
+Sayanasana
+
+
+Padmasana series :
+
+Padmasana
+Baddha padmasana
+Yoga mudrasana
+Simhasana
+Gorakshasana
+Garbha pindasana
+Matsyasana
+
+
+Backward bends :
+
+Bhujhangasana
+Shalabasana
+Mandukasana
+Ustrasana 
+Dhanurasana
+Parsva dhanurasana
+
+Purna dhanurasana
+
+Urdhva dhanurasana
+
+
+Sitting Asanas :
+
+Ardha navasana
+Paripoorna navasana
+Ubhaya padnagustasana I
+Ubhaya padnagustasana II
+Upavista Konasana II
+
+Sarvangasana :
+
+Salamba sarvangasana 1
+Salamba sarvangasana 2
+Salamba sarvangasana 3
+Salamba sarvangasana 4
+
+Ekapada sarvangasana
+Parsvaikapada sarvangasana
+
+Halasana
+Parsva halasana
+Karna pidasana
+Supta konasana
+
+Setubandha sarvangasana
+Ekapada setubandha sarvangasana
+
+Urdhva padmasana in sarvangasana
+Parsva Urdhva padmasana in sarvangasana
+
+Pindasana in sarvangasana 
+Parsva pindasana in sarvangasana
+
+Sirasana
+
+Salamba sirasana 1
+Salamba sirasana 2
+Salamba sirasana 3
+Salamba sirasana 4
+Salamba sirasana 5
+
+Ekapada sirasana 
+Parsva sirasana
+Parsvaikapada sirasana
+
+Parivritta Parsvaikapada sirasana
+Urdhva padmasana in sirasana
+Parsva urdhva padmasana in sirasana
+
+Ekapada koundalyasana
+Kukkutasana from Sirasana
+
+
+
+
+Twisting :
+
+Marichyasana 1
+Marichyasana 2
+Marichyasana 3
+Marichyasana 4
+
+Ardha matsyendrasana 1
+Ardha matsyendrasana 2
+
+Paripoorna matsyendrasana 
+Bharadavajasana 1
+Bharadavajasana 2
+
+Pasasana 
+
+
+Lying down :
+
+Jatara parivrittasana 
+Supta padangustasana. Step 1, 2 & 3
+
+Akarana dhanurasana. Step1 & 2 
+
+  </li>
 </ul>
 <ul class="list-group">
     <li class="list-group-item disabled">Pranayama</li>

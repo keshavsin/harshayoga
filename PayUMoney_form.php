@@ -1,12 +1,15 @@
 <?php
 // Merchant key here as provided by Payu
-$MERCHANT_KEY = "JBZaLc";
+//$MERCHANT_KEY = "RDLubGvv";			//Production Key
+$MERCHANT_KEY = "kX3tO4CH";
 
 // Merchant Salt as provided by Payu
-$SALT = "GQs7yium";
+//$SALT = "heQ4BlwVU2";				//Production Salt
+$SALT = "kCaaU3xSq1";
 
 // End point - change to https://secure.payu.in for LIVE mode
 $PAYU_BASE_URL = "https://test.payu.in";
+//$PAYU_BASE_URL = "https://secure.payu.in";		// Production URL
 
 $action = '';
 
