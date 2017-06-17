@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $currentPage = "trainers";
 include 'common/header.php';
 ?>
