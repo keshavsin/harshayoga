@@ -87,7 +87,7 @@ include 'base/common/dbconf.php';
               echo '<li>';
           }
           ?>
-                <a href="train_the_trainer.php">TEACHER</a>
+                <a href="train_the_trainer.php">TTC</a>
             </li>
           <?php if ($currentPage == 'retreat') {
                 echo '<li class="active">';
@@ -95,52 +95,8 @@ include 'base/common/dbconf.php';
               echo '<li>';
           }
           ?>
-                <a href="retreat.php">RETREATS</a>
-            </li>
-          <?php if($currentPage == 'trainer-programs'){
-                echo '<li class="dropdown active">';
-          }else{
-              echo '<li class="dropdown">';
-          }
-          ?>
-              <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">TTC</a>
-              <ul class="dropdown-menu">
-                <?php
-                $sql = "SELECT id, menu_text FROM product where type = 'ttc'";
-                $result = $db->query($sql);
-                if ($result->num_rows > 0) {
-                  while($row = $result->fetch_assoc()) {
-                    $plnk = str_replace(' ', '-', strtolower($row['menu_text']));
-                    echo '<li><a href="trainer-programs.php?id='.$row["id"].'">'.$row["menu_text"].'</a></li>';
-                  }
-                } else {
-                  echo '<li><a>Nothing to show</a></li>';
-                }
-                ?>
-			 </ul>
-            </li>
-           <?php if($currentPage == 'events'){
-                echo '<li class="dropdown active">';
-          }else{
-              echo '<li class="dropdown">';
-          }
-          ?>
-              <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Events</a>
-              <ul class="dropdown-menu">
-                <?php
-                $sql = "SELECT id, menu_text FROM product where type = 'retreat'";
-                $result = $db->query($sql);
-                if ($result->num_rows > 0) {
-                  while($row = $result->fetch_assoc()) {
-                    $plnk = str_replace(' ', '-', strtolower($row['menu_text']));
-                    echo '<li><a href="events.php?id='.$row["id"].'">'.$row['menu_text'].'</a></li>';
-                  }
-                } else {
-                  echo '<li><a>Nothing to show</a></li>';
-                }
-                ?>
-			 </ul>
-            </li>
+                <a href="retreat.php">EVENTS</a>
+          </li>
             <?php if($currentPage == 'blog'){
                 echo '<li class="active">';
           }else{

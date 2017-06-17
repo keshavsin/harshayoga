@@ -10,11 +10,11 @@ include 'common/header.php';
       <h2 class="heading3 text-center">LIST OF RETREAT PROGRAMS</h2>
     </div>
 <div class="container-fluid classes_wrapper">
-<h2 class="heading3 text-center">SELECT FROM THE LIST OF RETREAT PROGRAMS</h2>
+<!-- <h2 class="heading3 text-center">SELECT FROM THE LIST OF RETREAT PROGRAMS</h2> -->
 <div class="row mrgn_b30">
 <?php
 $modal_box = '';
-$sql       = "SELECT * FROM product where type = 'new'";
+$sql       = "SELECT * FROM product where type = 'retreat'";
 $result    = $db->query($sql);
 if ($result->num_rows > 0) {
     $indx = 1;

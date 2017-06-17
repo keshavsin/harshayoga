@@ -10,11 +10,11 @@ include 'common/header.php';
       <h2 class="heading3 text-center">LIST OF TRAIN THE TRAINER PROGRAMS (TTC)</h2>
     </div>
 <div class="container-fluid classes_wrapper">
-<h2 class="heading3 text-center">TTC PROGRAMS</h2>
+<!-- <h2 class="heading3 text-center">TTC PROGRAMS</h2> -->
   <div class="row mrgn_b30">
 <?php
 $modal_box = '';
-$sql       = "SELECT * FROM product where type = 'check'";
+$sql       = "SELECT * FROM product where type = 'ttc' order by id";
 $result    = $db->query($sql);
 if ($result->num_rows > 0) {
     $indx = 1;
