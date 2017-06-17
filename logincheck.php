@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['username'])) {
+if(isset($_SESSION['loggedin_user'])) {
    header("Location: dashboard.php");
   exit;
 	//echo '<script>window.location.href = "dashboard.php";</script>';

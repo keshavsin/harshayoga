@@ -1,4 +1,5 @@
 <?php
+session_start();
 $currentPage = "events";
 include 'common/header.php';
 $event_id = '';

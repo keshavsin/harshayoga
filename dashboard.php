@@ -1,6 +1,7 @@
 <?php
-include 'sessioncheck.php';
 session_start();
+include 'sessioncheck.php';
+
 $currentPage = "dahsboard";
 include 'common/header.php';
 ?>

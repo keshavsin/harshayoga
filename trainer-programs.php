@@ -1,4 +1,5 @@
 <?php
+session_start();
 $currentPage = "trainer-programs";
 include 'common/header.php';
 $ttc_id = '';

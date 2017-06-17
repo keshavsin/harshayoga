@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $currentPage = "contact";
 include 'common/header.php';
 ?>
