@@ -3,57 +3,57 @@ include 'common/session_check.php';
 $currentPage = "classes";
 include 'common/header.php';
 ?>
-      <section class="innerpage">
-        <h1 class="user_head">Welcome <?php echo $_SESSION["username"];?></h1>
-        <div class="table_wrapper bookingdetails">
-          <div class="container-fluid">
-          <div class="row">
-            <div class="col-xs-6"><h2 class="headertable">Class Details</h2></div>
-            <div class="col-xs-6 text-right"><a href="#classmodal" class="btn btn-info" data-toggle="modal">Add New</a></div>
-          </div>
-        </div>
-          <div class="container-fluid" id="booking_container">
-              <div class="error_msg" id="class_emsg">Unable to update</div>
-              <div class="success_msg" id="class_smsg">Successfully updated</div>
-              <?php
-                  require_once 'common/dbconf.php';
-                  $sql = "select * from product where type='class'";
-                  $data = $db->query($sql);
-                  $str = '';
-                  if($data->num_rows>0){
-                    $str.= '<div class="table-responsive"><table class="table"><tbody>';
-                    $str.= '<thead><th>Id</th><th>Ref. No.</th><th>Type</th><th>Duration</th><th>Amount</th><th>Currency</th><th>Type</th><th>&nbsp;</th></thead><tbody>';
-                    while( $row = $data->fetch_array(MYSQLI_ASSOC)){
-                      $str.= '<tr>';
-                      $str.= '<td>'.$row["id"].'</td>';
-                      $str.= '<td>'.$row["reference_no"].'</td>';
-                      $str.= '<td>'.$row["class_type"].'</td>';
-                      $str.= '<td>'.$row["duration"].' months</td>';
-                      $str.= '<td>'.$row["price"].'/-</td>';
-                      $str.= '<td>'.$row["currency"].'</td>';
-                      if($row["is_active"] == 1){
-                        $str.= '<td class="bg-success" id="act_'.$row["id"].'">Active</td>';
-                      }else{
-                        $str.= '<td class="bg-warning" id="act_'.$row["id"].'">Not Active</td>';
-                      }
-
-                      $str.= '<td><a href="#classmodal" class="btn btn-default edit_btn" data-toggle="modal" title="edit">E</a> &nbsp;';
-                      if($row["is_active"] == 1){
-                      $str.= '<a href="javascript:void(0);" class="btn btn-danger deactive_btn" title="Deactivate" id="btn_'.$row["id"].'" data-id="'.$row["id"].'" data-act="'.$row["is_active"].'">D</a>';
-                      }else{
-                        $str.= '<a href="javascript:void(0);" class="btn btn-success deactive_btn" title="Activate" id="btn_'.$row["id"].'" data-id="'.$row["id"].'" data-act="'.$row["is_active"].'">A</a>';
-}
-                      $str.= '</td>';
-                  }
-                  $str.= '</tbody></table></div>';
+<section class="innerpage">
+  <h1 class="user_head">Welcome <?php echo $_SESSION["username"];?></h1>
+  <div class="table_wrapper bookingdetails">
+    <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-6"><h2 class="headertable">Class Details</h2></div>
+      <div class="col-xs-6 text-right"><a href="#classmodal" class="btn btn-info" data-toggle="modal">Add New</a></div>
+    </div>
+  </div>
+    <div class="container-fluid" id="booking_container">
+        <div class="error_msg" id="class_emsg">Unable to update</div>
+        <div class="success_msg" id="class_smsg">Successfully updated</div>
+        <?php
+            require_once 'common/dbconf.php';
+            $sql = "select * from product where type='class'";
+            $data = $db->query($sql);
+            $str = '';
+            if($data->num_rows>0){
+              $str.= '<div class="table-responsive"><table class="table"><tbody>';
+              $str.= '<thead><th>Id</th><th>Ref. No.</th><th>Type</th><th>Duration</th><th>Amount</th><th>Currency</th><th>Type</th><th>&nbsp;</th></thead><tbody>';
+              while( $row = $data->fetch_array(MYSQLI_ASSOC)){
+                $str.= '<tr>';
+                $str.= '<td>'.$row["id"].'</td>';
+                $str.= '<td>'.$row["reference_no"].'</td>';
+                $str.= '<td>'.$row["class_type"].'</td>';
+                $str.= '<td>'.$row["duration"].' months</td>';
+                $str.= '<td>'.$row["price"].'/-</td>';
+                $str.= '<td>'.$row["currency"].'</td>';
+                if($row["is_active"] == 1){
+                  $str.= '<td class="bg-success" id="act_'.$row["id"].'">Active</td>';
                 }else{
-                  $str.= "<div class='row'><div class='col-xs-12'><div class='alert alert-warning'>No data available</div></div></div>";
+                  $str.= '<td class="bg-warning" id="act_'.$row["id"].'">Not Active</td>';
                 }
-                echo $str;
-              ?>
-          </div>
-        </div>
-     </section>
+
+                $str.= '<td><a href="#classmodal" class="btn btn-default edit_btn" data-toggle="modal" title="edit">E</a> &nbsp;';
+                if($row["is_active"] == 1){
+                $str.= '<a href="javascript:void(0);" class="btn btn-danger deactive_btn" title="Deactivate" id="btn_'.$row["id"].'" data-id="'.$row["id"].'" data-act="'.$row["is_active"].'">D</a>';
+                }else{
+                  $str.= '<a href="javascript:void(0);" class="btn btn-success deactive_btn" title="Activate" id="btn_'.$row["id"].'" data-id="'.$row["id"].'" data-act="'.$row["is_active"].'">A</a>';
+}
+                $str.= '</td>';
+            }
+            $str.= '</tbody></table></div>';
+          }else{
+            $str.= "<div class='row'><div class='col-xs-12'><div class='alert alert-warning'>No data available</div></div></div>";
+          }
+          echo $str;
+        ?>
+    </div>
+  </div>
+</section>
 <?php include 'common/footer.php';?>
 <div id="classmodal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-sm">

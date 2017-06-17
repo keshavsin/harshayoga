@@ -1,6 +1,6 @@
 <?php
  session_start();
- if(isset($_SESSION['username'])) {
+ if (isset($_SESSION['username'])) {
     header("Location: dashboard.php");
     exit;
 }
@@ -40,38 +40,39 @@ include 'common/header.php';
 <?php include 'common/footer.php';?>
 <script>
 $(function(){
-		$('#submit_btn').on('click', function(e) {
-			e.preventDefault();
-			var slf = $(this);
-			if(!slf.hasClass('loading')){
-				var username = $('#username').val();
-		   		var password = $('#password').val();
-				if ($.trim(username) == '') {
-                    $('.error_msg').html("Username can't be blank").slideDown();
-				}else if($.trim(password) == '') {
-                    $('.error_msg').html("Password can't be blank").slideDown();
-                }else{
-					slf.addClass('loading');
-					$.ajax({
-					  url: 'logincheck.php',
-					  data: {'uname': username, 'pass': password},
-					  type: 'POST',
-					  success: function(response){
-              console.log(response);
-						if(response == 'error'){
-							$('.error_msg').html("Invalid User").slideDown();
-							slf.removeClass('loading');
-						}else if(response == 'success'){
- 					 window.location.href = 'dashboard.php';
-         }else{
-           $('.error_msg').html("Something Went wrong ! please try again").slideDown();
-           slf.removeClass('loading');
-         }
-					  }
-					});
-				}
-			}
-	});
+  $('#submit_btn').on('click', function(e) {
+    e.preventDefault();
+    var slf = $(this);
+    if (!slf.hasClass('loading')) {
+      var username = $('#username').val();
+        var password = $('#password').val();
+      if ($.trim(username) == '') {
+        $('.error_msg').html("Username can't be blank").slideDown();
+      } else if($.trim(password) == '') {
+        $('.error_msg').html("Password can't be blank").slideDown();
+      } else {
+        slf.addClass('loading');
+        $.ajax({
+          url: 'logincheck.php',
+          data: {'uname': username, 'pass': password},
+          type: 'POST',
+          success: function(response) {
+            console.log(response);
+            if (response == 'error') {
+              $('.error_msg').html("Invalid User").slideDown();
+              slf.removeClass('loading');
+            } else if(response == 'success') {
+              window.location.href = 'dashboard.php';
+            } else {
+              $('.error_msg').html("Something Went wrong ! please try again").slideDown();
+              slf.removeClass('loading');
+            }
+          }
+        });
+      }
+    }
+  });
+
 	$('input').on('focus', function(){
 		$('.error_msg').slideUp();
 	});

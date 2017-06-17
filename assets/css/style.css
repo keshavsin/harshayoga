@@ -41,6 +41,8 @@ body{font-family: 'Ubuntu', sans-serif;font-size:16px;margin:0;font-weight:100;}
 .bg_container,bg_container{display:none;}
 .heading1{font-size:25px;margin:0;padding:0;margin-bottom:10px;font-family: 'Roboto', sans-serif;font-weight:300;text-transform:uppercase;color:#fff;text-align:center;}
 .heading1.colr_h{color:#ec595c;}
+.heading4{font-size:25px;margin:0;padding:0;margin-bottom:10px;font-family: 'Roboto', sans-serif;font-weight:300;text-transform:uppercase;color:#fff;text-align:center;}
+.heading4.colr_h{color:#ec595c;}
 .heading1.cntr_h{text-align:center;}
 .training_wrapper{padding:20px 10px;background:url(../images/training-bg.jpg) no-repeat center bottom;background-size:cover;background-attachment:fixed;}
 .innr_container{max-width:780px;margin:0 auto;color:#fff;}
@@ -113,6 +115,9 @@ p{text-align:justify;}
 .floating_thumbr{box-shadow:-8px 8px 8px #d9d9d9;}
 .list-group{font-size:16px;}
 .list-group .disabled{font-size:18px;font-weight:300;text-transform:uppercase;}
+.list-group-inner{font-size:12px;text-transform:capitalize;}
+.list-group-inner .disabled{font-size:14px;font-weight:400;text-transform:uppercase;background:#eee;}
+
 .badge_cstom{display:inline-block;background:#f0f0f0;padding:5px 10px;border-radius:30px;margin-bottom:10px;margin-right:10px;}
 .pd10{padding:0px 10px;}
 .pd20{padding:20px;}
@@ -172,6 +177,9 @@ body{font-size:20px;}
 .training_wrapper{padding:95px 10px;}
 .navbar-default .navbar-nav>li>a{padding:15px 8px;}
 .bg_container1{background:url(../images/whyus-bg.jpg) no-repeat center top;background-size:cover;}
+.bg_container2{background:url(../images/asthangaYogaHome.jpg) no-repeat center bottom;background-size:cover;}
+.bg_container3{background:url(../images/hathaYogaHome.jpg) no-repeat center top;background-size:cover;}
+.bg_container4{background:url(../images/yogaTherapyHome.jpg) no-repeat center top;background-size:cover;}
 .main_slider .carousel-control{width:30px;height:58px;margin-top:-29px;}
 .main_slider .carousel-control.left{background:url(../images/combi.png) no-repeat 0px -66px;left:20px;}
 .main_slider .carousel-control.right{background:url(../images/combi.png) no-repeat -34px -66px;right:20px;}
@@ -208,4 +216,9 @@ body{font-size:20px;}
 .social_header{height:40px;}
 .social_header .tel_wrap{float:left;text-align:left;border-bottom:0;}
 .social_header .social_lnkwrap{text-align:right;float:right;}
+}
+
+.dur {
+	display:block;
+	color:red;
 }
