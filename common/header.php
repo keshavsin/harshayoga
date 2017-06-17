@@ -1,5 +1,6 @@
 <?php
 include 'base/common/dbconf.php';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,27 +58,44 @@ include 'base/common/dbconf.php';
         </div>
         <div class="collapse navbar-collapse" id="hamburger_menu">
           <ul class="nav navbar-nav navbar-right">
-          <?php if($currentPage == 'about'){
+          <?php if ($currentPage == 'about') {
                 echo '<li class="dropdown active">';
-          }else{
+          } else {
               echo '<li class="dropdown">';
           }
           ?>
            <a href="javascript:vooid(0);" data-toggle="dropdown" class="dropdown-toggle">About Us</a>
               <ul class="dropdown-menu">
                 <li><a href="harsha-nagraj.php">Harsha Nagraj</a></li>
+            		<li><a href="yashaswini.php">Yashaswini</a></li>
                 <li><a href="ashtanga-yoga.php">Ashtanga Yoga</a></li>
                 <li><a href="iyengar.php">Iyengar Yoga</a></li>
                 <li><a href="hathayoga.php">Hatha Yoga</a></li>
               </ul>
             </li>
-          <?php if($currentPage == 'classes'){
+          <?php if ($currentPage == 'classes') {
                 echo '<li class="active">';
-          }else{
+          } else {
               echo '<li>';
           }
           ?>
-                <a href="classes.php">Sessions</a>
+                <a href="classes.php">Book</a>
+            </li>
+          <?php if ($currentPage == 'train_the_trainer') {
+                echo '<li class="active">';
+          } else {
+              echo '<li>';
+          }
+          ?>
+                <a href="train_the_trainer.php">TEACHER</a>
+            </li>
+          <?php if ($currentPage == 'retreat') {
+                echo '<li class="active">';
+          } else {
+              echo '<li>';
+          }
+          ?>
+                <a href="retreat.php">RETREATS</a>
             </li>
           <?php if($currentPage == 'trainer-programs'){
                 echo '<li class="dropdown active">';
@@ -85,7 +103,7 @@ include 'base/common/dbconf.php';
               echo '<li class="dropdown">';
           }
           ?>
-              <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Trainer Programs</a>
+              <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">TTC</a>
               <ul class="dropdown-menu">
                 <?php
                 $sql = "SELECT id, menu_text FROM product where type = 'ttc'";
@@ -129,7 +147,7 @@ include 'base/common/dbconf.php';
               echo '<li>';
           }
           ?>
-                <a href="javascript:void(0);">BLOG</a>
+                <a href="blog.php">BLOG</a>
             </li>
             <?php if($currentPage == 'contact'){
                 echo '<li class="active">';
@@ -140,6 +158,7 @@ include 'base/common/dbconf.php';
                 <a href="contact-us.php">CONTACT</a>
             </li>
             <?php if(isset($_SESSION['loggedin_user'])){
+				
               $email = $_SESSION['loggedin_user'];
               $sql_user = "SELECT * FROM users where email = '$email'";
               $result_user = $db->query($sql_user);

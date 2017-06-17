@@ -3,12 +3,12 @@
     <div class="footer_address">
       Ideal Homes Main Road, Above Sangeetha Mobiles<br/>
 Rajarajeshwarinagar, Bangalore.<br/>
-Email: <a href="mailto:harsha@harshayog.com">harsha@harshayog.com</a><br/>
+Email: <a href="mailto:harsha@harshayoga.com">harsha@harshayoga.com</a><br/>
       </div>
       <div class="footer_small">
           <div class="row">
             <div class="col-md-7">
-            <a href="index.php">Home</a> &nbsp; | &nbsp; <a href="harsha-nagraj.php">About</a> &nbsp; | &nbsp; <a href="terms-and-conditions.php">T&amp;C</a> &nbsp; | &nbsp; <a href="privacy-policy.php">Privacy Policy</a> &nbsp; | &nbsp; <a href="FAQ.php">FAQ</a>
+            <a href="index.php">Home</a> &nbsp; | &nbsp; <a href="about.php">About</a> &nbsp; | &nbsp; <a href="terms-and-conditions.php">T&amp;C</a> &nbsp; | &nbsp; <a href="privacy-policy.php">Privacy Policy</a> &nbsp; | &nbsp; <a href="FAQ.php">FAQ</a>
             </div>
             <div class="col-md-5">
            Copyright &copy; 2017 Harsha Yoga Pathashala
