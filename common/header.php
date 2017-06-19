@@ -95,7 +95,7 @@ include 'base/common/dbconf.php';
               echo '<li>';
           }
           ?>
-                <a href="retreat.php">EVENTS</a>
+                <a href="retreat.php">Retreat</a>
           </li>
             <?php if($currentPage == 'blog'){
                 echo '<li class="active">';
