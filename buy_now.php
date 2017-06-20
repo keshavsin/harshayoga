@@ -113,10 +113,10 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
         <div class="col-sm-12 contact_text">
           <h2 class="heading1 colr_h">Please review your booking !!</h2>
           <h3 class="heading2"></h3>
-          <div class="col-sm-12">
+          <!--<div class="col-sm-12">
             <div class="dur colr_h">Duration  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     :   <?php echo $duration; ?></div>
             <div class="ctype">Class Type   &nbsp;&nbsp;       : <?php echo $classtype; ?></div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="container-fluid">
@@ -129,66 +129,93 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
           <input type="hidden" name="furl" value="<?php echo $furl ?>" />
           <input type="hidden" name="email" value="<?php echo $email; ?>" />
           <input type="hidden" name="service_provider" value="payu_paisa" size="64" />
-            <div style="width:60%;float:left">
-        <table align="right" style="border-collapse:collapse">
-        <tbody><tr>
-          <th style="padding:8px;text-align:center;background-color:black;color:white;font-size:15px">Product Details</th>
-        </tr>
-      <tr>
-        <td>
-          <table style="border-collapse:collapse">
-            <tbody>
-            <tr>
-              <td><strong>Name</strong></td>
-              <td><label value="<?php echo (empty($posted['amount'])) ? '' : $posted['amount'] ?>"></label></td>
-            </tr>
-            <tr>
-              <td><strong>Email</strong></td>
-              <td>keshavsin@gmail.com<br></td>
-            </tr>
-            <tr>
-              <td><strong>Moblie</strong></td>
-              <td>9865321456</td>
-            </tr>
-            </tbody></table>
-          </td>
-        </tr>
-          </tbody>
-        </table>
-      </div>
-      <div style="width:40%;float:left">
-      <table align="center" style="border-collapse:collapse">
-        <tbody><tr>
-          <th>User Details</th>
-        </tr>
-        <tr>
-          <td>
-            <div style="background:rgb(255,255,255);padding:10px;margin:0px auto;max-width:800px"> 
-              <div style="text-align:center"> 
-                <table class=""> 
-                  <tbody> 
-                     <tr> 
-                      <td>Veer Badresh</div></td>
-                    </tr> 
-                    <tr> 
-                      <td>veer@gmail.com</a></td> 
-                    </tr> 
-                    <tr> 
-                      <td>&#9990; :</strong> 7894566666 </td> 
-                    </tr> 
-                  </tbody> 
-                </table> 
-              </div> 
-            </div>
-          </td>
-        </tr>
-      </tbody></table><div class="yj6qo"></div><div class="adL">
-      </div></div>
+    <div style="width:45%;float:left">
+		   
+        <table class="table" align="right" style="border-collapse:collapse; overflow:auto;">
+		<thead>
+			<tr>
+				<th  style="padding:8px;text-align:center;background-color:#ec595c;color:white;font-size:15px">Product Details</th>
+			</tr>
+		</thead>
+        <tbody>		
+				<tr>
+					<td>
+						<table style="border-collapse:collapse">
+							<tbody>
+									<tr>
+										<td><strong>Class Type</strong></td>
+										<td><b>:&nbsp </b></td>
+										<td><?php echo $classtype; ?></td>
+										<td><label value="<?php echo (empty($posted['amount'])) ? '' : $posted['amount'] ?>"></label></td>
+									</tr>
+									<tr>
+										<td><strong>Duraion</strong></td>
+										<td><b>: &nbsp </b></td>
+										<td><?php echo $duration; ?><br></td>
+									</tr>
+									<tr>
+										<td><strong>Description</strong></td><td><b>: &nbsp </b></td>
+										<td>coming soon</td>
+									</tr>	
+										<!--<tr>
+										<td><input type="textarea"/></td>
+										</tr>-->
+							</tbody>
+						</table>
+					</td>
+				</tr>
+		</tbody>
+		</table>
+	</div>
+			  <div style="width:10%;"></div>
+	<div style="width:45%;float:right">
+		<table class="table" align="center" style="border-collapse:collapse">
+			<thead>
+					<tr>
+						<th style="padding:8px;text-align:center;background-color:#ec595c;color:white;font-size:15px">User Details</th>
+					</tr>
+			</thead>
+			<tbody>
+					<tr>
+					<td>
+						<table style="border-collapse:collapse">
+							<tbody>
+									<tr>
+										<td><strong>Name</strong></td>
+										<td><b>:&nbsp </b></td>
+										<td>kumar</td>
+										<td><label value="<?php echo (empty($posted['amount'])) ? '' : $posted['amount'] ?>"></label></td>
+									</tr>
+									<tr>
+										<td><strong>Email</strong></td>
+										<td><b>: &nbsp </b></td>
+										<td>keshavsin@gmail.com<br></td>
+									</tr>
+									<tr>
+										<td><strong>Moblie</strong></td><td><b>: &nbsp </b></td>
+										<td>9865321456</td>
+									</tr>
+									<tr>
+										<td><strong>Amount</strong></td><td><b>: &nbsp </b></td>
+										<td>5000</td>
+									</tr>			
+									
+								</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+			  <div class="yj6qo"></div><div class="adL">
+			  </div></div>
           </div>
-          <div class="row">
-            <div class='col-xs-12'>
+		  <div class='col-xs-12'>	
+			<p style="float:left;"><input type="checkbox"/> <td><p>I am agree to the Terms and conditions<p>	</div>		
+          <div class="row" style="float:right;">
+            <div class='col-xs-12'>			
               <div class="form-group">
-                <?php if(!$hash) { ?><input type="submit" class="btn btn-submit gradiant_bg " value="Pay Now" />
+               <?php if(!$hash) { ?><input type="submit" class="btn btn-submit gradiant_bg " value="Pay Now" />
               <?php } ?>
               </div>
             </div>
