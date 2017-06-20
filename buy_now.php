@@ -1,6 +1,6 @@
 <?php
-session_start();
-$currentPage = "contact";
+include 'sessioncheck.php';
+$currentPage = "reivewBooking";
 if (isset($_SESSION['loggedin_name']) == null) {
     header("Location: login.php");
 } else {
@@ -39,6 +39,9 @@ $PAYU_BASE_URL = "https://test.payu.in";
 //$PAYU_BASE_URL = "https://secure.payu.in";
 
 $action = '';
+$surl='http://localhost/harshayoga/success.php';
+$furl='http://localhost/harshayoga/failure.php';
+
 $posted = array();
 
 if (!empty($_POST)) {
@@ -58,22 +61,34 @@ if (empty($posted['txnid'])) {
 $hash         = '';
 // Hash Sequence
 $hashSequence = "key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10";
-if (empty($posted['hash']) && sizeof($posted) > 0) {
-    
-    //$posted['productinfo'] = json_encode(json_decode('[{"name":"tutionfee","description":"","value":"500","isRequired":"false"},{"name":"developmentfee","description":"monthly tution fee","value":"1500","isRequired":"false"}]'));
-    $hashVarsSeq = explode('|', $hashSequence);
-    $hash_string = '';
-    foreach ($hashVarsSeq as $hash_var) {
-        $hash_string .= isset($posted[$hash_var]) ? $posted[$hash_var] : '';
-        $hash_string .= '|';
+
+if(empty($posted['hash']) && sizeof($posted) > 0) {
+  if(empty($posted['key'])
+      || empty($posted['txnid'])
+      || empty($posted['amount'])
+      || empty($posted['firstname'])
+      || empty($posted['email'])
+      || empty($posted['phone'])
+      || empty($posted['productinfo'])
+      || empty($posted['surl'])
+      || empty($posted['furl'])
+		  || empty($posted['service_provider'])) {
+
+    $formError = 1;
+  } else {
+   	$hashVarsSeq = explode('|', $hashSequence);
+    $hash_string = '';	
+    foreach($hashVarsSeq as $hash_var) {
+      $hash_string .= isset($posted[$hash_var]) ? $posted[$hash_var] : '';
+      $hash_string .= '|';
     }
     $hash_string .= $SALT;
-    $hash   = strtolower(hash('sha512', $hash_string));
+    $hash = strtolower(hash('sha512', $hash_string));
     $action = $PAYU_BASE_URL . '/_payment';
-    
+  }
 } elseif (!empty($posted['hash'])) {
-    $hash   = $posted['hash'];
-    $action = $PAYU_BASE_URL . '/_payment';
+  $hash = $posted['hash'];
+  $action = $PAYU_BASE_URL . '/_payment';
 }
 ?> 
 
@@ -96,7 +111,7 @@ if (empty($posted['hash']) && sizeof($posted) > 0) {
       <div class="container-fluid">
         <div class="row">
         <div class="col-sm-12 contact_text">
-          <h2 class="heading1 colr_h">STUDENT DETAILS</h2>
+          <h2 class="heading1 colr_h">Please review your booking !!</h2>
           <h3 class="heading2"></h3>
           <div class="col-sm-12">
             <div class="dur colr_h">Duration  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     :   <?php echo $duration; ?></div>
@@ -105,66 +120,75 @@ if (empty($posted['hash']) && sizeof($posted) > 0) {
         </div>
       </div>
       <div class="container-fluid">
-        <form action="<?php echo $action; ?>" method="post" name="payuForm">
+        <form action="<?php echo $action; ?>" method="post" name="payuForm">        
           <div class="row">
-            <input type="hidden" name="key" value="<?php echo $MERCHANT_KEY ?>" />
-            <input type="hidden" name="hash" value="<?php echo $hash ?>"/>
-            <input type="hidden" name="txnid" value="<?php echo $txnid ?>" />
-            <input type="hidden" name="email" id="email" value="<?php echo $email; ?>" />
-            <input type="hidden" name="amount" value="<?php echo $txnid ?>" />
-            <div class="col-sm-4">
-              <div class="form-group">
-                <input type="text" class="form-control form-shadow" placeholder="Amount" name="amount" value="<?php echo (empty($posted['amount'])) ? '' : $posted['amount'] ?>">
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="form-group">
-                <input type="text" class="form-control form-shadow" placeholder="Name" name="firstname" id="firstname" value="<?php echo (empty($posted['firstname'])) ? '' : $posted['firstname']; ?>">
-              </div>
-              </div>
-            <div class="col-sm-4">
-              <div class="form-group">
-                <input type="text" class="form-control form-shadow" placeholder="Email">
-              </div>
-            </div>
-            <div class='col-sm-4'>
-              <div class="form-group">
-                <input type="text" class="form-control form-shadow" placeholder="Mobile" name="phone" value="<?php echo (empty($posted['phone'])) ? '' : $posted['phone']; ?>">
-              </div>
-            </div>
-            <div class='col-sm-4'>
-              <div class="form-group">
-                <input type="text" class="form-control form-shadow" placeholder="success.php" name="surl" value="<?php echo (empty($posted['surl'])) ? '' : $posted['surl'] ?>" >
-              </div>
-            </div>
-            <div class='col-sm-4'>
-              <div class="form-group">
-                <input type="text" class="form-control form-shadow" placeholder="failure.php" name="furl" value="<?php echo (empty($posted['furl'])) ? '' : $posted['furl'] ?>">
-              </div>
-            </div>
-            <div class='col-sm-4'>
-              <div class="form-group">
-                <textarea name="productinfo" class="form-control form-shadow" placeholder="Product Info" rows="6"><?php echo (empty($posted['productinfo'])) ? '' : $posted['productinfo'] ?></textarea>
-              </div>
-            </div>
+          <input type="hidden" name="key" value="<?php echo $MERCHANT_KEY ?>" />
+          <input type="hidden" name="hash" value="<?php echo $hash ?>"/>
+          <input type="hidden" name="txnid" value="<?php echo $txnid ?>" />
+          <input type="hidden" name="surl" value="<?php echo $surl ?>" />
+          <input type="hidden" name="furl" value="<?php echo $furl ?>" />
+          <input type="hidden" name="email" value="<?php echo $email; ?>" />
+          <input type="hidden" name="service_provider" value="payu_paisa" size="64" />
+            <div style="width:60%;float:left">
+        <table align="right" style="border-collapse:collapse">
+        <tbody><tr>
+          <th style="padding:8px;text-align:center;background-color:black;color:white;font-size:15px">Product Details</th>
+        </tr>
+      <tr>
+        <td>
+          <table style="border-collapse:collapse">
+            <tbody>
             <tr>
-              <td colspan="3"><input type="hidden" name="service_provider" value="payu_paisa" size="64" /></td>
+              <td><strong>Name</strong></td>
+              <td><label value="<?php echo (empty($posted['amount'])) ? '' : $posted['amount'] ?>"></label></td>
             </tr>
-            <input type="hidden" name="udf1" value="<?php echo (empty($posted['udf1'])) ? '' : $posted['udf1']; ?>" />
-            <input type="hidden" name="udf2" value="<?php echo (empty($posted['udf2'])) ? '' : $posted['udf2']; ?>" />
-            <input type="hidden" name="udf3" value="<?php echo (empty($posted['udf3'])) ? '' : $posted['udf3']; ?>" />
-            <input type="hidden" name="udf4" value="<?php echo (empty($posted['udf4'])) ? '' : $posted['udf4']; ?>" />
-            <input type="hidden" name="udf5" value="<?php echo (empty($posted['udf5'])) ? '' : $posted['udf5']; ?>" />
-            <input type="hidden" name="udf6" value="<?php echo (empty($posted['udf6'])) ? '' : $posted['udf6']; ?>" />
-            <input type="hidden" name="udf7" value="<?php echo (empty($posted['udf7'])) ? '' : $posted['udf7']; ?>" />
-            <input type="hidden" name="udf8" value="<?php echo (empty($posted['udf8'])) ? '' : $posted['udf8']; ?>" />
-            <input type="hidden" name="udf9" value="<?php echo (empty($posted['udf9'])) ? '' : $posted['udf9']; ?>" />
-            <input type="hidden" name="udf10" value="<?php echo (empty($posted['udf10'])) ? '' : $posted['udf10']; ?>" />
+            <tr>
+              <td><strong>Email</strong></td>
+              <td>keshavsin@gmail.com<br></td>
+            </tr>
+            <tr>
+              <td><strong>Moblie</strong></td>
+              <td>9865321456</td>
+            </tr>
+            </tbody></table>
+          </td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="width:40%;float:left">
+      <table align="center" style="border-collapse:collapse">
+        <tbody><tr>
+          <th>User Details</th>
+        </tr>
+        <tr>
+          <td>
+            <div style="background:rgb(255,255,255);padding:10px;margin:0px auto;max-width:800px"> 
+              <div style="text-align:center"> 
+                <table class=""> 
+                  <tbody> 
+                     <tr> 
+                      <td>Veer Badresh</div></td>
+                    </tr> 
+                    <tr> 
+                      <td>veer@gmail.com</a></td> 
+                    </tr> 
+                    <tr> 
+                      <td>&#9990; :</strong> 7894566666 </td> 
+                    </tr> 
+                  </tbody> 
+                </table> 
+              </div> 
+            </div>
+          </td>
+        </tr>
+      </tbody></table><div class="yj6qo"></div><div class="adL">
+      </div></div>
           </div>
           <div class="row">
             <div class='col-xs-12'>
               <div class="form-group">
-                <?php if(!$hash) { ?><input type="submit" class="btn btn-submit gradiant_bg " value="Proceed to Checkout" />
+                <?php if(!$hash) { ?><input type="submit" class="btn btn-submit gradiant_bg " value="Pay Now" />
               <?php } ?>
               </div>
             </div>

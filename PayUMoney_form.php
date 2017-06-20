@@ -12,13 +12,14 @@ $PAYU_BASE_URL = "https://test.payu.in";
 //$PAYU_BASE_URL = "https://secure.payu.in";		// Production URL
 
 $action = '';
+$surl='http://www.keshav.com/harshayoga/success.php';
+$furl='http://www.keshav.com/harshayoga/failure.php';
 
 $posted = array();
 if(!empty($_POST)) {
     //print_r($_POST);
   foreach($_POST as $key => $value) {    
     $posted[$key] = $value; 
-	
   }
 }
 
@@ -30,39 +31,37 @@ if(empty($posted['txnid'])) {
 } else {
   $txnid = $posted['txnid'];
 }
+
 $hash = '';
 // Hash Sequence
 $hashSequence = "key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10";
+
 if(empty($posted['hash']) && sizeof($posted) > 0) {
-  if(
-          empty($posted['key'])
-          || empty($posted['txnid'])
-          || empty($posted['amount'])
-          || empty($posted['firstname'])
-          || empty($posted['email'])
-          || empty($posted['phone'])
-          || empty($posted['productinfo'])
-          || empty($posted['surl'])
-          || empty($posted['furl'])
-		  || empty($posted['service_provider'])
-  ) {
+  if(empty($posted['key'])
+      || empty($posted['txnid'])
+      || empty($posted['amount'])
+      || empty($posted['firstname'])
+      || empty($posted['email'])
+      || empty($posted['phone'])
+      || empty($posted['productinfo'])
+      || empty($posted['surl'])
+      || empty($posted['furl'])
+		  || empty($posted['service_provider'])) {
+
     $formError = 1;
   } else {
     //$posted['productinfo'] = json_encode(json_decode('[{"name":"tutionfee","description":"","value":"500","isRequired":"false"},{"name":"developmentfee","description":"monthly tution fee","value":"1500","isRequired":"false"}]'));
-	$hashVarsSeq = explode('|', $hashSequence);
+  	$hashVarsSeq = explode('|', $hashSequence);
     $hash_string = '';	
-	foreach($hashVarsSeq as $hash_var) {
+    foreach($hashVarsSeq as $hash_var) {
       $hash_string .= isset($posted[$hash_var]) ? $posted[$hash_var] : '';
       $hash_string .= '|';
     }
-
     $hash_string .= $SALT;
-
-
     $hash = strtolower(hash('sha512', $hash_string));
     $action = $PAYU_BASE_URL . '/_payment';
   }
-} elseif(!empty($posted['hash'])) {
+} elseif (!empty($posted['hash'])) {
   $hash = $posted['hash'];
   $action = $PAYU_BASE_URL . '/_payment';
 }
@@ -84,7 +83,6 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
     <h2>PayU Form</h2>
     <br/>
     <?php if($formError) { ?>
-	
       <span style="color:red">Please fill all mandatory fields.</span>
       <br/>
       <br/>
@@ -93,6 +91,9 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
       <input type="hidden" name="key" value="<?php echo $MERCHANT_KEY ?>" />
       <input type="hidden" name="hash" value="<?php echo $hash ?>"/>
       <input type="hidden" name="txnid" value="<?php echo $txnid ?>" />
+      <input type="hidden" name="surl" value="<?php echo $surl ?>" />
+      <input type="hidden" name="furl" value="<?php echo $furl ?>" />
+      <input type="hidden" name="service_provider" value="payu_paisa" size="64" />
       <table>
         <tr>
           <td><b>Mandatory Parameters</b></td>
@@ -113,7 +114,7 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
           <td>Product Info: </td>
           <td colspan="3"><textarea name="productinfo"><?php echo (empty($posted['productinfo'])) ? '' : $posted['productinfo'] ?></textarea></td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td>Success URI: </td>
           <td colspan="3"><input name="surl" value="<?php echo (empty($posted['surl'])) ? '' : $posted['surl'] ?>" size="64" /></td>
         </tr>
@@ -125,7 +126,7 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
         <tr>
           <td colspan="3"><input type="hidden" name="service_provider" value="payu_paisa" size="64" /></td>
         </tr>
-
+-->
         <tr>
           <td><b>Optional Parameters</b></td>
         </tr>
@@ -153,6 +154,7 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
           <td>Zipcode: </td>
           <td><input name="zipcode" value="<?php echo (empty($posted['zipcode'])) ? '' : $posted['zipcode']; ?>" /></td>
         </tr>
+		<!--
         <tr>
           <td>UDF1: </td>
           <td><input name="udf1" value="<?php echo (empty($posted['udf1'])) ? '' : $posted['udf1']; ?>" /></td>
@@ -171,9 +173,10 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
           <td>PG: </td>
           <td><input name="pg" value="<?php echo (empty($posted['pg'])) ? '' : $posted['pg']; ?>" /></td>
         </tr>
+		-->
         <tr>
           <?php if(!$hash) { ?>
-            <td colspan="4"><input type="submit" value="Submit" /></td>
+            <td colspan="4"><input type="submit" value="Submit" value="Pay Now"/></td>
           <?php } ?>
         </tr>
       </table>

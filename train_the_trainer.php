@@ -21,10 +21,27 @@ if ($result->num_rows > 0) {
     $indx = 1;
     while ($row = $result->fetch_assoc()) {
         $pid = $row["id"];
-        echo '<div class="col-xs-12 col-sm-6 col-md-3"><div class="batch_card colr' . $indx . '"><div class="mn_txt">' . $row['title'] . '</div><div class="amt_wrap">' . $row['price'] . '/-</div><a href="#" class="btn btn-block buy">Coming Soon</a><a href="#class_detail' . $indx . '" data-toggle="modal" class="btn btn-block viewdetails">View Details</a></div></div>';
+        
+        echo '<div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="batch_card colr' . $indx . '">
+                    <div class="mn_txt">' . $row['title'] . ' </div>
+                    <div class="amt_wrap">' . $row['price'] . '/-</div>
+                    <a href="#" class="btn btn-block buy">Coming Soon</a>
+                    <a href="#class_detail' . $indx . '" data-toggle="modal" class="btn btn-block viewdetails">View Details</a>
+                </div>
+             </div>';
+        
         $modal_box .= '<div id="class_detail' . $indx . '" class="modal fade" role="dialog">';
+        $modal_box .= '<div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">' . $row["title"] . '</h4>
+                            </div>';
         $modal_box .= '<div class="modal-body class-info">' . $row["description"] . '</div>';
-        $modal_box .= '<div class="modal-footer text-center"><a type="button" class="btn btn-primary btn-lg" href="#">Buy Now</a></div></div></div></div>';
+        $modal_box .= '<div class="modal-footer text-center">
+                        <a type="button" class="btn btn-primary btn-lg" href="PayUMoney_form.php">Buy Now</a>
+                        </div>';
+        $modal_box .= '</div></div>';
         if ($indx == 6) {
             $indx = 1;
         } else {
@@ -35,8 +52,7 @@ if ($result->num_rows > 0) {
     echo '<div class="col-xs-12"><div class="alert alert-warning text-center">No TTC available</div></div>';
 }
 ?>
-  </div>
-
+</div>
 </div>
 </div>
 </section>
