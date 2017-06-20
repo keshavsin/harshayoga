@@ -183,21 +183,21 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
 									<tr>
 										<td><strong>Name</strong></td>
 										<td><b>:&nbsp </b></td>
-										<td>kumar</td>
+										<td><?php echo $name; ?></td>
 										<td><label value="<?php echo (empty($posted['amount'])) ? '' : $posted['amount'] ?>"></label></td>
 									</tr>
 									<tr>
 										<td><strong>Email</strong></td>
 										<td><b>: &nbsp </b></td>
-										<td>keshavsin@gmail.com<br></td>
+										<td><?php echo $email; ?><br></td>
 									</tr>
 									<tr>
 										<td><strong>Moblie</strong></td><td><b>: &nbsp </b></td>
-										<td>9865321456</td>
+										<td><?php echo $phnno; ?></td>
 									</tr>
 									<tr>
 										<td><strong>Amount</strong></td><td><b>: &nbsp </b></td>
-										<td>5000</td>
+										<td><?php echo $pprice; ?></td>
 									</tr>			
 									
 								</tbody>
