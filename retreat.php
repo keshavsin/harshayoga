@@ -24,7 +24,7 @@ if ($result->num_rows > 0) {
         echo '<div class="col-xs-12 col-sm-6 col-md-3"><div class="batch_card colr' . $indx . '"><div class="mn_txt">' . $row['title'] . '</div><div class="amt_wrap">' . $row['price'] . '/-</div><a href="#" class="btn btn-block buy">Coming Soon</a><a href="#class_detail' . $indx . '" data-toggle="modal" class="btn btn-block viewdetails">View Details</a></div></div>';
         $modal_box .= '<div id="class_detail' . $indx . '" class="modal fade" role="dialog">';
         $modal_box .= '<div class="modal-body class-info">' . $row["description"] . '</div>';
-        $modal_box .= '<div class="modal-footer text-center"><a type="button" class="btn btn-primary btn-lg" href="buy_now.php?pid=' . $pid . '">Buy Now</a></div></div></div></div>';
+        $modal_box .= '<div class="modal-footer text-center"><a type="button" class="btn btn-primary btn-lg" href="#">Buy Now</a></div></div></div></div>';
         if ($indx == 6) {
             $indx = 1;
         } else {

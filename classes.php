@@ -53,11 +53,11 @@ if ($result->num_rows > 0) {
     $indx = 1;
     while ($row = $result->fetch_assoc()) {
         $pid = $row["id"];
-        echo '<div class="col-xs-12 col-sm-6 col-md-3"><div class="batch_card colr' . $indx . '"><div class="mn_txt">' . $row['duration'] . ' Months</div><div class="amt_wrap">' . $row['price'] . '/-</div><a href="buy_now.php?pid=' . $pid . '" class="btn btn-block buy">Buy Now</a><a href="#class_detail' . $indx . '" data-toggle="modal" class="btn btn-block viewdetails">View Details</a></div></div>';
+        echo '<div class="col-xs-12 col-sm-6 col-md-3"><div class="batch_card colr' . $indx . '"><div class="mn_txt">' . $row['duration'] . ' Months</div><div class="amt_wrap">' . $row['price'] . '/-</div><a href="#" class="btn btn-block buy">Coming Soon</a><a href="#class_detail' . $indx . '" data-toggle="modal" class="btn btn-block viewdetails">View Details</a></div></div>';
         $modal_box .= '<div id="class_detail' . $indx . '" class="modal fade" role="dialog">';
         $modal_box .= '<div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title">' . $row["duration"] . ' months weekday class</h4></div>';
         $modal_box .= '<div class="modal-body class-info">' . $row["description"] . '</div>';
-        $modal_box .= '<div class="modal-footer text-center"><a type="button" class="btn btn-primary btn-lg" href="buy_now.php?pid=' . $pid . '">Buy Now</a></div></div></div></div>';
+        $modal_box .= '<div class="modal-footer text-center"><a type="button" class="btn btn-primary btn-lg" href="#">Coming Soon</a></div></div></div></div>';
         if ($indx == 6) {
             $indx = 1;
         } else {
@@ -80,11 +80,11 @@ if ($result1->num_rows > 0) {
     
     while ($row1 = $result1->fetch_assoc()) {
         $pid1 = $row1["id"];
-        echo '<div class="col-xs-12 col-sm-6 col-md-3"><div class="batch_card colr' . $indx1 . '"><div class="mn_txt">' . $row1['duration'] . ' Months</div><div class="amt_wrap">' . $row1['price'] . '/-</div><a href="buy_now.php?pid=' . $pid1 . '" class="btn btn-block buy">Buy Now</a><a href="#class_detail' . $indx1 . '" data-toggle="modal" class="btn btn-block viewdetails">View Details</a></div></div>';
+        echo '<div class="col-xs-12 col-sm-6 col-md-3"><div class="batch_card colr' . $indx1 . '"><div class="mn_txt">' . $row1['duration'] . ' Months</div><div class="amt_wrap">' . $row1['price'] . '/-</div><a href="#" class="btn btn-block buy">Coming Soon</a><a href="#class_detail' . $indx1 . '" data-toggle="modal" class="btn btn-block viewdetails">View Details</a></div></div>';
         $modal_box .= '<div id="class_detail' . $indx1 . '" class="modal fade" role="dialog">';
         $modal_box .= '<div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title">' . $row1["duration"] . ' months weekday class</h4></div>';
         $modal_box .= '<div class="modal-body class-info">' . $row1["description"] . '</div>';
-        $modal_box .= '<div class="modal-footer text-center"><a type="button" class="btn btn-primary btn-lg" href="buy_now.php?pid=' . $pid1 . '">Buy Now</a></div></div></div></div>';
+        $modal_box .= '<div class="modal-footer text-center"><a type="button" class="btn btn-primary btn-lg" href="#">Coming Soon</a></div></div></div></div>';
         if ($indx1 == 6) {
             $indx1 = 1;
         } else {
