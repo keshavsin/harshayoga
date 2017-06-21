@@ -2,7 +2,7 @@
 session_start();
 include 'sessioncheck.php';
 
-$currentPage = "dahsboard";
+$currentPage = "dashboard";
 include 'common/header.php';
 ?>
       <section class="innerpage">

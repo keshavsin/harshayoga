@@ -26,7 +26,7 @@ if ($result->num_rows > 0) {
                 <div class="batch_card colr' . $indx . '">
                     <div class="mn_txt">' . $row['title'] . ' </div>
                     <div class="amt_wrap">' . $row['price'] . '/-</div>
-                    <a href="#" class="btn btn-block buy">Coming Soon</a>
+                    <a href="buy_now.php?pid=' . $pid . '" class="btn btn-block buy">Coming Soon</a>
                     <a href="#class_detail' . $indx . '" data-toggle="modal" class="btn btn-block viewdetails">View Details</a>
                 </div>
              </div>';
