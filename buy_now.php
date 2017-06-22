@@ -17,41 +17,11 @@ $productDetail2  = '';
 $productDetail3  = '';
 $productType  = '';
 
-$pid       = $_GET["pid"];
-$sql       = "SELECT * FROM product where id = '$pid'";
-$result    = $db->query($sql);
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $productType = $row['type'];
-        $pprice = $row['price'];
-        $currency = $row['currency'];
-        if ($productType == 'class') {
-          $productDetail1    = $row['title'];
-          $productDetail2 = $row['class_type'];
-          $productDetail3  = $row['description'];
-        } else if ($productType == 'ttc') {
-          $productDetail1    = $row['title'];
-          $productDetail2 = 'Teacher Training Course';
-          $productDetail3 = $row['duration'];
-          $productDetail4  = $row['description'];
-        } else {
-          $productDetail1    = $row['title'];
-          $productDetail2 = $row['location'];
-          $productDetail3  = $row['city'];
-          $productDetail4  = $row['country'];
-          $productDetail5  = $row['description'];
-        }
-    }
-}
-?>
-<?php
-
 //$MERCHANT_KEY = "RDLubGvv";            //Production Key
-$MERCHANT_KEY = "kX3tO4CH";
+$MERCHANT_KEY = "rjQUPktU";
 
 //$SALT = "heQ4BlwVU2";            //Production Salt
-$SALT         = "kCaaU3xSq1";
+$SALT         = "e5iIg1jwi8";
 
 
 // End point - change to https://secure.payu.in for LIVE mode
@@ -82,6 +52,35 @@ $hash         = '';
 // Hash Sequence
 $hashSequence = "key|txnid|amount|productInfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10";
 
+if (empty($posted['hash'])) {
+  $pid       = $_GET["pid"];
+  $sql       = "SELECT * FROM product where id = '$pid'";
+  $result    = $db->query($sql);
+
+  if ($result->num_rows > 0) {
+      while ($row = $result->fetch_assoc()) {
+          $productType = $row['type'];
+          $pprice = $row['price'];
+          $currency = $row['currency'];
+          if ($productType == 'class') {
+            $productDetail1    = $row['title'];
+            $productDetail2 = $row['class_type'];
+            $productDetail3  = $row['description'];
+          } else if ($productType == 'ttc') {
+            $productDetail1    = $row['title'];
+            $productDetail2 = 'Teacher Training Course';
+            $productDetail3 = $row['duration'];
+            $productDetail4  = $row['description'];
+          } else {
+            $productDetail1    = $row['title'];
+            $productDetail2 = $row['location'];
+            $productDetail3  = $row['city'];
+            $productDetail4  = $row['country'];
+            $productDetail5  = $row['description'];
+          }
+      }
+  }
+}
 if(empty($posted['hash']) && sizeof($posted) > 0) {
   if(empty($posted['key'])
       || empty($posted['txnid'])
@@ -260,7 +259,7 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
   <?php include 'common/footer.php';?>
   <script>
     $(window).load(function(){
-    $('#mapwrapper').html('<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.703246469128!2d77.51461150531227!3d12.926784751951791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3ef88c7aa01f%3A0xe15d3a9feb704c50!2sHarsha+Yoga+Pathashala!5e0!3m2!1sen!2sin!4v1488509044416" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>');
+    //$('#mapwrapper').html('<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.703246469128!2d77.51461150531227!3d12.926784751951791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3ef88c7aa01f%3A0xe15d3a9feb704c50!2sHarsha+Yoga+Pathashala!5e0!3m2!1sen!2sin!4v1488509044416" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>');
     });
   </script>
   </body>
