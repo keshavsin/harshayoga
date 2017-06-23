@@ -22,6 +22,9 @@ $email       = $_POST["email"];
 //$salt = "heQ4BlwVU2";                //Production Salt
 $salt = "e5iIg1jwi8";
 
+$sql_update = "UPDATE booking SET status='$status' WHERE product_id = '$productinfo' and txn_id = '$txnid'";
+$db->query($sql_update);
+ 
 If (isset($_POST["additionalCharges"])) {
     $additionalCharges = $_POST["additionalCharges"];
     $retHashSeq        = $additionalCharges . '|' . $salt . '|' . $status . '|||||||||||' . $email . '|' . $firstname . '|' . $productinfo . '|' . $amount . '|' . $txnid . '|' . $key;
@@ -29,6 +32,16 @@ If (isset($_POST["additionalCharges"])) {
     $retHashSeq = $salt . '|' . $status . '|||||||||||' . $email . '|' . $firstname . '|' . $productinfo . '|' . $amount . '|' . $txnid . '|' . $key;
 }
 $hash = hash("sha512", $retHashSeq);
+
+// TODO Update the table booking with information of success or failure  (Using the transaction_id we will be able to get the record
+
+// Mail to be sent 
+
+$to = $email;
+$subject = "Your Booking with Harsha Yoga";
+$txt = "<table border='0' style='background:#fff;' width='100%'>";
+$txt .= "<tr><td><h2 style='color:#565656;font-size:30px;text-align:center;padding:0;'>Thanks for visiting Harsha Yoga.</h2></td></tr>";
+$txt .= "<tr><td style='padding:10px;color:#607d8b;font-size:14px;text-align:center;'>We confirm your booking with transaction ID : ".$txnid .".</td></tr>";
 ?>
 <html>
 <head>
@@ -40,10 +53,13 @@ $hash = hash("sha512", $retHashSeq);
       <div class="row">
         <div class="col-sm-12 contact_text">
 
-<?php if ($hash != $posted_hash) { ?>
+<?php if ($hash != $posted_hash) { 
+$txt .= "<tr><td><h2 style='color:#565656;font-size:30px;text-align:center;padding:0;'>Thanks for visiting Harsha Yoga.</h2></td></tr>";
+$txt .= "<tr><td style='padding:10px;color:#607d8b;font-size:14px;text-align:center;'>We regret to inform your booking failed for the transaction ID : ".$txnid .".</td></tr>";
+?>
     <h2 class="heading1 colr_h">Thank You. Your booking status is <?php echo $status;?> !!</h2>
     <br>
-    <h3 class="heading2">Tour Transaction with ID is Invalid : <?php echo $txnid; ?> Please re-submit</h3>
+    <h3 class="heading2">Your Transaction is Invalid, ID : <?php echo $txnid; ?> Please re-submit</h3>
   </div>
 </div>
 <?php
@@ -104,10 +120,10 @@ $hash = hash("sha512", $retHashSeq);
                     <td><b>: &nbsp </b></td>
                     <td><?php echo $productDetail2; ?><br></td>
                   </tr>
-                  <tr>
-                    <td><strong>Description</strong></td><td><b>: &nbsp </b></td>
-                    <td><?php echo $productDetail2; ?></td>
-                  </tr>	
+<!--                   <tr> -->
+<!--                     <td><strong>Description</strong></td><td><b>: &nbsp </b></td> -->
+<!--                     <td><?php echo $productDetail2; ?></td> -->
+<!--                   </tr>	 -->
               </tbody>
             </table>
           </td>
@@ -162,4 +178,12 @@ $hash = hash("sha512", $retHashSeq);
   </div>
 </section>
 
-<?php include 'common/footer.php';?>
+<?php 
+$txt .= "<tr><td style='padding:10px;text-align:center'><a href='http://www.harshayoga.com/' style='padding:10px;background:#05901c;color:#fff;font-size:18px;text-decoration:none;border-radius:30px;'>Harsha Yoga <a></td></tr>";
+$txt .= "</table>";
+$headers = "From: Harsha Yoga<harsha@harshayoga.com>\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+mail($to, $subject, $txt, $headers);
+
+include 'common/footer.php';?>

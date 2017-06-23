@@ -7,6 +7,7 @@ if (isset($_SESSION['loggedin_name']) == null) {
     $name  = $_SESSION['loggedin_name'];
     $email = $_SESSION['loggedin_user'];
     $phnno = $_SESSION['loggedin_phone'];
+    $userid = $_SESSION['loggedin_userid'];
 }
 include 'common/header.php';
 
@@ -29,8 +30,8 @@ $PAYU_BASE_URL = "https://test.payu.in";
 //$PAYU_BASE_URL = "https://secure.payu.in";
 
 $action = '';
-$surl='http://localhost/harshayoga/success.php';
-$furl='http://localhost/harshayoga/failure.php';
+$surl='http://test.harshayoga.com/success.php';
+$furl='http://test.harshayoga.com/buy_now.php';
 
 $posted = array();
 
@@ -48,12 +49,12 @@ if (empty($posted['txnid'])) {
 } else {
     $txnid = $posted['txnid'];
 }
+$pid       = $_GET["pid"];
 $hash         = '';
 // Hash Sequence
 $hashSequence = "key|txnid|amount|productInfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10";
 
 if (empty($posted['hash'])) {
-  $pid       = $_GET["pid"];
   $sql       = "SELECT * FROM product where id = '$pid'";
   $result    = $db->query($sql);
 
@@ -80,7 +81,8 @@ if (empty($posted['hash'])) {
           }
       }
   }
-}
+} 
+
 if(empty($posted['hash']) && sizeof($posted) > 0) {
   if(empty($posted['key'])
       || empty($posted['txnid'])
@@ -91,7 +93,8 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
       || empty($posted['productInfo'])
       || empty($posted['surl'])
       || empty($posted['furl'])
-		  || empty($posted['service_provider'])) {
+		  || empty($posted['service_provider'])
+      || empty($posted['termsNCondition'])) {
 
     $formError = 1;
   } else {
@@ -104,6 +107,22 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
     $hash_string .= $SALT;
     $hash = strtolower(hash('sha512', $hash_string));
     $action = $PAYU_BASE_URL . '/_payment';
+
+    // db insert stmt to record transaction
+    if( isset($_POST['txnid'])) {
+      $txnId=$_POST['txnid'];
+      $amount = $_POST['amount'];
+      $phone = $_POST['phone'];
+      $tncAgreed=(isset($_POST['termsNCondition']))? (($_POST['termsNCondition']=='on')?1:0):0;
+
+      $sql_insert = "INSERT INTO booking (product_id, txn_id, amount_paid, currency, name, email, mobile, booking_date, tnc_agreed, user_id) VALUES ($pid, '$txnId', $amount, '$currency', '$name','$email', $phone, NOW(), $tncAgreed, '$userid')";
+
+      if ($db->query($sql_insert) === TRUE) {
+        echo "Transaction record is tracked on DB";
+      } else {
+        echo "error: Transaction rescord can not be tracked on DB";
+      }
+    }
   }
 } elseif (!empty($posted['hash'])) {
   $hash = $posted['hash'];
@@ -114,14 +133,14 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
 <html>
 <head>
 <script>
-    var hash = '<?php echo $hash ?>';
-    function submitPayuForm() {
-      if (hash == '') {
-        return;
-      }
-      var payuForm = document.forms.payuForm;
-      payuForm.submit();
-    }
+var hash = '<?php echo $hash ?>';
+function submitPayuForm() {
+  if (hash == '') {
+    return;
+  }
+  var payuForm = document.forms.payuForm;
+  payuForm.submit();
+}
 </script>
 </head>
 <body onload="submitPayuForm()">
@@ -129,9 +148,9 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
   <div class="about_innr">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-12 contact_text">
+        <div class="error_msg" style="display:block;text-align:center;">
           <?php if($formError) { ?>
-          <h3 class="heading2">Error while processing your request, please contact harsha@harshayoga.com</h3>
+          Please select the terms and condition checkbox to proceed
           <?php } ?>
         </div>
       </div>
@@ -158,17 +177,17 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
                         <tr>
                           <td><strong>Class Type</strong></td>
                           <td><b>:&nbsp </b></td>
-                          <td><?php echo $productDetail1; ?></td>
+                          <td><?php echo $productDetail2; ?></td>
                          </tr>
                         <tr>
                           <td><strong>Duration</strong></td>
                           <td><b>: &nbsp </b></td>
-                          <td><?php echo $productDetail2; ?><br></td>
+                          <td><?php echo $productDetail1; ?><br></td>
                         </tr>
-                        <tr>
-                          <td><strong>Description</strong></td><td><b>: &nbsp </b></td>
-                          <td><?php echo $productDetail2; ?></td>
-                        </tr>	
+<!--                         <tr> -->
+<!--                           <td><strong>Description</strong></td><td><b>: &nbsp </b></td> -->
+<!--                           <td><?php echo $productDetail2; ?></td> -->
+<!--                         </tr>	 -->
                     </tbody>
                   </table>
                 </td>
@@ -213,6 +232,7 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
                           </tr>			
                           <tr>
                             <br>
+                            <div class="error_msg"></div>
                             <td colspan="3"><input type="checkbox" name="termsNCondition"/>I agree to the <a href="#">Terms &amp; Conditions</a></td>
                           </tr>
                         </tbody>
@@ -225,7 +245,7 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
         </div>
     </div>
     <div class='col-xs-12'>	
-      <div class="row" style="float:right;">
+      <div class="row" style="float:right;"> 
         <div class='col-xs-12'>			
           <div class="form-group">
               <input type="hidden" name="key" value="<?php echo $MERCHANT_KEY ?>" />
@@ -239,14 +259,7 @@ if(empty($posted['hash']) && sizeof($posted) > 0) {
               <input type="hidden" name="email" value="<?php echo $email; ?>" />
               <input type="hidden" name="phone" value="<?php echo $phnno ?>"/>
               <input type="hidden" name="productInfo" value="<?php echo $pid ?>"/>
-              <input type="hidden" name="lastname" value=""/>
-              <input type="hidden" name="curl" value=""/>
-              <input type="hidden" name="address1" value=""/>
-              <input type="hidden" name="address2" value=""/>
-              <input type="hidden" name="city" value=""/>
-              <input type="hidden" name="state" value=""/>
-              <input type="hidden" name="country" value=""/>
-              <input type="hidden" name="zipcode" value=""/>
+              <input type="hidden" name="userid" value="<?php echo $userid ?>"/>
              <?php if(!$hash) { ?><input type="submit" class="btn btn-submit gradiant_bg " value="Pay Now" />
             <?php } ?>
           </div>

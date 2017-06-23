@@ -81,10 +81,10 @@ function validateMobile(mobile){
 			var slf = $(this);
 			if(!slf.hasClass('loading')){
 				var username = $('#username').val();
-		   		var password = $('#password').val();
-          var phone = $('#mobile').val();
-          var country = $('#country').val();
-          var city = $('#city').val();
+        var password = $('#password').val();
+        var phone = $('#mobile').val();
+        var country = $('#country').val();
+        var city = $('#city').val();
 				if(!validateEmail(username)) {
                     $('.error_msg').html("Invalid Email Id").slideDown();
 				}else if($.trim(password) == '') {

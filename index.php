@@ -17,12 +17,6 @@ include 'common/header.php';
             <div class="item">
               <img src="assets/images/main-slider/slide4.jpg" alt="">
             </div>
-        	<div class="item">
-              <img src="assets/images/main-slider/slide5.jpg" alt="">
-            </div>
-        	<div class="item">
-              <img src="assets/images/main-slider/slide6.jpg" alt="">
-            </div>
         </div>
         <div class="slide_caption">
         </div>

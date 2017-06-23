@@ -57,7 +57,7 @@ if ($result->num_rows > 0) {
 				<div class="batch_card colr' . $indx . '">
 					<div class="mn_txt">' . $row['duration'] . ' Months</div>
 					<div class="amt_wrap">' . $row['price'] . '/-</div>
-					<a href="#" class="btn btn-block buy">Coming Soon</a>
+					<a href="buy_now.php?pid=' . $pid . '" class="btn btn-block buy">Buy Now</a>
 					<a href="#class_detail' . $indx . '" data-toggle="modal" class="btn btn-block viewdetails">View Details</a>
 				</div>
 			 </div>';
@@ -71,8 +71,7 @@ if ($result->num_rows > 0) {
 							</div>';
 			$modal_box .= '<div class="modal-body class-info">' . $row["description"] . '</div>';
 			$modal_box .= '<div class="modal-footer text-center">
-								<a type="button" class="btn btn-primary btn-lg" href="#">Coming Soon</a>
-								<a type="button" class="btn btn-primary btn-lg" href="PayUMoney_form.php?pid=' . $pid . '">Buy Now</a>
+								<a type="button" class="btn btn-primary btn-lg" href="buy_now.php?pid=' . $pid . '">Buy Now</a>
 							</div>';
 			$modal_box .= '</div></div></div>';
 		
@@ -101,7 +100,7 @@ if ($result1->num_rows > 0) {
         echo '<div class="col-xs-12 col-sm-6 col-md-3"><div class="batch_card colr' . $indx1 . '">
           <div class="mn_txt">' . $row1['duration'] . ' Months</div>
           <div class="amt_wrap">' . $row1['price'] . '/-</div>
-          <a href="#" class="btn btn-block buy">Coming Soon</a>
+          <a href="buy_now.php?pid=' . $pid . '" class="btn btn-block buy">Buy Now</a>
           <a href="#class_detail' . $indx1 . '" data-toggle="modal" class="btn btn-block viewdetails">View Details</a>
           </div>
           </div>';
@@ -113,8 +112,7 @@ if ($result1->num_rows > 0) {
         /div>';
         $modal_box .= '<div class="modal-body class-info">' . $row1["description"] . '</div>';
         $modal_box .= '<div class="modal-footer text-center">
-          <a type="button" class="btn btn-primary btn-lg" href="#">Coming Soon</a>
-          <a type="button" class="btn btn-primary btn-lg" href="PayUMoney_form.php">Buy Now</a>
+          <a type="button" class="btn btn-primary btn-lg" href="buy_now.php?pid=' . $pid . '">Buy Now</a>
         </div>
         </div>
         </div>
