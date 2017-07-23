@@ -34,6 +34,7 @@ include 'common/header.php';
         </div>
         <div class="col-sm-6 thumb_wrap">
           <img src="assets/images/harsha-nagraj.jpg" alt="harsha nagraj" class="img-responsive">
+		  <h3 class="heading2 text-center">B.E, M.Sc (Yoga Vedanta)</h3>
           </div>
         </div>
         </div>
