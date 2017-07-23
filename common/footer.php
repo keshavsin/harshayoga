@@ -1,6 +1,7 @@
 <footer class="footer_main text-center">
   	<h2 class="footer_h">Harsha Yoga Pathashala</h2>
     <div class="footer_address">
+		<h3 class="heading2 text-center">(Bangalore)</h3>
       Ideal Homes Main Road, Above Sangeetha Mobiles<br/>
 Rajarajeshwarinagar, Bangalore.<br/>
 Email: <a href="mailto:harsha@harshayoga.com">harsha@harshayoga.com</a><br/>
