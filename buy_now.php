@@ -18,20 +18,20 @@ $productDetail2  = '';
 $productDetail3  = '';
 $productType  = '';
 
-//$MERCHANT_KEY = "RDLubGvv";            //Production Key
-$MERCHANT_KEY = "rjQUPktU";
+$MERCHANT_KEY = "RDLubGvv";            //Production Key
+//$MERCHANT_KEY = "rjQUPktU";
 
-//$SALT = "heQ4BlwVU2";            //Production Salt
-$SALT         = "e5iIg1jwi8";
+$SALT = "heQ4BlwVU2";            //Production Salt
+//$SALT         = "e5iIg1jwi8";
 
 
 // End point - change to https://secure.payu.in for LIVE mode
-$PAYU_BASE_URL = "https://test.payu.in";
-//$PAYU_BASE_URL = "https://secure.payu.in";
+//$PAYU_BASE_URL = "https://test.payu.in";
+$PAYU_BASE_URL = "https://secure.payu.in";
 
 $action = '';
-$surl='http://test.harshayoga.com/success.php';
-$furl='http://test.harshayoga.com/buy_now.php';
+$surl='http://www.harshayoga.com/success.php';
+$furl='http://www.harshayoga.com/buy_now.php';
 
 $posted = array();
 
@@ -63,21 +63,25 @@ if (empty($posted['hash'])) {
           $productType = $row['type'];
           $pprice = $row['price'];
           $currency = $row['currency'];
-          if ($productType == 'class') {
-            $productDetail1    = $row['title'];
-            $productDetail2 = $row['class_type'];
-            $productDetail3  = $row['description'];
-          } else if ($productType == 'ttc') {
-            $productDetail1    = $row['title'];
-            $productDetail2 = 'Teacher Training Course';
-            $productDetail3 = $row['duration'];
-            $productDetail4  = $row['description'];
+          if ($productType == ' Regular Classes') {
+            $productDetail_class1    = $row['duration'].' '.$row['duration_unit'];
+            $productDetail_class2 = $row['type'];
+			 $productDetail_class3 = $row['class_type'];
+            $productDetail_class4  = $row['description'];
+			
+          } else if ($productType == 'Teacher Training Course') {
+            $productDetail_ttc1    = $row['duration'].' '.$row['duration_unit'];
+            $productDetail_ttc2 = $row['type'];
+            $productDetail_ttc3  = $row['title'];
+			
           } else {
-            $productDetail1    = $row['title'];
-            $productDetail2 = $row['location'];
-            $productDetail3  = $row['city'];
-            $productDetail4  = $row['country'];
-            $productDetail5  = $row['description'];
+            $productDetail_other1    = $row['type'];
+            $productDetail_other2 = $row['location'];
+            $productDetail_other3  = $row['start_date'];
+            $productDetail_other4  = $row['end_date'];
+			$productDetail_other5  = $row['duration'].' '.$row['duration_unit'];
+			  $productDetail_other6  = $row['title'];
+       
           }
       }
   }
@@ -154,15 +158,18 @@ function submitPayuForm() {
           <?php } ?>
         </div>
       </div>
+
       <div class="row">
         <div class="col-sm-12 contact_text">
           <h2 class="heading1 colr_h">Please review your booking !!</h2>
           <h3 class="heading2"></h3>
         </div>
       </div>
+	  
         <div class="container-fluid">
           <div class="row">
-          <div style="width:45%;float:left">
+       
+		 <div class="col-sm-8">
           <table class="table" align="right" style="border-collapse:collapse; overflow:auto;">
           <thead>
             <tr>
@@ -172,33 +179,87 @@ function submitPayuForm() {
               <tbody>		
               <tr>
                 <td>
-                  <table style="border-collapse:collapse">
-                    <tbody>
-                        <tr>
-                          <td><strong>Class Type</strong></td>
-                          <td><b>:&nbsp </b></td>
-                          <td><?php echo $productDetail2; ?></td>
-                         </tr>
-                        <tr>
-                          <td><strong>Duration</strong></td>
-                          <td><b>: &nbsp </b></td>
-                          <td><?php echo $productDetail1; ?><br></td>
-                        </tr>
-<!--                         <tr> -->
-<!--                           <td><strong>Description</strong></td><td><b>: &nbsp </b></td> -->
-<!--                           <td><?php echo $productDetail2; ?></td> -->
-<!--                         </tr>	 -->
-                    </tbody>
-                  </table>
+				<?php  if ($productType == ' Regular Classes') {
+					echo '<table style="border-collapse:collapse">';
+                    echo '<tbody>';
+					  echo '<tr>';
+                         echo ' <td><strong>Product </strong></td>';
+                          echo '<td><b>:&nbsp </b></td>';
+                           echo '<td>'.$productDetail_class3.'<br></td>';
+                         echo '</tr>';
+                        echo '<tr>';
+                         echo ' <td><strong>Class Type </strong></td>';
+                          echo '<td><b>:&nbsp </b></td>';
+                           echo '<td>'.$productDetail_class2.'<br></td>';
+                         echo '</tr>';
+                        echo '<tr>';
+                          echo '<td><strong>Duration </strong></td>';
+                          echo '<td><b>: &nbsp </b></td>';
+                          echo '<td>'.$productDetail_class1.'<br></td>';
+                        echo '</tr>';						
+                   echo '</tbody>';
+                 echo '</table>';
+				}else if ($productType == 'Teacher Training Course') {
+					echo '<table style="border-collapse:collapse">';
+                    echo '<tbody>';
+                        echo '<tr>';
+                         echo ' <td><strong>Product</strong></td>';
+                          echo '<td><b>:&nbsp </b></td>';
+                           echo '<td>'.$productDetail_ttc2.'<br></td>';
+                         echo '</tr>';
+                        echo '<tr>';
+                          echo '<td><strong>Name</strong></td>';
+                          echo '<td><b>: &nbsp </b></td>';
+                          echo '<td>'.$productDetail_ttc3.'<br></td>';
+                        echo '</tr>';
+						echo '<tr>';
+                         echo ' <td><strong>Duration</strong></td>';
+                          echo '<td><b>:&nbsp </b></td>';
+                           echo '<td>'.$productDetail_ttc1.'<br></td>';
+                         echo '</tr>';
+										 
+                   echo '</tbody>';
+                 echo '</table>';
+				}else{
+					echo '<table style="border-collapse:collapse">';
+                    echo '<tbody>';
+                        echo '<tr>';
+                         echo ' <td><strong>Product</strong></td>';
+                          echo '<td><b>:&nbsp </b></td>';
+                           echo '<td>'.$productDetail_other1.'<br></td>';
+                         echo '</tr>';
+						 	 	echo '<tr>';
+                         echo ' <td><strong>Name</strong></td>';
+                          echo '<td><b>:&nbsp </b></td>';
+                           echo '<td>'.$productDetail_other6.'<br></td>';
+                         echo '</tr>';
+						 echo '<tr>';
+                         echo ' <td><strong>Duration</strong></td>';
+                          echo '<td><b>:&nbsp </b></td>';
+                           echo '<td>'.$productDetail_other5.'<br></td>';
+                         echo '</tr>';
+                        echo '<tr>';
+                          echo '<td><strong>Location</strong></td>';
+                          echo '<td><b>: &nbsp </b></td>';
+                          echo '<td>'.$productDetail_other2.'<br></td>';
+                        echo '</tr>';
+						
+					
+						 
+												
+                   echo '</tbody>';
+                 echo '</table>';
+				}	?>
+                  
                 </td>
               </tr>
           </tbody>
           </table>
               </form>
           </div>
-          <div style="width:10%;"></div>
+         
           <form action="<?php echo $action; ?>" method="post" name="payuForm">
-          <div style="width:45%;float:right">
+       <div class="col-sm-4">
             <table class="table" align="center" style="border-collapse:collapse">
               <thead>
                   <tr>
@@ -225,15 +286,19 @@ function submitPayuForm() {
                             <td><b>: &nbsp </b></td>
                             <td><?php echo $phnno; ?></td>
                           </tr>
-                          <tr>
+                         <tr>
                             <td><strong>Amount</strong></td>
                             <td><b>: &nbsp </b></td>
-                            <td><?php echo "$currency $pprice"; ?></td>
-                          </tr>			
+                            <td><b><?php echo "$currency $pprice"; ?></b></td>
+                          </tr>	
+ 						   </tbody>
+					</table>
+					<br/><br/>
+					<table>
+					<tbody>
                           <tr>
-                            <br>
                             <div class="error_msg"></div>
-                            <td colspan="3"><input type="checkbox" name="termsNCondition"/>I agree to the <a href="#">Terms &amp; Conditions</a></td>
+                            <td colspan="3"><input type="checkbox" id ="termsNCondition" name="termsNCondition"/>I agree to the <a href="terms-and-conditions.php" target="blank">Terms &amp; Conditions</a></td>
                           </tr>
                         </tbody>
                     </table>
@@ -260,7 +325,7 @@ function submitPayuForm() {
               <input type="hidden" name="phone" value="<?php echo $phnno ?>"/>
               <input type="hidden" name="productInfo" value="<?php echo $pid ?>"/>
               <input type="hidden" name="userid" value="<?php echo $userid ?>"/>
-             <?php if(!$hash) { ?><input type="submit" class="btn btn-submit gradiant_bg " value="Pay Now" />
+             <?php if(!$hash) { ?><input type="submit" id="reset" class="btn btn-submit gradiant_bg " value="Pay Now" />
             <?php } ?>
           </div>
         </div>
@@ -274,6 +339,15 @@ function submitPayuForm() {
     $(window).load(function(){
     //$('#mapwrapper').html('<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.703246469128!2d77.51461150531227!3d12.926784751951791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3ef88c7aa01f%3A0xe15d3a9feb704c50!2sHarsha+Yoga+Pathashala!5e0!3m2!1sen!2sin!4v1488509044416" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>');
     });
+  </script>
+  <script>
+ $('#reset').click(function () {
+    if (!$('#termsNCondition').is(':checked')) {
+        alert('Please Agree Terms & Conditions');
+        return false;
+    }
+});
+ 
   </script>
   </body>
 </html>

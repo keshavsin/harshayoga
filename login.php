@@ -80,12 +80,12 @@ $(function(){
 				  data: {'uname': username, 'pass': password },
 				  type: 'POST',
 				  success: function(response) {
-					if (response == 'error') {
+					if (response.trim() == 'error') {
 						$('.error_msg').html("Invalid User").slideDown();
 						slf.removeClass('loading');
-					} else if (response == 'success') {
+					} else if (response.trim() == 'success') {
 						window.location.href = 'dashboard.php';
-					} else if (response == 'notactive') {
+					} else if (response.trim() == 'notactive') {
 					  $('.error_msg').html("Sorry! Your account is not active").slideDown();
 					  slf.removeClass('loading');
 					} else {

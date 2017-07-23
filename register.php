@@ -98,16 +98,16 @@ function validateMobile(mobile){
 					  data: {'uname': username, 'pass': password, 'phone':phone, 'country':country, 'city':city},
 					  type: 'POST',
 					  success: function(response){
-						if(response == 'error'){
+						if(response.trim() == 'error'){
 							$('.error_msg').html("Invalid User").slideDown();
 							slf.removeClass('loading');
-						}else if(response == 'success'){
+						}else if(response.trim() == 'success'){
               window.location.href = 'registrationsuccess.php';
-						}else if(response == 'exist'){
+						}else if(response.trim() == 'exist'){
               $('.error_msg').html("User already exist").slideDown();
               slf.removeClass('loading');
             } else{
-              $('.error_msg').html(response).slideDown();
+              $('.error_msg').html(response.trim()).slideDown();
               slf.removeClass('loading');
 						}
 					  }

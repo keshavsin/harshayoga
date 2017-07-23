@@ -47,7 +47,7 @@ include 'common/header.php';
   <div class="row mrgn_b30">
 <?php
 $modal_box = '';
-$sql       = "SELECT * FROM product where type = 'class' AND class_type = 'weekday' AND is_active=1";
+$sql       = "SELECT * FROM product where type = ' Regular Classes' AND class_type = 'Weekday' AND is_active=1";
 $result    = $db->query($sql);
 if ($result->num_rows > 0) {
     $indx = 1;
@@ -58,11 +58,11 @@ if ($result->num_rows > 0) {
 					<div class="mn_txt">' . $row['duration'] . ' Months</div>
 					<div class="amt_wrap">' . $row['price'] . '/-</div>
 					<a href="buy_now.php?pid=' . $pid . '" class="btn btn-block buy">Buy Now</a>
-					<a href="#class_detail' . $indx . '" data-toggle="modal" class="btn btn-block viewdetails">View Details</a>
+					<a href="#class_detail' . $indx . '" data-toggle="modal" data-keyboard="true" class="btn btn-block viewdetails">View Details</a>
 				</div>
 			 </div>';
         
-			$modal_box .= '<div id="class_detail' . $indx . '" class="modal fade" role="dialog">';
+			$modal_box .= '<div id="class_detail' . $indx . '" class="modal fade "  role="dialog" tabindex="-1">';
 			$modal_box .= '<div class="modal-dialog modal-lg">
 							<div class="modal-content">
 							<div class="modal-header">
@@ -96,20 +96,20 @@ if ($result1->num_rows > 0) {
     $indx1 = 5;
     
     while ($row1 = $result1->fetch_assoc()) {
-        $pid1 = $row1["id"];
+        $pid = $row1["id"];
         echo '<div class="col-xs-12 col-sm-6 col-md-3"><div class="batch_card colr' . $indx1 . '">
-          <div class="mn_txt">' . $row1['duration'] . ' Months</div>
-          <div class="amt_wrap">' . $row1['price'] . '/-</div>
-          <a href="buy_now.php?pid=' . $pid . '" class="btn btn-block buy">Buy Now</a>
-          <a href="#class_detail' . $indx1 . '" data-toggle="modal" class="btn btn-block viewdetails">View Details</a>
-          </div>
-          </div>';
-        $modal_box .= '<div id="class_detail' . $indx1 . '" class="modal fade" role="dialog">';
+				<div class="mn_txt">' . $row1['duration'] . ' Months</div>
+					<div class="amt_wrap">' . $row1['price'] . '/-</div>
+						<a href="buy_now.php?pid=' . $pid . '" class="btn btn-block buy">Buy Now</a>
+							<a href="#class_detail' . $indx1 . '" data-toggle="modal" data-keyboard="true" class="btn btn-block viewdetails">View Details</a>
+				</div>
+			</div>';
+        $modal_box .= '<div id="class_detail' . $indx1 . '" class="modal fade" role="dialog"  tabindex="-1">';
         $modal_box .= '<div class="modal-dialog modal-lg">
-        <div class="modal-content">
-        <div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">' . $row1["duration"] . ' Months weekend class</h4><
-        /div>';
+							<div class="modal-content">
+								<div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">' . $row1["duration"] . ' Months weekend class</h4>
+								</div>';
         $modal_box .= '<div class="modal-body class-info">' . $row1["description"] . '</div>';
         $modal_box .= '<div class="modal-footer text-center">
           <a type="button" class="btn btn-primary btn-lg" href="buy_now.php?pid=' . $pid . '">Buy Now</a>

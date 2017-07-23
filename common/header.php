@@ -27,6 +27,8 @@ include 'base/common/dbconf.php';
 <meta name="theme-color" content="#ffffff">
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400|Ubuntu:300,400,700" rel="stylesheet">
 <link href="assets/css/style.css" rel="stylesheet">
+<link href="assets/css/font-awesome.css" rel="stylesheet">
+
 <style>
 .loading{overflow:hidden;}
 .main_loader{position:fixed;z-index:100000;background:#fff url(assets/images/loading.gif) no-repeat center center;top:0;left:0;right:0;bottom:0;display:none;}

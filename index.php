@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start();
 $currentPage = "index";
 include 'common/header.php';
 ?>
@@ -6,16 +7,22 @@ include 'common/header.php';
       <div id="myCarousel" class="carousel slide main_slider" data-ride="carousel">
         <div  class="carousel-inner " role="listbox">
             <div class="item active">
-              <img src="assets/images/main-slider/slide1.jpg" alt="">
+              <img src="assets/images/slider/1.png" alt="">
             </div>
             <div class="item">
-              <img src="assets/images/main-slider/slide2.jpg" alt="">
+              <img src="assets/images/slider/2.png" alt="">
             </div>
             <div class="item">
-              <img src="assets/images/main-slider/slide3.jpg" alt="">
+              <img src="assets/images/slider/3.png" alt="">
             </div>
             <div class="item">
-              <img src="assets/images/main-slider/slide4.jpg" alt="">
+              <img src="assets/images/slider/4.png" alt="">
+            </div>
+			  <div class="item">
+              <img src="assets/images/slider/5.png" alt="">
+            </div>
+			 <div class="item">
+              <img src="assets/images/slider/6.png" alt="">
             </div>
         </div>
         <div class="slide_caption">
@@ -76,57 +83,7 @@ Along with the above, the students will get to experience the best teachings.
 
 
 
-<section class="container-fluid">
-  <div class="row table_container">
-    <div class="col-sm-6 table_cell  bg_container2"> 
-    </div>
-    <div class="col-sm-6 table_cell cell1">
-          <h2 class="heading1 colr_h">Ashtanga Yoga</h2>
-            <p><ul>
-                <li>Primary series</li>
-                <li>Intermediate series</li> 
-                <li>Advanced series</li>
-              </ul></p>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
-    </div>
-</section>
-
-<section class="container-fluid">
-    <div class="col-sm-12 row table_container">
-      <div class="col-sm-6 table_cell cell1">
-        	<h2 class="heading1 colr_h">Hatha Yoga</h2>
-        			<ul>
-          			<li>Shatkarma </li>
-          			<li>Asana & pranayama</li> 
-          			<li>Mudra & bandha</li>
-        			</ul>
-              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      </div>
-      <div class="col-sm-6 table_cell bg_container3">
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container-fluid">
-      <div class="row table_container">
-      <div class="col-sm-6 table_cell bg_container4">
-
-        </div>
-        <div class="col-sm-6 table_cell cell1">
-        	<h2 class="heading1 colr_h">Yoga Therapy</h2>
-      			<p><ul>
-          			<li>Yoga anatomy</li>
-          			<li>Yoga for motherhood</li> 
-          			<li>Yoga for women's health</li>
-      			</ul></p>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="gradiant_bg">
+<section class="gradiant_bg">
   	<div class="innr_container">
     	<h2 class="heading1 cntr_h">DHARMA</h2>
             <p>To spread the knowledge of yoga in its authentic form, As taught by the Maharshies.
@@ -135,33 +92,134 @@ To reach each and every honest soul out there who are in thirst for the understa
 </p>
     </div>
   </section>
-  <section class="insta_wrap">
-  <div class="insta_wrapinnr">
-    	<h2 class="heading1 colr_h cntr_h">Instagram feeds</h2>
-      <div id="instagram"></div>
-   </div>        
+  
+
+<section class="container-fluid1">
+  <div class="row yoga_type">
+    <div class="col-sm-4 gridimage yoga_grid"> 
+	<img src="assets/images/asthangaYogaHome - 1.jpg" class="img-responsive"/>
+	<h2 class="heading1 colr_h">ASHTANGA YOGA</h2>
+        			<ul>
+          			<li>Primary Series </li>
+          			<li>Intermediate Series</li> 
+          			<li>Advanced Series</li>
+        			</ul>
+    </div>
+	
+	<div class="col-sm-4 gridimage yoga_grid"> 
+	<img src="assets/images/hathaYogaHome - 1.jpg" class="img-responsive"/>
+<h2 class="heading1 colr_h">HATHA YOGA</h2>
+        			<ul>
+          			<li>Shatkarma </li>
+          			<li>Asana & pranayama</li> 
+          			<li>Mudra & bandha</li>
+        			</ul>
+    </div>
+	<div class="col-sm-4 gridimage yoga_grid"> 
+	<img src="assets/images/yogaTherapyHome - 1.jpg" class="img-responsive"/>
+		<h2 class="heading1 colr_h">YOGA THERAPY</h2>
+        			<ul>
+					<li>Yoga anatomy</li>
+          			<li>Yoga for motherhood</li> 
+          			<li>Yoga for women's health</li>
+        			</ul>
+    </div>
+   
+    </div>
   </section>
+
+
   <section class="gradiant_bg">
   	<div class="testimonial_wrap">
     	<h2 class="heading1 cntr_h">TESTIMONIALS</h2>
-       <div id="testimonial" class="carousel slide main_slider" data-ride="carousel">
-  <div class="carousel-inner " role="listbox">
-     <div class="item active">
-       <img src="assets/images/testimonial/img1.jpg" alt=""> 
-      <p>Yoga is a challenge within itself- This is exactly what I learnt going to Harsha Yoga Paathashaala. I joined the classes with minimal flexibility and within a month I noticed changes. Harsha noticed these changes and guided me with the next level of the aasans which helped me improve further . His classes make use of props which helps us take that extra step towards perfection. A combination of the mantras with the surya namaskaras fill our mornings with high energy and positivity . Pranayama and meditation bring total peace to the mind which takes us away from the hustle and bustle of this fast moving city life. Loved my experience with Harsha Yoga Paathashaala
-        </p>
-        <div class="name_txt">Kavya Talesara</div>
+		
+   
+  <div class='row'>
+    <div class='col-md-offset-2 col-md-8'>
+      <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+        <!-- Bottom Carousel Indicators -->
+        <ol class="carousel-indicators">
+		   <?php
+			$sql_testimonals_cnt    = "SELECT * FROM testimonials where is_active=1";
+			$result_testimonals_cnt = $db->query($sql_testimonals_cnt);
+			if ($result_testimonals_cnt->num_rows > 0) {		
+				$indx = 0;
+				while ($row_testimonals_cnt = $result_testimonals_cnt->fetch_assoc()) {
+						if($indx == 0){
+							echo '<li data-target="#quote-carousel" data-slide-to="0" class="active"></li>';
+							$indx++;
+						}else{
+							echo '<li data-target="#quote-carousel" data-slide-to="'.$indx.'"></li>';
+							$indx++;
+						}
+				}
+			} ?> 
+        </ol>
+        
+	
+        <!-- Carousel Slides / Quotes -->
+        <div class="carousel-inner">
+        
+		  <?php
+			$sql_testimonals    = "SELECT * FROM testimonials where is_active=1";
+			$result_testimonals = $db->query($sql_testimonals);
+			if ($result_testimonals->num_rows > 0) {		
+				$indx = 0;
+				while ($row_testimonals = $result_testimonals->fetch_assoc()) {
+						if($indx == 0){
+							echo '<div class="item active">';
+								echo '<blockquote>';
+									echo '<div class="row">';										
+										echo '<div class="col-sm-3 text-center">';
+											echo '<img class="img-circle" src="assets/images/testimonial/'.$row_testimonals["photo"].'" alt="" style="width: 100px;height:100px;">';
+										echo '</div>';
+										echo '<div class="col-sm-9">';
+											echo '<p>'.$row_testimonals["remarks"].'</p>';
+										echo '<small>'.$row_testimonals["username"].'</small>';
+										echo '</div>';
+									echo '</div>';
+								echo '</blockquote>';
+							echo '</div>';
+							$indx++;
+						}else{
+							echo '<div class="item">';
+								echo '<blockquote>';
+									echo '<div class="row">';										
+										echo '<div class="col-sm-3 text-center">';
+											echo '<img class="img-circle" src="assets/images/testimonial/'.$row_testimonals["photo"].'" alt="" style="width: 100px;height:100px;">';
+										echo '</div>';
+										echo '<div class="col-sm-9">';
+											echo '<p>'.$row_testimonals["remarks"].'</p>';
+										echo '<small>'.$row_testimonals["username"].'</small>';
+										echo '</div>';
+									echo '</div>';
+								echo '</blockquote>';
+							echo '</div>';
+							$indx++;
+						}
+				}
+			} ?> 
+		
+        </div>
+        
+        <!-- Carousel Buttons Next/Prev -->
+        <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+      </div>                          
     </div>
   </div>
-  <a class="left carousel-control" href="#testimonial" role="button" data-slide="prev">
-      <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#testimonial" role="button" data-slide="next">
-     <span class="sr-only">Next</span>
-  </a>
-</div>    
     </div>
   </section>
   <?php include 'common/footer.php';?>
  </body>
+ <script>
+ // When the DOM is ready, run this function
+$(document).ready(function() {
+  //Set the carousel options
+  $('#quote-carousel').carousel({
+    pause: true,
+    interval: 4000,
+  });
+});
+</script>
 </html>

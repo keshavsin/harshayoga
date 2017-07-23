@@ -19,8 +19,8 @@ $key         = $_POST["key"];
 $productinfo = $_POST["productinfo"];
 $email       = $_POST["email"];
 
-//$salt = "heQ4BlwVU2";                //Production Salt
-$salt = "e5iIg1jwi8";
+$salt = "heQ4BlwVU2";                //Production Salt
+//$salt = "e5iIg1jwi8";
 
 $sql_update = "UPDATE booking SET status='$status' WHERE product_id = '$productinfo' and txn_id = '$txnid'";
 $db->query($sql_update);
