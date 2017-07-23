@@ -68,8 +68,8 @@ include 'base/common/dbconf.php';
           ?>
            <a href="javascript:vooid(0);" data-toggle="dropdown" class="dropdown-toggle">About Us</a>
               <ul class="dropdown-menu">
-                <li><a href="harsha-nagraj.php">Harsha Nagraj</a></li>
-            		<li><a href="yashaswini.php">Yashaswini</a></li>
+                <li><a href="harsha-nagraj.php">Harsha Nagaraj</a></li>
+            		<li><a href="chethan.php">Chetan Nagaraj</a></li>
                 <li><a href="ashtanga-yoga.php">Ashtanga Yoga</a></li>
                 <li><a href="iyengar.php">Iyengar Yoga</a></li>
                 <li><a href="hathayoga.php">Hatha Yoga</a></li>
