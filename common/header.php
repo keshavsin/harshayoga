@@ -69,7 +69,7 @@ include 'base/common/dbconf.php';
            <a href="javascript:vooid(0);" data-toggle="dropdown" class="dropdown-toggle">About Us</a>
               <ul class="dropdown-menu">
                 <li><a href="harsha-nagraj.php">Harsha Nagaraj</a></li>
-            		<li><a href="chethan.php">Chetan Nagaraj</a></li>
+            		<li><a href="chethan.php">Chethan Nagaraj</a></li>
                 <li><a href="ashtanga-yoga.php">Ashtanga Yoga</a></li>
                 <li><a href="iyengar.php">Iyengar Yoga</a></li>
                 <li><a href="hathayoga.php">Hatha Yoga</a></li>
@@ -89,8 +89,8 @@ include 'base/common/dbconf.php';
               echo '<li>';
           }
           ?>
-                <a href="train_the_trainer.php">TTC</a>
-            </li>
+          <a href="train_the_trainer.php">TTC</a>
+          </li>
           <?php if ($currentPage == 'retreat') {
                 echo '<li class="active">';
           } else {
@@ -98,6 +98,14 @@ include 'base/common/dbconf.php';
           }
           ?>
                 <a href="retreat.php">Retreat</a>
+          </li>
+          <?php if ($currentPage == 'workshops') {
+                echo '<li class="active">';
+          } else {
+              echo '<li>';
+          }
+          ?>
+                <a href="workshop.php">Workshops</a>
           </li>
             <?php if($currentPage == 'blog'){
                 echo '<li class="active">';
