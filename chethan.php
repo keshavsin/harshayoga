@@ -11,7 +11,7 @@ include 'common/header.php';
                  <h2 class="heading1 colr_h">Chethan Nagaraj</h2>
 				 <br>
 			<p>
-			<img src="assets/images/yashaswini.jpg" class="floating_thumbr" alt="iyengar" />Namaste,<br/><br/>
+			<img src="assets/images/chethan.png" class="floating_thumbr" alt="iyengar" />Namaste,<br/><br/>
 				
 				Chethan Nagaraj is a senior Iyengar yoga teacher with in-depth knowledge in the Guruji iyengars teaching techniques. Chethan has been practicing for almost a decade now and has practiced with senior Iyengar yoga teacher Mr.Muralidhar for years.
 
