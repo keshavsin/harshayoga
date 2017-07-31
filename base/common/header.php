@@ -33,15 +33,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 <![endif]-->
 </head>
-<?php if($currentPage == 'login'){
-echo '<body class="loading loginpage">';
-}else{
+<?php 
+if ($currentPage == 'login') {
+  echo '<body class="loading loginpage">';
+} else {
   echo '<body class="loading">';
 }
 ?>
 <div class="main_loader"></div>
 <main>
-<?php if($currentPage != 'login'){ ?>
+<?php if ($currentPage != 'login') { ?>
   <header class="main_header">
     <div class="navbar-fixed-top" role="navigation">
       <nav id="myNavbar" class="navbar navbar-default" role="navigation">
@@ -56,33 +57,63 @@ echo '<body class="loading loginpage">';
         </div>
         <div class="collapse navbar-collapse" id="hamburger_menu">
           <ul class="nav navbar-nav navbar-right">
-            <?php if($currentPage == 'classes'){
-                echo '<li class="active">';
-          }else{
+          <?php 
+          if($currentPage == 'dashboard') {
+              echo '<li class="active">';
+          } else {
               echo '<li>';
           }
           ?>
-                <a href="manage_classes.php">Manage Classes</a>
-            </li>
-            <?php if($currentPage == 'bookings'){
-                echo '<li class="active">';
-          }else{
+            <a href="dashboard.php">Dashboard</a>
+          </li>
+			    <?php 
+          if ($currentPage == 'classes') {
+              echo '<li class="active">';
+          } else {
               echo '<li>';
           }
           ?>
-                <a href="manage_bookings.php">Manage Bookings</a>
-            </li>
-            <?php if($currentPage == 'retreat'){
-                echo '<li class="active">';
-          }else{
+            <a href="manage_classes.php">Manage Classes</a>
+          </li>
+          <?php 
+          if ($currentPage == 'retreat') {
+              echo '<li class="active">';
+          } else {
               echo '<li>';
           }
           ?>
-                <a href="manage_retreat.php">Manage Retreats</a>
-            </li>
-            <li>
-                <a href="logout.php" class="apply_btn">Log Out</a>
-            </li>
+            <a href="manage_retreat.php">Manage Retreat</a>
+          </li>
+          <?php 
+          if ($currentPage == 'ttc') {
+              echo '<li class="active">';
+          } else {
+              echo '<li>';
+          }
+          ?>
+            <a href="manage_ttc.php">Manage TTC</a>
+          </li>
+			    <?php 
+          if ($currentPage == 'ttc_schedule') {
+              echo '<li class="active">';
+          } else {
+              echo '<li>';
+          }
+          ?>
+            <a href="ttc_schedule.php">TTC Schedule</a>
+          </li>
+	  		  <?php 
+          if ($currentPage == 'testimonial') {
+              echo '<li class="active">';
+          } else {
+              echo '<li>';
+          }
+          ?>
+            <a href="testimonial.php">Testimonial</a>
+          </li>
+          <li>
+            <a href="logout.php" class="apply_btn">Log Out</a>
+          </li>
           </ul>
         </div>
       </div>

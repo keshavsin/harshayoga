@@ -57,11 +57,10 @@ $(function(){
           data: {'uname': username, 'pass': password},
           type: 'POST',
           success: function(response) {
-            console.log(response);
-            if (response == 'error') {
+            if (response.trim() == 'error') {
               $('.error_msg').html("Invalid User").slideDown();
               slf.removeClass('loading');
-            } else if(response == 'success') {
+            } else if(response.trim() == 'success') {
               window.location.href = 'dashboard.php';
             } else {
               $('.error_msg').html("Something Went wrong ! please try again").slideDown();

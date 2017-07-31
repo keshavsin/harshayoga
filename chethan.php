@@ -21,7 +21,7 @@ include 'common/header.php';
 				<br/><br/>
 				Students love his classes as it helps them learn in achieving a deeper level of relaxation and heal , balancing all the fluctuations of mind.
 				<br/><br/>
-				Chethan is Harsha’s elder brother. The yogi brothers started their journey in a very early age traveling 10 kms everyday early in the morning for years. The interest in deepening the practice has led them to where they are. Coming from nothing , both of them have been molded into one of the finest teachers.
+				Chethan is Harsha’s elder brother. The yogi brothers started their journey in a very early age traveling 10 kms everyday early in the morning for years. The interest in deepening the practice has led them to where they are. Coming from nothing , both of them have been moulded into one of the finest teachers.
 				<br><br><br>
 				<b><i>Chethan currently teaches at the Yoga Patahshala in bangalore. The brothers have started teaching yoga all round the globe with worshops & retreats.And will soon be starting advance training programs too. </i></b>
 				<br/><br/>

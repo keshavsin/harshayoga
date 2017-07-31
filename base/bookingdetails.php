@@ -9,31 +9,30 @@ $bookingid = $_GET['id'];
   <div class="table_wrapper bookingdetails">
     <h2 class="headertable">Booking Details</h2>
     <div class="container-fluid" id="booking_container">
-        <?php
-            require_once 'common/dbconf.php';
-            $sql = "select * from booking where id= '$bookingid'";
-            $data = $db->query($sql);
-            $str = '';
-            if ($data->num_rows>0) {
-              $str.= '<div class="table-responsive"><table class="table"><tbody>';
-              while( $row = $data->fetch_array(MYSQLI_ASSOC)){
-                $str.= '<tr><th>Id</th><td>'.$row["id"].'</td></tr>';
-                $str.= '<tr><th>Name</th><td>'.$row["name"].'</td></tr>';
-                $str.= '<tr><th>Type</th><td>'.$row["booking_type"].'</td></tr>';
-                $str.= '<tr><th>Retreat Id</th><td>'.$row["retreat_id"].'</td></tr>';
-                $str.= '<tr><th>Class Id</th><td>'.$row["class_id"].'</td></tr>';
-                $str.= '<tr><th>Amount</th><td>'.$row["amount_paid"].'</td></tr>';
-                $str.= '<tr><th>Currency</th><td>'.$row["currency"].'</td></tr>';
-                $str.= '<tr><th>Email</th><td>'.$row["email"].'</td></tr>';
-                $str.= '<tr><th>Mobile</th><td>'.$row["mobile"].'</td></tr>';
-                $str.= '<tr><th>Date</th><td>'.$row["booking_date"].'</td></tr>';
+      <?php
+        require_once 'common/dbconf.php';
+        $sql = "select * from booking where id= '$bookingid'";
+        $data = $db->query($sql);
+        $str = '';
+
+        if ($data->num_rows > 0) {
+            $str.= '<div class="table-responsive"><table class="table"><tbody>';
+            while ($row = $data->fetch_array(MYSQLI_ASSOC)) {
+                $str.= '<tr><th>Id</th><td>' . $row["id"] . '</td></tr>';
+                $str.= '<tr><th>Product Id</th><td>' . $row["product_id"] . '</td></tr>';
+                $str.= '<tr><th>Name</th><td>' . $row["name"] . '</td></tr>';
+                $str.= '<tr><th>Email</th><td>' . $row["email"] . '</td></tr>';
+                $str.= '<tr><th>Mobile</th><td>' . $row["mobile"] . '</td></tr>';
+                $str.= '<tr><th>Booking Date</th><td>' . $row["booking_date"] . '</td></tr>';
+                $str.= '<tr><th>Class Id</th><td>' . $row["class_id"] . '</td></tr>';
+                $str.= '<tr><th>Amount</th><td>' . $row["amount_paid"] . '</td></tr>';
             }
             $str.= '</tbody></table></div>';
-          } else {
+        } else {
             $str.= "<div class='row'><div class='col-xs-12'><div class='alert alert-warning'>No data available</div></div></div>";
-          }
-          echo $str;
-        ?>
+        }
+        echo $str;
+      ?>
     </div>
   </div>
 </section>

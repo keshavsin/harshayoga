@@ -1,7 +1,6 @@
 <?php
 $email = 'WWV3YWQrK1BpVExUVWFpMXhiZ0pUaW80M1hjK01aSDVnTFd4SUwrSWc4bz0=';
-function my_simple_crypt($string, $action = 'e')
-{
+function my_simple_crypt($string, $action = 'e') {
     $secret_key     = 'D69e4K13w9KFFly5J3wHcCG3MNa';
     $secret_iv      = 'S8TW2ET26nem';
     $output         = false;
