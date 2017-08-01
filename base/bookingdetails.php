@@ -24,7 +24,6 @@ $bookingid = $_GET['id'];
                 $str.= '<tr><th>Email</th><td>' . $row["email"] . '</td></tr>';
                 $str.= '<tr><th>Mobile</th><td>' . $row["mobile"] . '</td></tr>';
                 $str.= '<tr><th>Booking Date</th><td>' . $row["booking_date"] . '</td></tr>';
-                $str.= '<tr><th>Class Id</th><td>' . $row["class_id"] . '</td></tr>';
                 $str.= '<tr><th>Amount</th><td>' . $row["amount_paid"] . '</td></tr>';
             }
             $str.= '</tbody></table></div>';

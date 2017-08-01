@@ -31,7 +31,7 @@ include 'common/header.php';
                   $str.= '<td>' . $row["class_type"] . '</td>';
                   $str.= '<td>' . $row["type"] . '</td>';
                   $str.= '<td>' . $row["duration"] . ' (' . $row['duration_unit'] . ')</td>';
-                  $str.= '<td>' . $row["amount"] . '/-</td>';
+                  $str.= '<td>' . $row["price"] . '/-</td>';
                   $str.= '<td>' . $row["currency"] . '</td>';
                   if ($row["is_active"] == 1) {
                       $str.= '<td class="bg-success" id="act_' . $row["id"] . '">Active</td>';
@@ -63,7 +63,7 @@ include 'common/header.php';
               echo "<script>alert('One of the field is empty, Please provide the details')</script>";
               exit();
           } else {
-              $insert_query = "update product set class_type = '$post_type',type = '$post_type1',duration = '$post_duration',duration_unit = '$post_duration_unit', amount = '$post_amount',currency = '$post_currency', description= '$post_description' WHERE id='$post_updateid'";
+              $insert_query = "update product set class_type = '$post_type',type = '$post_type1',duration = '$post_duration',duration_unit = '$post_duration_unit', price = '$post_amount',currency = '$post_currency', description= '$post_description' WHERE id='$post_updateid'";
               if (mysqli_query($db, $insert_query)) {
                   echo "<script>alert('Updated Successfuly')</script>";
                   echo "<script>window.open('manage_classes.php','_self')</script>";
@@ -122,7 +122,7 @@ include 'common/header.php';
           </div>
           <div class="form-group">
             <input type="hidden" value="<?php echo $row["id"] ?>" id="updateid" name="updateid">
-            <input type="text" class="form-control form-shadow" value="<?php echo $row["amount"] ?>" placeholder="Amount" id="amount" name="amount">
+            <input type="text" class="form-control form-shadow" value="<?php echo $row["price"] ?>" placeholder="Amount" id="amount" name="amount">
           </div>
           <div class="form-group">
             <select type="text" class="form-control form-shadow" id="currency" name="currency">
@@ -187,7 +187,7 @@ echo $str;
               echo "<script>alert('Any of the fields is empty')</script>";
               exit();
           } else {
-              $insert_query = "insert into product(class_type,type,duration,duration_unit,amount,currency,description) values ('$post_type','$post_type1','$post_duration','$post_duration_unit','$post_amount','$post_currency','$post_description')";
+              $insert_query = "insert into product(class_type,type,duration,duration_unit,price,currency,description) values ('$post_type','$post_type1','$post_duration','$post_duration_unit','$post_amount','$post_currency','$post_description')";
               if (mysqli_query($db, $insert_query)) {
                   echo "<script>alert('Inserted Successfuly')</script>";
                   echo "<script>window.open('manage_classes.php','_self')</script>";

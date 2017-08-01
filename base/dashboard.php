@@ -21,23 +21,23 @@ include 'common/header.php';
             $str = '';
             if($data->num_rows>0){
               $str.= '<div class="table-responsive"><table class="table"><tbody>';
-              $str.= '<thead><th>Id</th><th>Product ID</th><th>Name</th><th>Email</th><th>Amount paid</th><th>Booking Date</th><th>Status</th><th>&nbsp;</th></thead><tbody>';
-              while( $row = $data->fetch_array(MYSQLI_ASSOC)){
+              $str.= '<thead><th>Id</th><th>Product ID</th><th>Name</th><th>Email</th><th>Amount</th><th>Booking Date</th><th>Status</th><th>&nbsp;</th></thead><tbody>';
+              while( $row = $data->fetch_array(MYSQLI_ASSOC)) {
                 $str.= '<tr>';
                 $str.= '<td>'.$row["id"].'</td>';
-				$str.= '<td>'.$row["product_id"].'</td>';
-             
+				        $str.= '<td>'.$row["product_id"].'</td>';
                 $str.= '<td>'.$row["name"].' </td>';
                 $str.= '<td>'.$row["email"].'</td>';
                 $str.= '<td>'.$row["amount_paid"].'</td>';
-				$str.= '<td>'.$row["booking_date"].' </td>';
-                $str.= '<td>'.$row["status"].'</td>';
-              
-               
-
-               
-                $str.= '</td>';
-            }
+        				$str.= '<td>'.$row["booking_date"].' </td>';
+                if ($row["status"] === 'success') {
+                    $str.= '<td style="background:lightgreen">'.$row["status"].'</td>';
+                } else {
+                    $str.= '<td style="background:cyan">'.$row["status"].'</td>';
+                }
+                $str.= '<td><a class="btn btn-default edit_btn" href="bookingdetails.php?id=' . $row["id"] . '">View Details</a></td>';
+                $str.= '</tr>';
+              }
             $str.= '</tbody></table></div>';
           }else{
             $str.= "<div class='row'><div class='col-xs-12'><div class='alert alert-warning'>No data available</div></div></div>";

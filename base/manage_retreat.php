@@ -30,7 +30,7 @@ include 'common/header.php';
                   $str .= '<td>' . $row["type"] . '</td>';
                   $str .= '<td>' . $row["title"] . '</td>';
                   $str .= '<td>' . $row["duration"] . ' (' . $row['duration_unit'] . ')</td>';
-                  $str .= '<td>' . $row["amount"] . '/-</td>';
+                  $str .= '<td>' . $row["price"] . '/-</td>';
                   $str .= '<td>' . $row["currency"] . '</td>';
                   $str .= '<td>' . $row["start_date"] . '</td>';
                   $str .= '<td>' . $row["end_date"] . ' </td>';
@@ -68,7 +68,7 @@ include 'common/header.php';
               exit();
           } else {
               $insert_query = "update product set type = '$post_type',title = '$post_title',duration = '$post_duration',duration_unit = '$post_duration_unit',
-                  amount='$post_amount',currency = '$post_currency',start_date = '$post_start_date',end_date = '$post_end_date', description = '$post_description' WHERE id='$post_updateid'";
+                  price='$post_amount',currency = '$post_currency',start_date = '$post_start_date',end_date = '$post_end_date', description = '$post_description' WHERE id='$post_updateid'";
               echo "<script>alert('" . $insert_query . "')</script>";
               if (mysqli_query($db, $insert_query)) {
                   echo "<script>alert('Updated Successfuly')</script>";
@@ -121,7 +121,7 @@ include 'common/header.php';
             </div>
             <div class="form-group">
               <input type="hidden" value="<?php echo $row["id"] ?>" id="updateid" name="updateid">
-              <input type="text" class="form-control form-shadow" value="<?php echo $row["amount"] ?>" placeholder="Amount" id="amount" name="amount">
+              <input type="text" class="form-control form-shadow" value="<?php echo $row["price"] ?>" placeholder="Amount" id="amount" name="amount">
             </div>
             <div class="form-group">
               <select type="text" class="form-control form-shadow" id="currency" name="currency">
@@ -194,7 +194,7 @@ echo $str;
               echo "<script>alert('One of the field is empty')</script>";
               exit();
           } else {
-              $insert_query = "insert into product(type,title,duration,duration_unit,amount,currency,start_date,end_date,description) values ('$post_type','$post_title','$post_duration','$post_duration_unit','$post_amount','$post_currency','$post_start_date','$post_end_date','$post_description')";
+              $insert_query = "insert into product(type,title,duration,duration_unit,price,currency,start_date,end_date,description) values ('$post_type','$post_title','$post_duration','$post_duration_unit','$post_amount','$post_currency','$post_start_date','$post_end_date','$post_description')";
               if (mysqli_query($db, $insert_query)) {
                   echo "<script>alert('Added new Retreat')</script>";
                   echo "<script>window.open('manage_retreat.php','_self')</script>";
