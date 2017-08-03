@@ -1,6 +1,6 @@
 <?php
 include 'common/session_check.php';
-$currentPage = "ttc_schedule";
+$currentPage = "workshop_schedule";
 include 'common/header.php';
 ?>
 <section class="innerpage">
@@ -8,31 +8,33 @@ include 'common/header.php';
   <div class="table_wrapper bookingdetails">
     <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-6"><h2 class="headertable">TTC Schedule</h2></div>
+      <div class="col-xs-6"><h2 class="headertable">Workshop Schedule</h2></div>
       <div class="col-xs-6 text-right"><a href="#classmodal" class="btn btn-info" data-toggle="modal">Add New</a></div>
     </div>
   </div>
     <div class="container-fluid" id="booking_container">
-        <div class="error_msg" id="class_emsg">Unable to Update</div>
+        <div class="error_msg" id="class_emsg">Error while Updating</div>
         <div class="success_msg" id="class_smsg">Successfully Updated</div>
         <?php
             require_once 'common/dbconf.php';
-            $sql = "select * from ttc_schedule where is_active='1'";
+            $sql = "select * from workshop_schedule where is_active='1'";
             $data = $db->query($sql);
             $str = '';
       			$i=1;
             if ($data->num_rows>0) {
               $str.= '<div class="table-responsive"><table class="table"><tbody>';
-              $str.= '<thead><th>ID</th><th>TTC Name</th><th>Month</th><th>Year</th><th>Location</th><th>Start Date</th><th>End Date</th><th>Fees</th><th>Status </th><th>&nbsp;</th></thead><tbody>';
+              $str.= '<thead><th>ID</th><th>Workshop Name</th><th>Teacher</th><th>Hours</th><th>Location</th><th>Year</th><th>Start Date</th><th>End Date</th><th>Boarding & Lodging</th><th>Fees</th><th>Status </th><th>&nbsp;</th></thead><tbody>';
               while ($row = $data->fetch_array(MYSQLI_ASSOC)) {
                 $str.= '<tr>';
 			        	$str.= '<td>'.$row["id"].'</td>';
-                $str.= '<td>'.$row["ttc_name"].'</td>';
-                $str.= '<td>'.$row["month"].'</td>';
-                $str.= '<td>'.$row["year"].' </td>';
+                $str.= '<td>'.$row["workshop"].'</td>';
+                $str.= '<td>'.$row["teacher"].'</td>';
+                $str.= '<td>'.$row["hours"].' </td>';
                 $str.= '<td>'.$row["location"].'</td>';
+                $str.= '<td>'.$row["year"].' </td>';
                 $str.= '<td>'.$row["start_date"].'</td>';
         				$str.= '<td>'.$row["end_date"].' </td>';
+                $str.= '<td>'.$row["boarding"].' </td>';
                 $str.= '<td>'.$row["price"].'</td>';
               
                 if ($row["is_active"] == 1) {
@@ -47,49 +49,53 @@ include 'common/header.php';
   <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modify TTC Schedule</h4>
+        <h4 class="modal-title">Modify Workshop Schedule</h4>
       </div>
       <?php
       if (isset($_POST['update'])) {
           require_once 'common/dbconf.php';
-          $post_ttc_name   = $_POST['ttc_name'];
-          $post_month      = $_POST['month'];
-          $post_year       = $_POST['year'];
+          $post_workshop   = $_POST['workshop'];
+          $post_teacher    = $_POST['teacher'];
+          $post_hours      = $_POST['hours'];
           $post_location   = $_POST['location'];
+          $post_year       = $_POST['year'];
           $post_start_date = $_POST['start_date'];
           $post_end_date   = $_POST['end_date'];
+          $post_boarding   = $_POST['boarding'];
           $post_price      = $_POST['amount'];
           $post_updateid   = $_POST['updateid'];
           
-          if ($post_ttc_name == '' or $post_month == '' or $post_year == '' or $post_location == '' or $post_start_date == '' or $post_price == '') {
-              echo "<script>alert('Any of the fields is empty')</script>";
+          if ($post_workshop == '' or $post_teacher == '' or $post_year == '' or $post_location == '' or $post_start_date == '' or $post_price == '') {
+              echo "<script>alert('One of the field is empty')</script>";
               exit();
           } else {
-              $insert_query = "update ttc_schedule set ttc_name = '$post_ttc_name',month = '$post_month',year = '$post_year',location = '$post_location', start_date = '$post_start_date',end_date = '$post_end_date', price = '$post_price' WHERE id='$post_updateid'";
-              
+              $insert_query = "update workshop_schedule set workshop = '$post_workshop',teacher = '$post_teacher',hours = '$post_hours',location = '$post_location', year = '$post_year', start_date = '$post_start_date',end_date = '$post_end_date', price = '$post_price', boarding = '$post_boarding' WHERE id='$post_updateid'";
               if (mysqli_query($db, $insert_query)) {
                   echo "<script>alert('Updated Successfuly')</script>";
-                  echo "<script>window.open('ttc_schedule.php','_self')</script>";
+                  echo "<script>window.open('workshop_schedule.php','_self')</script>";
               } else {
                   echo "<script>alert('Updated Failed')</script>";
-                  echo "<script>window.open('ttc_schedule.php','_self')</script>";
+                  echo "<script>window.open('workshop_schedule.php','_self')</script>";
               }
           }
       }
       ?>
-  		<form action="ttc_schedule.php" method="post" enctype="multipart/form-data">
+  		<form action="workshop_schedule.php" method="post" enctype="multipart/form-data">
       <div class="modal-body">
         <div class="form-group">
-         <input type="text" class="form-control form-shadow" value="<?php echo $row["ttc_name"] ?>" placeholder="TTC Name" id="ttc_name" name="ttc_name">
+         <input type="text" class="form-control form-shadow" value="<?php echo $row["workshop"] ?>" placeholder="Workshop Name" id="workshop_name" name="workshop">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control form-shadow" value="<?php echo $row["month"] ?>" placeholder="Month" id="month" name="month">
+          <input type="text" class="form-control form-shadow" value="<?php echo $row["teacher"] ?>" placeholder="Teacher" id="teacher" name="teacher">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control form-shadow" value="<?php echo $row["year"] ?>" placeholder="Year" id="year" name="year">
+          <input type="text" class="form-control form-shadow" value="<?php echo $row["hours"] ?>" placeholder="Hours" id="hours" name="hours">
         </div>
         <div class="form-group">
           <input type="text" class="form-control form-shadow" value="<?php echo $row["location"] ?>" placeholder="Location" id="location" name="location">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control form-shadow" value="<?php echo $row["year"] ?>" placeholder="Year" id="year" name="year">
         </div>
         <div class="form-group">
           <input type="date" class="form-control form-shadow" value="<?php echo $row["start_date"] ?>" placeholder="DD/MM/YYYY" id="start_date" name="start_date">
@@ -97,6 +103,9 @@ include 'common/header.php';
         <div class="form-group">
           <input type="date" class="form-control form-shadow" value="<?php echo $row["end_date"] ?>" placeholder="DD/MM/YYYY" id="end_date" name="end_date">
         </div>
+        <div class="form-group">
+          <input type="text" class="form-control form-shadow" value="<?php echo $row["boarding"] ?>" placeholder="Boarding & Lodging" id="boarding" name="boarding">
+        </div>        
         <div class="form-group">
           <input type="hidden" value="<?php echo $row["id"] ?>" id="updateid" name="updateid">
           <input type="text" class="form-control form-shadow" value="<?php echo $row["price"] ?>" placeholder="Fees" id="amount" name="amount">
@@ -129,60 +138,66 @@ echo $str;
   <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add TTC Schedule</h4>
+        <h4 class="modal-title">Add Workshop Schedule</h4>
       </div>
       <?php
       if (isset($_POST['submit'])) {
           require_once 'common/dbconf.php';
-          $post_ttc_name   = $_POST['ttc_name'];
-          $post_month      = $_POST['month'];
-          $post_year       = $_POST['year'];
+          $post_workshop   = $_POST['workshop'];
+          $post_teacher    = $_POST['teacher'];
+          $post_hours       = $_POST['hours'];
           $post_location   = $_POST['location'];
+          $post_year       = $_POST['year'];
           $post_start_date = $_POST['start_date'];
           $post_end_date   = $_POST['end_date'];
+          $post_boarding   = $_POST['boarding'];
           $post_price      = $_POST['amount'];
           
-          if ($post_ttc_name == '' or $post_month == '' or $post_year == '' or $post_location == '' or $post_start_date == '' or $post_price == '') {
+          if ($post_workshop == '' or $post_teacher == '' or $post_hours == '' or $post_year == '' or $post_location == '' or $post_start_date == '' or $post_price == '') {
               echo "<script>alert('One of the field is empty')</script>";
               exit();
           } else {
-              $insert_query = "insert into ttc_schedule(ttc_name,month,year,location,start_date,end_date,price) values ('$post_ttc_name','$post_month','$post_year','$post_location',
-                  '$post_start_date','$post_end_date','$post_price')";
-              
+              $insert_query = "insert into workshop_schedule(workshop,teacher,hours,location,year,start_date,end_date,boarding,price) values ('$post_workshop','$post_teacher','$post_hours','$post_location','$post_year','$post_start_date','$post_end_date','$post_boarding','$post_price')";
               if (mysqli_query($db, $insert_query)) {
                   echo "<script>alert('Inserted Successfuly')</script>";
-                  echo "<script>window.open('ttc_schedule.php','_self')</script>";
+                  echo "<script>window.open('workshop_schedule.php','_self')</script>";
                   
               } else {
                   echo "<script>alert('Inserted Failed')</script>";
-                  echo "<script>window.open('ttc_schedule.php','_self')</script>";
+                  echo "<script>window.open('workshop_schedule.php','_self')</script>";
               }
           }
       }
       ?>
-  		<form action="ttc_schedule.php" method="post" enctype="multipart/form-data">
+  		<form action="workshop_schedule.php" method="post" enctype="multipart/form-data">
       <div class="modal-body">
         <div class="form-group">
-              <input type="text" class="form-control form-shadow" value="<?php echo $row["ttc_name"] ?>" placeholder="TTC Name" id="ttc_name" name="ttc_name">
+              <input type="text" class="form-control form-shadow" placeholder="Workshop Name" id="workshop_name" name="workshop">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control form-shadow" value="<?php echo $row["month"] ?>" placeholder="Month" id="month" name="month">
+              <input type="text" class="form-control form-shadow" placeholder="Teacher" id="teacher" name="teacher">
             </div>
 		      	<div class="form-group">
-              <input type="text" class="form-control form-shadow" value="<?php echo $row["year"] ?>" placeholder="Year" id="year" name="year">
+              <input type="text" class="form-control form-shadow" placeholder="Hours" id="hours" name="hours">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control form-shadow" value="<?php echo $row["location"] ?>" placeholder="Location" id="location" name="location">
+              <input type="text" class="form-control form-shadow" placeholder="Location" id="location" name="location">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-shadow" placeholder="Year" id="year" name="year">
             </div>
     				<div class="form-group">
-              <input type="date" class="form-control form-shadow" value="<?php echo $row["start_date"] ?>" placeholder="DD/MM/YYYY" id="start_date" name="start_date">
+              <input type="date" class="form-control form-shadow" placeholder="DD/MM/YYYY" id="start_date" name="start_date">
             </div>
             <div class="form-group">
-              <input type="date" class="form-control form-shadow" value="<?php echo $row["end_date"] ?>" placeholder="DD/MM/YYYY" id="end_date" name="end_date">
+              <input type="date" class="form-control form-shadow" placeholder="DD/MM/YYYY" id="end_date" name="end_date">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-shadow" placeholder="Boarding & Lodging" id="boarding" name="boarding">
             </div>
             <div class="form-group">
 	        		 <input type="hidden" value="<?php echo $row["id"] ?>" id="updateid" name="updateid">
-               <input type="text" class="form-control form-shadow" value="<?php echo $row["price"] ?>" placeholder="Fees" id="amount" name="amount">
+               <input type="text" class="form-control form-shadow" placeholder="Fees" id="amount" name="amount">
             </div>
       </div>
       <div class="modal-footer">

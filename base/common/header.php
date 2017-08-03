@@ -111,6 +111,15 @@ if ($currentPage == 'login') {
           ?>
             <a href="testimonial.php">Testimonial</a>
           </li>
+          <?php 
+          if ($currentPage == 'workshop_schedule') {
+              echo '<li class="active">';
+          } else {
+              echo '<li>';
+          }
+          ?>
+            <a href="workshop_schedule.php">Workshop Schedule</a>
+          </li>
           <li>
             <a href="logout.php" class="apply_btn">Log Out</a>
           </li>

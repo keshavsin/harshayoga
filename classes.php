@@ -18,7 +18,7 @@ include 'common/header.php';
         </div>
         <div class="col-xs-6 col-sm-4 col-md-15">
             <div class="batch_card colr2">
-                <div class="time_txt">8:30</div>
+                <div class="time_txt">8:00</div>
                 <div class="time_format">AM</div>
             </div>
         </div>
@@ -47,7 +47,7 @@ include 'common/header.php';
   <div class="row mrgn_b30">
 <?php
 $modal_box = '';
-$sql       = "SELECT * FROM product where type = ' Regular Classes' AND class_type = 'Weekday' AND is_active=1";
+$sql       = "SELECT * FROM product where type = 'Regular Classes' AND class_type = 'Weekday' AND is_active=1";
 $result    = $db->query($sql);
 if ($result->num_rows > 0) {
     $indx = 1;
@@ -90,7 +90,7 @@ if ($result->num_rows > 0) {
 <h2 class="heading3 text-center">Weekend Classes</h2>
   <div class="row">
 <?php
-$sql1    = "SELECT * FROM product where type = 'class' AND class_type = 'weekend' AND is_active=1";
+$sql1    = "SELECT * FROM product where type = 'Regular Classes' AND class_type = 'weekend' AND is_active=1";
 $result1 = $db->query($sql1);
 if ($result1->num_rows > 0) {
     $indx1 = 5;

@@ -17,7 +17,7 @@ include 'common/header.php';
         <div class="success_msg" id="class_smsg">Successfully updated</div>
           <?php
           require_once 'common/dbconf.php';
-          $sql  = "select * from product where type='Retreat'";
+          $sql  = "select * from product where type='Retreat' order by title";
           $data = $db->query($sql);
           $str  = '';
           $i    = 1;
@@ -47,7 +47,7 @@ include 'common/header.php';
   <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modify Class</h4>
+        <h4 class="modal-title">Modify Retreat</h4>
       </div>
       <?php
       if (isset($_POST['update'])) {
@@ -174,7 +174,7 @@ echo $str;
   <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add/Modify Class</h4>
+        <h4 class="modal-title">Add Retreat</h4>
       </div>
       <?php
       if (isset($_POST['submit'])) {

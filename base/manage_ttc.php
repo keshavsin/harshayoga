@@ -59,9 +59,9 @@ include 'common/header.php';
           $post_currency      = $_POST['currency'];
           $post_description   = $_POST['description'];
           $post_updateid      = $_POST['updateid'];
-          
+      
           if ($post_type == '' or $post_title == '' or $post_duration == '' or $post_amount == '' or $post_currency == '' or $post_description == '') {
-              echo "<script>alert('Any of the fields is empty')</script>";
+              echo "<script>alert('One of the field is empty')</script>";
               exit();
           } else {
               $insert_query = "update product set type = '$post_type',title = '$post_title',duration = '$post_duration',duration_unit = '$post_duration_unit',price = '$post_amount',currency = '$post_currency' , description = '$post_description' WHERE id='$post_updateid'";
@@ -78,7 +78,6 @@ include 'common/header.php';
       ?>
   		<form action="manage_ttc.php" method="post" enctype="multipart/form-data">
       <div class="modal-body">
-          
             <div class="form-group">
               <select class="form-control form-shadow" name="type">
                 <option value="">Type</option>
@@ -141,9 +140,6 @@ include 'common/header.php';
     </div>
   </div>
 </div>
-
-				
-				
 		      <?php if($row["is_active"] == 1){
                 $str.= '<a href="javascript:void(0);" class="btn btn-danger deactive_btn" title="Deactivate" id="btn_'.$row["id"].'" data-id="'.$row["id"].'" data-act="'.$row["is_active"].'">D</a>';
                 }else{
