@@ -38,8 +38,8 @@ include 'common/header.php';
   <section>
     <div class="container-fluid">
       <div class="row table_container">
-      <div class="col-sm-6 table_cell bg_container">
-        	
+      <div class="col-sm-6" style="padding:0;">
+			 <img src="assets/images/abhyasa-bg.jpg" alt="">
         </div>
         <div class="col-sm-6 table_cell cell1">
         	<h2 class="heading1 colr_h">ABHYASA</h2>
