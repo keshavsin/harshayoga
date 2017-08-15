@@ -15,7 +15,7 @@ include 'common/header.php';
 <div class="row mrgn_b30">
 <?php
 $modal_box = '';
-$sql       = "SELECT * FROM product where type = 'retreat' and is_active=1";
+$sql       = "SELECT * FROM product where type = 'retreat' and is_active=1 order by title";
 $result    = $db->query($sql);
 if ($result->num_rows > 0) {
     $indx = 1;
