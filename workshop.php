@@ -59,7 +59,7 @@ include 'common/header.php';
     <div class="container-fluid">
       <h2 class="heading3 text-center">WORKSHOP SCHEDULES</h2>
     </div>
-<div class="container-fluid classes_wrapper">
+<div class="container-fluid classes_wrapper" style="font-size:15px">
 <div class="row mrgn_b30">
  <div class="table-responsive"> 
   <?php
@@ -90,8 +90,8 @@ include 'common/header.php';
           echo '<td>' . $row1['hours'] . '</td>';
           echo '<td>' . $row1['location'] . '</td>';
           echo '<td>' . $row1['year'] . '</td>';
-          echo '<td>' . $row1['start_date'] . '</td>';
-          echo '<td>' . $row1['end_date'] . '</td>';
+          echo '<td>' . date_format(date_create($row1['start_date']), "d M Y") . '</td>';
+          echo '<td>' . date_format(date_create($row1['end_date']), "d M Y") . '</td>';
           echo '<td>' . $row1['boarding'] . '</td>';
           echo '<td>' . $row1['price'] . '</td>';
           echo '</tr>';
