@@ -152,10 +152,10 @@ Upload image:
     					  data: {'name': name, 'phone':phone, 'country':country, 'city':city},
     					  type: 'POST',
     					  success: function(response){
-    						if(response == 'error'){
+    						if(response.trim() == 'error'){
     							$('.error_msg').html("Unable to update! please try again").slideDown();
     							slf.removeClass('loading');
-    						}else if(response == 'success'){
+    						}else if(response.trim() == 'success'){
                   $('#name_txt').text(name);
                   $('#mobile_txt').text(phone);
                   $('#country_txt').text(country);

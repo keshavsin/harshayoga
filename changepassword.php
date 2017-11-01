@@ -69,14 +69,14 @@ $(function(){
 					  data: {'old': old, 'nw': nw},
 					  type: 'POST',
 					  success: function(response){
-						if(response == 'error'){
+						if(response.trim() == 'error'){
 							$('.error_msg').html("Invalid User").slideDown();
 							slf.removeClass('loading');
-						}else if(response == 'success'){
+						}else if(response.trim() == 'success'){
               $('.success_msg').html("Password successfully changed").slideDown();
               $('.form-control').val('');
               slf.removeClass('loading');
-						}else if(response == 'notactive'){
+						}else if(response.trim() == 'notactive'){
               $('.error_msg').html("Incorrect old password").slideDown();
               slf.removeClass('loading');
             }
