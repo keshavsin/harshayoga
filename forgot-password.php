@@ -58,12 +58,12 @@ $(function(){
 					  data: {'uname': username},
 					  type: 'POST',
 					  success: function(response){
-						if(response == 'error'){
+						if(response.trim() == 'error'){
 							$('.error_msg').html("Invalid User").slideDown();
 							slf.removeClass('loading');
-						}else if(response == 'success'){
+						}else if(response.trim() == 'success'){
             window.location.href = 'forgotsuccess.php';
-          }else if(response == 'nouser'){
+          }else if(response.trim() == 'nouser'){
               $('.error_msg').html("Either user is not active or not found.").slideDown();
               slf.removeClass('loading');
             }
