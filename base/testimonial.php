@@ -56,9 +56,10 @@ include 'common/header.php';
           
           if ($post_username == '' or $post_photo == '' or $post_remarks == '') {
               echo "<script>alert('All fields are required')</script>";
-              exit();
+              echo "<script>window.open('testimonial.php','_self')</script>";
           } else {
-              $insert_query = "update testimonials set username = '$post_username',photo = '$post_photo',remarks = '$post_remarks' WHERE id='$post_updateid'";
+            move_uploaded_file($image_tmp, "../assets/images/testimonial/$post_photo");
+              $insert_query = "update testimonials set username = '$post_username',photo = '$post_photo',remarks = '$post_remarks' WHERE id = '$post_updateid'";
               if (mysqli_query($db, $insert_query)) {
                   echo "<script>alert('Updated Successfuly')</script>";
                   echo "<script>window.open('testimonial.php','_self')</script>";
@@ -127,7 +128,7 @@ echo $str;
           
           if ($post_username == '' or $post_photo == '' or $post_remarks == '') {
               echo "<script>alert('Any of the fields is empty')</script>";
-              exit();
+              echo "<script>window.open('testimonial.php','_self')</script>";
           } else {
               move_uploaded_file($image_tmp, "../assets/images/testimonial/$post_photo");
               $insert_query = "insert into testimonials(username,photo,remarks, is_active,created_date) values ('$post_username','$post_photo','$post_remarks','1',NOW())";
