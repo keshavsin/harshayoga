@@ -167,9 +167,9 @@ Along with the above, the students will get to experience the best teachings.
 
 
 <section class="container-fluid">
-      <div class="row table_container">
+      <div class="row table_container" style="padding:20px 20px 20px 20px">
       
-        <div class="col-sm-6 table_cell cell1">
+        <div class="col-sm-6  ">
         	<h2 class="heading1 colr_h">WHY US?</h2>
             <p>Harsha has practiced the Iyengar’s teachings techniques &amp; the traditional Ashtanga Vinyasa along with years of hatha yoga practice. With the strong knowledge base of the major scriptures backed with the therapeutic knowledge is indeed a blessing for an aspiring teacher to learn. With a decade worth of studies &amp; practice, the experience is unmatched.
             <br/><br/>
@@ -177,10 +177,11 @@ Along with the above, the students will get to experience the best teachings.
             </p>
             <br><br><br><br><br>
         </div>
-        <div class="col-sm-6 table_cell bg_container1">
-        	
+        <div class="col-sm-6  ">
+        <img src="assets/images/whyus-bg.jpg" alt="" style="width:100%;height:auto">
         </div>
       </div>
+      
 </section>
 
 
