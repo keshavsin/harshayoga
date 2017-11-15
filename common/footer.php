@@ -7,10 +7,10 @@
 				Rajarajeshwarinagar, Bangalore.<br/>
 				Email: <a href="mailto:harsha@harshayoga.com">harsha@harshayoga.com</a><br/>
 			</div>
-			<div class="footer_address col-xs-12 col-sm-6 col-md-5 col-lg-4 hide">
+			<div class="footer_address col-xs-12 col-sm-6 col-md-5 col-lg-4 ">
 				<h3 class="heading2 text-center">(Mysuru)</h3>
-				Ideal Homes Main Road, Above Sangeetha Mobiles<br/>
-				Rajarajeshwarinagar, Bangalore.<br/>
+				Bommuru Agrahara village,Near Pashchima Vahini Circle,<br/>
+				Palahalli Post, Belagola Hobli, Srirangapatna Taluk, Karnataka 571606<br/>
 				Email: <a href="mailto:harsha@harshayoga.com">harsha@harshayoga.com</a><br/>
 			</div>
 		</div>
