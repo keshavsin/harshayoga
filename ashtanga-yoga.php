@@ -23,7 +23,7 @@ Hence helping an individual acquire the knowledge knowing which everything becom
 Being globally recognized for its importance in helping individuals over come one's own inhibitions, Ashtanga Yoga holds the key in changing the fate of an individual inside out.
 The true power of Ashtanga yoga can only be felt &amp; acquired by purity &amp; persistence practice. For without the underlying principle of yama &amp; Niyama, The mere practice becomes acrobatic.
 <br/><br/>
-<div class="bg-info text-center"><i>***Regular classes &amp; TTC on Ashtanga yoga go on in both the shalas.***Refer the TTC page more info</i></div>
+<div class="bg-info text-center"><i>***Regular classes &amp; TTC on Ashtanga yoga go on in both the shalas.***Refer the TTC page for more info</i></div>
 <br/>
 </p>
 </div>
