@@ -45,7 +45,7 @@ include 'base/common/dbconf.php';
   <header class="main_header">
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="social_header clearfix">
-        <div class="tel_wrap">Call Us: <a href="tel:+919483852050">+91-9483852050</a></div>
+        <div class="tel_wrap hidden-xs">Call Us: <a href="tel:+919483852050">+91-9483852050</a></div>
         <div class="social_lnkwrap"><a href="https://www.facebook.com/pages/Harsha-yoga/1401642140138021?ref=hl" class="social_lnk fb" target="_blank"></a><a href="https://www.youtube.com/channel/UCEpNMWkPBJR8EEtwiOVf1QA/videos" class="social_lnk yu" target="_blank"></a><a href="http://instagram.com/harsha_yoga" class="social_lnk in" target="_blank"></a></div>
       </div>
       <nav id="myNavbar" class="navbar navbar-default" role="navigation">
