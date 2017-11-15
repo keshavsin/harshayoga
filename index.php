@@ -35,6 +35,108 @@ include 'common/header.php';
           </a>
     </div>
   </section>
+
+  <section class="gradiant_bg">
+  	<div class="testimonial_wrap">
+    	<h2 class="heading1 cntr_h">QUOTES</h2>
+		
+   
+  <div class='row'>
+    <div class='col-md-offset-2 col-md-8'>
+      <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+        <!-- Bottom Carousel Indicators -->
+       
+					
+						
+					
+					
+          
+						
+        </ol>
+        
+	
+        <!-- Carousel Slides / Quotes -->
+        <div class="carousel-inner">
+        
+		
+		
+						<div class="item active">
+							<blockquote>
+								<div class="row">								
+                <div class="col-sm-2">
+										</div>
+										<div class="col-sm-8 text-center">
+                    <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!</p>
+									</div>
+                  <div class="col-sm-2">
+										</div>
+									</div>
+								</blockquote>
+						</div>		
+
+            <div class="item ">
+							<blockquote>
+								<div class="row">								
+                <div class="col-sm-2">
+										</div>
+										<div class="col-sm-8 text-center">
+                    <p>Classic pose, when practiced with discrimination and awareness, brings the body , mind and consciousness into a single , harmonious whole.</p>
+									</div>
+                  <div class="col-sm-2">
+										</div>
+									</div>
+								</blockquote>
+						</div>		
+
+
+
+            <div class="item">
+							<blockquote>
+								<div class="row">								
+                <div class="col-sm-2">
+										</div>
+										<div class="col-sm-8 text-center">
+                    <p>Practice asanas by creating space in the muscles and skin, so that the fine network of the body fits into the asana.</p>
+									</div>
+                  <div class="col-sm-2">
+										</div>
+									</div>
+								</blockquote>
+						</div>		
+
+
+
+
+            <div class="item">
+							<blockquote>
+								<div class="row">								
+                <div class="col-sm-2">
+										</div>
+										<div class="col-sm-8 text-center">
+                    <p>The intensity of the stretch should increase and rejuvenate from moment to moment.</p>
+									</div>
+                  <div class="col-sm-2">
+										</div>
+									</div>
+								</blockquote>
+						</div>		
+
+
+					
+
+            
+						
+		
+        </div>
+        
+        <!-- Carousel Buttons Next/Prev -->
+        <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+      </div>                          
+    </div>
+  </div>
+    </div>
+  </section>
   <section>
     <div class="container-fluid">
       <div class="row table_container">
