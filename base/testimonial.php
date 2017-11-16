@@ -13,17 +13,17 @@ include 'common/header.php';
     </div>
   </div>
     <div class="container-fluid" id="booking_container">
-        <div class="error_msg" id="class_emsg">Unable to Update</div>
+        <div class="error_msg" id="class_emsg">Error while updating, Refresh page and try again !!</div>
         <div class="success_msg" id="class_smsg">Successfully Updated</div>
         <?php
         require_once 'common/dbconf.php';
-        $sql  = "select * from testimonials where is_active='1'";
+        $sql  = "select * from testimonials";
         $data = $db->query($sql);
         $str  = '';
         $i    = 1;
         if ($data->num_rows > 0) {
-            $str .= '<div class="table-responsive"><table class="table"><tbody>';
-            $str .= '<thead><th>Id</th><th>Username</th><th>Photo</th><th>Remarks</th><th>Status</th><th>&nbsp;</th></thead><tbody>';
+            $str .= '<div class="table-responsive"><table class="table">';
+            $str .= '<thead><th>Id</th><th>Username</th><th>Photo</th><th>Remarks</th><th>Status</th><th>&nbsp;</th></thead>';
             while ($row = $data->fetch_array(MYSQLI_ASSOC)) {
                 $str .= '<tr>';
                 $str .= '<td>' . $row["id"] . '</td>';
@@ -91,11 +91,11 @@ include 'common/header.php';
   </div>
 </div>
 <?php 
-/*    if ($row["is_active"] == 1) {
+    if ($row["is_active"] == 1) {
         $str .= '<a href="javascript:void(0);" class="btn btn-danger deactive_btn" title="Deactivate" id="btn_' . $row["id"] . '" data-id="' . $row["id"] . '" data-act="' . $row["is_active"] . '">D</a>';
     } else {
         $str .= '<a href="javascript:void(0);" class="btn btn-success deactive_btn" title="Activate" id="btn_' . $row["id"] . '" data-id="' . $row["id"] . '" data-act="' . $row["is_active"] . '">A</a>';
-    }*/
+    }
     $str .= '</td>';
     $i++;
   }
@@ -170,9 +170,9 @@ $(function(){
         $('body').addClass('loading');
         var cid = $(this).data('id');
         var act = $(this).data('act');
-        $.post("change_classstatus.php", {'cid':cid, 'act':act}, function(data){
+        $.post("testimonial_status.php", {'cid':cid, 'act':act}, function(data){
           $('body').removeClass('loading');
-            if(data == 'success'){
+            if(data.trim() == 'success'){
                 if(act == 1){
                   $('#btn_'+cid).removeClass('btn-danger').addClass('btn-success').attr('title', 'Activate').text('A').data('id', 0);
                   $('#act_'+cid).removeClass('bg-success').addClass('bg-warning').text('Not Active');

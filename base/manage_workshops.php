@@ -1,6 +1,6 @@
 <?php
 include 'common/session_check.php';
-$currentPage = "ttc";
+$currentPage = "workshops";
 include 'common/header.php';
 ?>
 <section class="innerpage">
@@ -8,16 +8,16 @@ include 'common/header.php';
   <div class="table_wrapper bookingdetails">
     <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-6"><h2 class="headertable">Class Details</h2></div>
+      <div class="col-xs-6"><h2 class="headertable">Workshops Details</h2></div>
       <div class="col-xs-6 text-right"><a href="#classmodal" class="btn btn-info" data-toggle="modal">Add New</a></div>
     </div>
   </div>
     <div class="container-fluid" id="booking_container">
         <div class="error_msg" id="class_emsg">Error while updating, Refresh page and try again !!</div>
-        <div class="success_msg" id="class_smsg">Successfully updated</div>
+        <div class="success_msg" id="class_smsg">Successfully Updated</div>
         <?php
         require_once 'common/dbconf.php';
-        $sql  = "select * from product where type='Teacher Training Course' ";
+        $sql  = "select * from product where type='Workshops' ";
         $data = $db->query($sql);
         $str  = '';
         $i    = 1;
@@ -46,7 +46,7 @@ include 'common/header.php';
   <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modify TTC</h4>
+        <h4 class="modal-title">Modify Workshop</h4>
       </div>
       <?php
       if (isset($_POST['update'])) {
@@ -68,19 +68,19 @@ include 'common/header.php';
               
               if (mysqli_query($db, $insert_query)) {
                   echo "<script>alert('Updated Successfuly')</script>";
-                  echo "<script>window.open('manage_ttc.php','_self')</script>";
+                  echo "<script>window.open('manage_workshops.php','_self')</script>";
               } else {
                   echo "<script>alert('Updated Failed')</script>";
-                  echo "<script>window.open('manage_ttc.php','_self')</script>";
+                  echo "<script>window.open('manage_workshops.php','_self')</script>";
               }
           }
       }
       ?>
-  		<form action="manage_ttc.php" method="post" enctype="multipart/form-data">
+  		<form action="manage_workshops.php" method="post" enctype="multipart/form-data">
       <div class="modal-body">
             <div class="form-group">
-              <select class="form-control form-shadow" name="type" readOnly>
-                <option value="Teacher Training Course" selected="selected">Teacher Training Course</option>
+              <select class="form-control form-shadow" name="type" readonly>
+                <option value="Workshops" selected="selected">Workshops</option>
               </select>
             </div>
       			<div class="form-group">
@@ -158,7 +158,7 @@ include 'common/header.php';
   <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add TTC</h4>
+        <h4 class="modal-title">Modify Workshop</h4>
       </div>
 	   <?php
 		if(isset($_POST['submit']))
@@ -175,7 +175,7 @@ include 'common/header.php';
 			if($post_type=='' or $post_duration=='' or $post_amount=='' or $post_currency==''  or $post_description=='')
 			{
 
-			echo "<script>alert('Any of the fields is empty')</script>";
+			echo "<script>alert('Enter data for all madatory fields')</script>";
 			exit();
 			}
 
@@ -184,11 +184,11 @@ include 'common/header.php';
 			
 			if(mysqli_query($db,$insert_query)){
 			echo "<script>alert('Inserted Successfuly')</script>";
-				echo "<script>window.open('manage_ttc.php','_self')</script>";
+				echo "<script>window.open('manage_workshops.php','_self')</script>";
 			
 			}else{
 				echo "<script>alert('Inserted Failed')</script>";
-					echo "<script>window.open('manage_ttc.php','_self')</script>";
+					echo "<script>window.open('manage_workshops.php','_self')</script>";
 			}
 
 
@@ -197,12 +197,14 @@ include 'common/header.php';
 		}
 
 		?>
-		<form action="manage_ttc.php" method="post" enctype="multipart/form-data">
+		<form action="manage_workshops.php" method="post" enctype="multipart/form-data">
       <div class="modal-body">
           
             <div class="form-group">
               <select class="form-control form-shadow" name="type" readOnly>
-                <option value="Teacher Training Course" selected="selected">Teacher Training Course</option>
+                <option value="">Type</option>
+                <option value="Workshops" selected="selected">Workshops</option>
+            
               </select>
             </div>
 			  <div class="form-group">

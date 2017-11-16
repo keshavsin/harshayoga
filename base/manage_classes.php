@@ -13,7 +13,7 @@ include 'common/header.php';
     </div>
   </div>
     <div class="container-fluid" id="booking_container">
-        <div class="error_msg" id="class_emsg">Unable to update</div>
+        <div class="error_msg" id="class_emsg">Error while updating, Refresh page and try again !!</div>
         <div class="success_msg" id="class_smsg">Successfully updated</div>
           <?php
           require_once 'common/dbconf.php';
@@ -80,7 +80,7 @@ include 'common/header.php';
             <select class="form-control form-shadow" name="class_type">
               <option value="">Class Type</option>
                 <?php
-                if ($row['class_type'] == "Weekend") {
+                if ($row['class_type'] == "Weekday") {
                     echo '<option value="Weekday" selected="selected">Weekday</option>';
                     echo ' <option value="Weekend">Weekend</option>';
                 } else {
@@ -90,13 +90,9 @@ include 'common/header.php';
             </select>
           </div>
           <div class="form-group">
-            <select class="form-control form-shadow" name="type">
-              <option value="">Type</option>
-                <?php 
-                if ($row['type'] == "Regular Classes") { 
-                 echo '<option value="Regular Classes" selected="selected">Regular Classes</option>';
-                } ?>
-             </select>
+            <select class="form-control form-shadow" name="type" readOnly value="Regular Classes">
+              <option value="Regular Classes" selected="selected">Regular Classes</option>
+            </select>
           </div>
           <div class="form-group">
             <input type="text" class="form-control form-shadow"  value="<?php echo $row["duration"] ?>" placeholder="Duration" id="duration" name="duration">
@@ -110,8 +106,8 @@ include 'common/header.php';
                     echo ' <option value="Hours">Hours</option>';
                     echo ' <option value="Days & Nights">Days & Nights</option>';
                 } elseif ($row['duration_unit'] == "Hours") {
-                    echo '<option value="Hours">Hours</option>';
-                    echo ' <option value="Months" selected="selected">Months</option>';
+                    echo '<option value="Hours" selected="selected">Hours</option>';
+                    echo ' <option value="Months">Months</option>';
                     echo ' <option value="Days & Nights">Days & Nights</option>';
                 } else {
                     echo ' <option value="Days & Nights" selected="selected">Days & Nights</option>';
@@ -208,10 +204,8 @@ echo $str;
               </select>
             </div>
       			<div class="form-group">
-              <select class="form-control form-shadow" name="type">
-                <option value="">Type</option>
-                <option value="Regular Classes">Regular Classes</option>
-             
+              <select class="form-control form-shadow" name="type" readOnly value="Regular Classes">
+                <option value="Regular Classes" selected="selected">Regular Classes</option>
               </select>
             </div>
             <div class="form-group">
@@ -253,7 +247,7 @@ $(function(){
         var act = $(this).data('act');
         $.post("change_classstatus.php", {'cid':cid, 'act':act}, function(data){
           $('body').removeClass('loading');
-            if(data == 'success'){
+            if(data.trim() == 'success'){
                 if(act == 1){
                   $('#btn_'+cid).removeClass('btn-danger').addClass('btn-success').attr('title', 'Activate').text('A').data('id', 0);
                   $('#act_'+cid).removeClass('bg-success').addClass('bg-warning').text('Not Active');

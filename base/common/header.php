@@ -93,6 +93,15 @@ if ($currentPage == 'login') {
           ?>
             <a href="manage_ttc.php">Manage TTC</a>
           </li>
+          <?php 
+          if ($currentPage == 'workshops') {
+              echo '<li class="active">';
+          } else {
+              echo '<li>';
+          }
+          ?>
+            <a href="manage_workshops.php">Manage Workshops</a>
+          </li>
 			    <?php 
           if ($currentPage == 'ttc_schedule') {
               echo '<li class="active">';

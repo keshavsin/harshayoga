@@ -8,12 +8,12 @@ include 'common/header.php';
   <div class="table_wrapper bookingdetails">
     <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-6"><h2 class="headertable">Class Details</h2></div>
+      <div class="col-xs-6"><h2 class="headertable">Retreat Details</h2></div>
       <div class="col-xs-6 text-right"><a href="#classmodal" class="btn btn-info" data-toggle="modal">Add New</a></div>
     </div>
   </div>
     <div class="container-fluid" id="booking_container">
-        <div class="error_msg" id="class_emsg">Unable to Update</div>
+        <div class="error_msg" id="class_emsg">Error while updating, Refresh page and try again !!</div>
         <div class="success_msg" id="class_smsg">Successfully updated</div>
           <?php
           require_once 'common/dbconf.php';
@@ -84,14 +84,8 @@ include 'common/header.php';
       <div class="modal-body">
           
             <div class="form-group">
-              <select class="form-control form-shadow" name="type">
-                <option value="">Type</option>
-                  <?php 
-                  if ($row['type'] == "Retreat") {
-                    echo '<option value="Retreat" selected="selected">Retreat</option>';
-                  } else {
-                    echo '<option value="Retreat">Retreat</option>';
-                  } ?>
+              <select class="form-control form-shadow" name="type" readOnly>
+                <option value="Retreat" selected="selected">Retreat</option>
               </select>
             </div>
 			      <div class="form-group">
@@ -109,8 +103,8 @@ include 'common/header.php';
                     echo ' <option value="Hours">Hours</option>';
                     echo ' <option value="Days & Nights">Days & Nights</option>';
                   } elseif ($row['duration_unit'] == "Hours"){
-                    echo '<option value="Hours">Hours</option>';
-                    echo ' <option value="Months" selected="selected">Months</option>';
+                    echo '<option value="Hours" selected="selected">Hours</option>';
+                    echo ' <option value="Months">Months</option>';
                     echo ' <option value="Days & Nights">Days & Nights</option>';
                   } else {
                     echo ' <option value="Days & Nights" selected="selected">Days & Nights</option>';
@@ -208,9 +202,8 @@ echo $str;
   		<form action="manage_retreat.php" method="post" enctype="multipart/form-data">
       <div class="modal-body">
             <div class="form-group">
-              <select class="form-control form-shadow" name="type">
-                <option value="">Type</option>
-                <option value="Retreat">Retreat</option>
+              <select class="form-control form-shadow" name="type" readOnly>
+                <option value="Retreat" selected="selected">Retreat</option>
               </select>
             </div>
     			  <div class="form-group">
@@ -262,7 +255,7 @@ $(function(){
         var act = $(this).data('act');
         $.post("change_classstatus.php", {'cid':cid, 'act':act}, function(data){
           $('body').removeClass('loading');
-            if(data == 'success'){
+            if(data.trim() == 'success'){
                 if(act == 1){
                   $('#btn_'+cid).removeClass('btn-danger').addClass('btn-success').attr('title', 'Activate').text('A').data('id', 0);
                   $('#act_'+cid).removeClass('bg-success').addClass('bg-warning').text('Not Active');

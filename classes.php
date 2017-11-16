@@ -55,7 +55,7 @@ if ($result->num_rows > 0) {
         $pid = $row["id"];
         echo '<div class="col-xs-12 col-sm-6 col-md-3">
 				<div class="batch_card colr' . $indx . '">
-					<div class="mn_txt">' . $row['duration'] . ' Months</div>
+					<div class="mn_txt">' . $row['duration'] . ' (' . $row['duration_unit'] . ')</div>
 					<div class="amt_wrap">' . $row['price'] . '/-</div>
 					<a href="buy_now.php?pid=' . $pid . '" class="btn btn-block buy">Buy Now</a>
 					<a href="#class_detail' . $indx . '" data-toggle="modal" data-keyboard="true" class="btn btn-block viewdetails">View Details</a>
@@ -67,7 +67,7 @@ if ($result->num_rows > 0) {
 							<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">' . $row["duration"] . ' Months weekday class</h4>
+								<h4 class="modal-title">' . $row["duration"] . ' (' . $row['duration_unit'] . ') Weekday class</h4>
 							</div>';
 			$modal_box .= '<div class="modal-body class-info">' . $row["description"] . '</div>';
 			$modal_box .= '<div class="modal-footer text-center">
@@ -82,7 +82,7 @@ if ($result->num_rows > 0) {
         }
     }
 } else {
-    echo '<div class="col-xs-12"><div class="alert alert-warning text-center">No Weekday class available</div></div>';
+    echo '<div class="col-xs-12"><div class="alert alert-warning text-center">No Weekday classes available</div></div>';
 }
 ?>
   </div>
@@ -98,7 +98,7 @@ if ($result1->num_rows > 0) {
     while ($row1 = $result1->fetch_assoc()) {
         $pid = $row1["id"];
         echo '<div class="col-xs-12 col-sm-6 col-md-3"><div class="batch_card colr' . $indx1 . '">
-				<div class="mn_txt">' . $row1['duration'] . ' Months</div>
+				<div class="mn_txt">' . $row1['duration'] . ' (' . $row1['duration_unit'] . ')</div>
 					<div class="amt_wrap">' . $row1['price'] . '/-</div>
 						<a href="buy_now.php?pid=' . $pid . '" class="btn btn-block buy">Buy Now</a>
 							<a href="#class_detail' . $indx1 . '" data-toggle="modal" data-keyboard="true" class="btn btn-block viewdetails">View Details</a>
@@ -108,7 +108,7 @@ if ($result1->num_rows > 0) {
         $modal_box .= '<div class="modal-dialog modal-lg">
 							<div class="modal-content">
 								<div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">' . $row1["duration"] . ' Months weekend class</h4>
+									<h4 class="modal-title">' . $row1["duration"] . ' (' . $row1['duration_unit'] . ') Weekend class</h4>
 								</div>';
         $modal_box .= '<div class="modal-body class-info">' . $row1["description"] . '</div>';
         $modal_box .= '<div class="modal-footer text-center">
@@ -124,7 +124,7 @@ if ($result1->num_rows > 0) {
         }
     }
 } else {
-    echo '<div class="col-xs-12"><div class="alert alert-warning text-center">No Weekend class available</div></div>';
+    echo '<div class="col-xs-12"><div class="alert alert-warning text-center">No Weekend classes available</div></div>';
 }
 ?>
   </div>
