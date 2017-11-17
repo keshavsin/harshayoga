@@ -81,7 +81,7 @@ p{text-align:justify;}
 #about_harsha .about_text .heading2, .contact_text .heading2{padding:0;margin:0;text-align:center;font-size:16px;font-family: 'Ubuntu', sans-serif;font-weight:300;color:#454545;margin-bottom:20px;}
 #class_deatils{background:url(../images/class-bg.jpg) no-repeat center top;background-size:cover;background-attachment:fixed;padding:20px 10px ;}
 #class_deatils .class_innr{max-width:990px;margin:0 auto;}
-.class_innr .container-fluid{background:#fff;margin-bottom:10px;-webkit-box-shadow: 0 2px 4px rgba(0,0,0,.5);-moz-box-shadow: 0 2px 4px rgba(0,0,0,.5);box-shadow: 0 2px 4px rgba(0,0,0,.5);padding:20px 30px;}
+.class_innr .container-fluid{background:#fff;margin-bottom:10px;-webkit-box-shadow: 0 2px 4px rgba(0,0,0,.5);-moz-box-shadow: 0 2px 4px rgba(0,0,0,.5);box-shadow: 0 2px 4px rgba(0,0,0,.5);padding:10px 30px;}
 .heading3{padding:0;margin:0;font-size:22px;font-family: 'Roboto', sans-serif;font-weight:300;text-transform:uppercase;color:#ec595c;}
 .batch_card{max-width:120px;margin:0 auto;margin-bottom:30px;}
 .classes_wrapper .batch_card{max-width:100%;padding-bottom:5px;}
@@ -91,6 +91,10 @@ p{text-align:justify;}
 .batch_card.colr4{background:#f37164;}
 .batch_card.colr5{background:#62c4ab;}
 .batch_card.colr6{background:#f8a557;}
+.batch_card.colr7{background:#b5c5c2;}
+.batch_card.colr8{background:#f48595;}
+.batch_card.colr9{background:#448abe;}
+.batch_card.colr10{background:#f8a557;}
 .batch_card.colr1 .time_format{background:#6f9ecc; color:#1c6098;}
 .batch_card.colr2 .time_format{background:#f79da7; color:#cb5667;}
 .batch_card.colr3 .time_format{background:#9c87c0; color:#5c4981;}
@@ -102,6 +106,10 @@ p{text-align:justify;}
 .batch_card.colr4 .amt_wrap, .batch_card.colr4 .buy{background:#b5493e;}
 .batch_card.colr5 .amt_wrap, .batch_card.colr5 .buy{background:#3d927c;}
 .batch_card.colr6 .amt_wrap, .batch_card.colr6 .buy{background:#c77b33;}
+.batch_card.colr7 .amt_wrap, .batch_card.colr7 .buy{background:#6c7674;}
+.batch_card.colr8 .amt_wrap, .batch_card.colr8 .buy{background:#cb5667;}
+.batch_card.colr9 .amt_wrap, .batch_card.colr9 .buy{background:#1c6098;}
+.batch_card.colr10 .amt_wrap, .batch_card.colr10 .buy{background:#c77b33;}
 .batch_card .time_txt{font-family: 'Ubuntu', sans-serif;font-weight:400;font-size:20px;padding:5px;text-align:center;color:#fff;}
 .batch_card .time_format{font-family: 'Roboto', sans-serif;font-weight:100;font-size:16px;padding:3px;text-align:center;}
 /*.mrgn_b30{margin-bottom:30px;}*/
@@ -204,10 +212,10 @@ body{font-size:18px;}
 .thumb_wrap{float:left;}
 #about_harsha .about_text .heading1, #about_harsha .contact_text .heading1{font-size:40px;}
 #about_harsha .about_text .heading2, #about_harsha .contact_text .heading2{font-size:20px;}
-.heading3{font-size:36px;}
+.heading3{font-size:18px;background-color:#efebc3;padding:4px}
 .batch_card .time_txt{font-size:30px;}
 .batch_card .time_format{font-size:20px;}
-.class_innr .container-fluid{margin-bottom:40px;}
+.class_innr .container-fluid{margin-bottom:20px;}
 #class_deatils, #about_harsha1{padding:5px 5px;}
 #class_deatils1{padding:20px 5px;}
 .navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus{background:#f9f9f9;color:#bb3639}
@@ -223,8 +231,8 @@ body{font-size:18px;}
 }
 
 .dur {
-	display:block;
-	color:red;
+    display:block;
+    color:red;
 }
 
 .yoga_type{
@@ -233,9 +241,8 @@ padding:0;
 }
 .gridimage
 {
-	padding:0;
-	margin:0;
-	
+    padding:0;
+    margin:0;
 }
 
 
@@ -253,7 +260,7 @@ padding-left:70px;
 
 /*TESTIMOIAL */
 /* carousel */
-#quote-carousel 
+#quote-carousel
 {
   padding: 0 10px 10px 10px;
   margin-top: 30px;
@@ -265,7 +272,7 @@ font-style:italic;
 }
 
 #quote-carousel small {
-	font-style:italic;
+    font-style:italic;
 color:#fff;
 font-size:12px;
 }
@@ -279,17 +286,17 @@ font-size:12px;
   margin-top: 30px;
 }
 /* Previous button  */
-#quote-carousel .carousel-control.left 
+#quote-carousel .carousel-control.left
 {
   left: -17px;
 }
 /* Next button  */
-#quote-carousel .carousel-control.right 
+#quote-carousel .carousel-control.right
 {
   right: -42px !important;
 }
 /* Changes the position of the indicators */
-#quote-carousel .carousel-indicators 
+#quote-carousel .carousel-indicators
 {
   right: 50%;
   top: auto;
@@ -297,11 +304,11 @@ font-size:12px;
   margin-right: -19px;
 }
 /* Changes the color of the indicators */
-#quote-carousel .carousel-indicators li 
+#quote-carousel .carousel-indicators li
 {
   background: #c0c0c0;
 }
-#quote-carousel .carousel-indicators .active 
+#quote-carousel .carousel-indicators .active
 {
   background: #333333;
 }
@@ -313,7 +320,7 @@ font-size:12px;
 /* End carousel */
 
 .item blockquote {
-    border-left: none; 
+    border-left: none;
     margin: 0;
 }
 
@@ -335,22 +342,22 @@ font-size:12px;
 */
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
-    #quote-carousel 
+@media (min-width: 768px) {
+    #quote-carousel
     {
       margin-bottom: 0;
       padding: 0 40px 30px 40px;
     }
-    
+
 }
 
 /* Small devices (tablets, up to 768px) */
-@media (max-width: 768px) { 
-    
+@media (max-width: 768px) {
+
     /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
-    
+
     #quote-carousel .carousel-indicators {
-        bottom: -20px !important;  
+        bottom: -20px !important;
     }
     #quote-carousel .carousel-indicators li {
         display: inline-block;

@@ -8,10 +8,9 @@ include 'common/header.php';
 <section id="class_deatils">
 <div class="class_innr">
     <div class="container-fluid">
-      <h2 class="heading3 text-center">LIST OF RETREAT PROGRAMS</h2>
+      <h2 class="heading3 text-center">RETREAT PROGRAMS CONDUCTED BY HARSHA</h2>
     </div>
 <div class="container-fluid classes_wrapper">
-<!-- <h2 class="heading3 text-center">SELECT FROM THE LIST OF RETREAT PROGRAMS</h2> -->
 <div class="row mrgn_b30">
 <?php
 $modal_box = '';

@@ -6,7 +6,7 @@ include 'common/header.php';
 <section id="class_deatils">
 <div class="class_innr">
   <div class="container-fluid">
-    <h2 class="heading3 text-center">WORKSHOPS</h2>
+    <h2 class="heading3 text-center">WORKSHOPS CONDUCTED BY HARSHA, SCROLL DOWN FOR WORKSHOP SCHEDULE</h2>
   </div>
 <div class="container-fluid classes_wrapper">
   <div class="row mrgn_b30">
@@ -37,7 +37,7 @@ include 'common/header.php';
           </div>
           </div>
           </div>';
-          if ($indx == 6) {
+          if ($indx == 10) {
               $indx = 1;
           } else {
               $indx++;
@@ -66,7 +66,6 @@ include 'common/header.php';
   $sql1    = "SELECT * FROM workshop_schedule where is_active=1";
   $result1 = $db->query($sql1);
   if ($result1->num_rows > 0) {
-      
       echo '<table class="table table-bordered">
       <thead>
         <tr>

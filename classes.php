@@ -8,7 +8,7 @@ include 'common/header.php';
 <section id="class_deatils">
 <div class="class_innr">
     <div class="container-fluid">
-      <h2 class="heading3 text-center">REGULAR BATCHES</h2>
+      <h2 class="heading3 text-center">REGULAR BATCH TIMINGS</h2>
       <div class="row">
         <div class="col-xs-6 col-sm-4 col-md-15">
             <div class="batch_card colr1">
