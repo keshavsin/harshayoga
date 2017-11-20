@@ -43,11 +43,11 @@ include 'common/header.php';
   </section>
   <section>
     <div class="container-fluid">
-      <div class="row table_container">
-      <div class="col-sm-6" style="padding:0;">
-			 <img src="assets/images/abhyasa-bg.jpg" alt="">
+      <div class="row table_container" >
+      <div class="col-sm-6" >
+			 <img class="img-responsive" src="assets/images/abhyasa-bg.jpg" alt=""  >
         </div>
-        <div class="col-sm-6 table_cell cell1">
+        <div class="col-sm-6 " style="padding:20px 20px 20px 20px">
         	<h2 class="heading1 colr_h">ABHYASA</h2>
             <p>Hunger in my heart to know the whence and whither, the why's &amp; where's made me to perceive the realities &amp; potentials of myself. Hence, I decided to enrich my surroundings with many sided greatness. Then the principles of yoga started to shine forth with in. realizing that the beginning end is silent, I decided to my journey worthwhile.
 </p>
@@ -70,16 +70,16 @@ Along with the above, the students will get to experience the best teachings.
 <section class="container-fluid">
       <div class="row table_container" style="padding:20px 20px 20px 20px">
       
-        <div class="col-sm-6  ">
+        <div class="col-sm-6  " >
         	<h2 class="heading1 colr_h">WHY US?</h2>
             <p>Harsha has practiced the Iyengar’s teachings techniques &amp; the traditional Ashtanga Vinyasa along with years of hatha yoga practice. With the strong knowledge base of the major scriptures, backed with the therapeutic knowledge is indeed a blessing for an aspiring teacher to learn. With a decade worth of studies &amp; practice, the experience is unmatched.
             <br/><br/>
             Asana practice, Yoga philosophy, Anatomy, Hatha yoga, Yoga sutras, you name it &amp; you will find the answer to all ur questions. With a strong foundation of all the above, participants will able to chart their own path in this journey of yoga.
             </p>
-            <br><br><br><br><br>
+            
         </div>
         <div class="col-sm-6  ">
-        <img src="assets/images/whyus-bg.jpg" alt="" style="width:100%;height:auto">
+        <img class="img-responsive" src="assets/images/whyus-bg.jpg" alt="" >
         </div>
       </div>
 </section>
