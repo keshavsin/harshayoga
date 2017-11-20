@@ -15,7 +15,7 @@
           
             
             $to             = $email;
-            $cc             = "docketrun@gmail.com";
+            $cc             = "keshavsin@gmail.com";
             $subject        = "Contact Form";
             $txt            = "<table border='0' style='background:#fff;' width='100%'>";
             $txt .= "<tr><td><h2 style='color:#565656;font-size:30px;text-align:center;padding:0;'>Thank You for Contacting Us - Harsha Yoga</h2></td></tr>";
@@ -27,7 +27,7 @@
            
             $txt .= "</table>";
             $headers = "From: Harsha Yoga<harsha@harshayoga.com>\r\n";
-            $headers .= "Cc: docketrun@gmail.com\r\n";
+            $headers .= "Cc: keshavsin@gmail.com\r\n";
             $headers .= "MIME-Version: 1.0\r\n";
             $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
             mail($to, $subject, $txt, $headers);
