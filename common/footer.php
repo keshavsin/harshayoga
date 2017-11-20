@@ -10,7 +10,7 @@
 			<div class="footer_address col-xs-12 col-sm-6 col-md-5 col-lg-4 ">
 				<h3 class="heading2 text-center">(Mysuru)</h3>
 				Bommuru Agrahara village,Near Pashchima Vahini Circle,<br/>
-				Palahalli Post, Belagola Hobli, Srirangapatna Taluk, Karnataka 571606<br/>
+				Palahalli Post, Belagola Hobli, Srirangapatna, Karnataka<br/>
 				Email: <a href="mailto:harsha@harshayoga.com">harsha@harshayoga.com</a><br/>
 			</div>
 		</div>

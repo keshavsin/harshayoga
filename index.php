@@ -36,105 +36,9 @@ include 'common/header.php';
     </div>
   </section>
 
-  <section class="gradiant_bg">
-  	<div class="testimonial_wrap">
-    	<h2 class="heading1 cntr_h">QUOTES</h2>
-		
-   
-  <div class='row'>
-    <div class='col-md-offset-2 col-md-8'>
-      <div class="carousel slide" data-ride="carousel" id="quote-carousel">
-        <!-- Bottom Carousel Indicators -->
-       
-					
-						
-					
-					
-          
-						
-        </ol>
-        
-	
-        <!-- Carousel Slides / Quotes -->
-        <div class="carousel-inner">
-        
-		
-		
-						<div class="item active">
-							<blockquote>
-								<div class="row">								
-                <div class="col-sm-2">
-										</div>
-										<div class="col-sm-8 text-center">
-                    <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!</p>
-									</div>
-                  <div class="col-sm-2">
-										</div>
-									</div>
-								</blockquote>
-						</div>		
-
-            <div class="item ">
-							<blockquote>
-								<div class="row">								
-                <div class="col-sm-2">
-										</div>
-										<div class="col-sm-8 text-center">
-                    <p>Classic pose, when practiced with discrimination and awareness, brings the body , mind and consciousness into a single , harmonious whole.</p>
-									</div>
-                  <div class="col-sm-2">
-										</div>
-									</div>
-								</blockquote>
-						</div>		
-
-
-
-            <div class="item">
-							<blockquote>
-								<div class="row">								
-                <div class="col-sm-2">
-										</div>
-										<div class="col-sm-8 text-center">
-                    <p>Practice asanas by creating space in the muscles and skin, so that the fine network of the body fits into the asana.</p>
-									</div>
-                  <div class="col-sm-2">
-										</div>
-									</div>
-								</blockquote>
-						</div>		
-
-
-
-
-            <div class="item">
-							<blockquote>
-								<div class="row">								
-                <div class="col-sm-2">
-										</div>
-										<div class="col-sm-8 text-center">
-                    <p>The intensity of the stretch should increase and rejuvenate from moment to moment.</p>
-									</div>
-                  <div class="col-sm-2">
-										</div>
-									</div>
-								</blockquote>
-						</div>		
-
-
-					
-
-            
-						
-		
-        </div>
-        
-        <!-- Carousel Buttons Next/Prev -->
-        <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
-      </div>                          
-    </div>
-  </div>
+  <section class="gradiant_bg" style="padding:5px">
+    <div class="innr_container" style="max-width:100%">
+    	<p style="text-align:center">Classic pose, when practiced with discrimination and awareness, brings the body , mind and consciousness into a single , harmonious whole.
     </div>
   </section>
   <section>
@@ -154,7 +58,7 @@ include 'common/header.php';
   </section>
   <section class="training_wrapper">
     	<div class="innr_container">
-        <h2 class="heading1 cntr_h"> TEACHER TRAINING</h2>
+        <h2 class="heading1 cntr_h">TEACHER TRAINING</h2>
             <p>For all those souls who have been craving for the most authentic teaching of yoga, This indeed is a must to deepen the knowledge base &amp; practice. The level 1 &amp; level 2 of teacher training will help you gain enough knowledge to carry on with your yogic practice &amp; studies for almost a decade.<br/><br/>
 
 After the completion of the studies, Interested students will have hands on experience in teaching at the shala under the watchful of the teacher for almost 2 months. This ensures that the graduating teacher will have enough experience in handling the classes in the future.<br/><br/>
@@ -163,9 +67,6 @@ Along with the above, the students will get to experience the best teachings.
 </p>
         </div>
   </section>
-
-
-
 <section class="container-fluid">
       <div class="row table_container" style="padding:20px 20px 20px 20px">
       
@@ -181,11 +82,7 @@ Along with the above, the students will get to experience the best teachings.
         <img src="assets/images/whyus-bg.jpg" alt="" style="width:100%;height:auto">
         </div>
       </div>
-      
 </section>
-
-
-
 <section class="gradiant_bg">
   	<div class="innr_container">
     	<h2 class="heading1 cntr_h">DHARMA</h2>
@@ -195,8 +92,6 @@ To reach each and every honest soul out there who are in thirst for the understa
 </p>
     </div>
   </section>
-  
-
 <section class="container-fluid1">
   <div class="row yoga_type">
     <div class="col-sm-4 gridimage yoga_grid"> 
