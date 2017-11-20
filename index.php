@@ -59,9 +59,9 @@ include 'common/header.php';
   <section class="training_wrapper">
     	<div class="innr_container">
         <h2 class="heading1 cntr_h">TEACHER TRAINING</h2>
-            <p>For all those souls who have been craving for the most authentic teaching of yoga, This indeed is a must to deepen the knowledge base &amp; practice. The level 1 &amp; level 2 of teacher training will help you gain enough knowledge to carry on with your yogic practice &amp; studies for almost a decade.<br/><br/>
+            <p>For all those souls who have been craving for the most authentic teaching of yoga, This indeed is a must to deepen your knowledge base &amp; practice. The level 1 &amp; level 2 of teacher training will help you gain enough knowledge to carry on with your yogic practice &amp; studies for almost a decade.<br/><br/>
 
-After the completion of the studies, Interested students will have hands on experience in teaching at the shala under the watchful of the teacher for almost 2 months. This ensures that the graduating teacher will have enough experience in handling the classes in the future.<br/><br/>
+After the completion of the studies, Interested students will have hands on experience in teaching at the shala under the watchful of the teacher for almost 2 months. This ensures that the graduating teacher will have enough experience to teach in the future.<br/><br/>
 
 Along with the above, the students will get to experience the best teachings.
 </p>
@@ -72,9 +72,9 @@ Along with the above, the students will get to experience the best teachings.
       
         <div class="col-sm-6  ">
         	<h2 class="heading1 colr_h">WHY US?</h2>
-            <p>Harsha has practiced the Iyengar’s teachings techniques &amp; the traditional Ashtanga Vinyasa along with years of hatha yoga practice. With the strong knowledge base of the major scriptures backed with the therapeutic knowledge is indeed a blessing for an aspiring teacher to learn. With a decade worth of studies &amp; practice, the experience is unmatched.
+            <p>Harsha has practiced the Iyengar’s teachings techniques &amp; the traditional Ashtanga Vinyasa along with years of hatha yoga practice. With the strong knowledge base of the major scriptures, backed with the therapeutic knowledge is indeed a blessing for an aspiring teacher to learn. With a decade worth of studies &amp; practice, the experience is unmatched.
             <br/><br/>
-            Asana practice, Yoga philosophy, Anatomy, Hatha yoga, Yoga sutras, you name it &amp; you'll get answer to all ur questions. With a strong foundation of all the above, participants will able to chart their own path in this journey of yoga.
+            Asana practice, Yoga philosophy, Anatomy, Hatha yoga, Yoga sutras, you name it &amp; you will find the answer to all ur questions. With a strong foundation of all the above, participants will able to chart their own path in this journey of yoga.
             </p>
             <br><br><br><br><br>
         </div>
@@ -87,7 +87,7 @@ Along with the above, the students will get to experience the best teachings.
   	<div class="innr_container">
     	<h2 class="heading1 cntr_h">DHARMA</h2>
             <p>To spread the knowledge of yoga in its authentic form, As taught by the Maharshies.
-<br/><br/>
+<br/>&<br/>
 To reach each and every honest soul out there who are in thirst for the understanding the realities of oneself & make their journey worthwhile.
 </p>
     </div>

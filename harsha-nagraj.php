@@ -10,7 +10,7 @@ include 'common/header.php';
          <div class="col-sm-6 about_text">
           <h2 class="heading1 colr_h">Harsha Nagraj</h2>
           <h3 class="heading2">Welcome to the path of realistic evolution.</h3>
-          <p> Harsha Nagaraj is the founder , Director of Harsha yoga started in 2013 to spread the light of yoga.</br></br>
+          <p> Harsha Nagaraj is the founder of Harsha yoga started in 2013 to spread the light of yoga.</br></br>
 
 			Having practiced under senior Iyengar yoga teachers for years , he completed his M.Sc(yoga &amp; vedanta ) from the prestigious SVYASA university in 2010 with mush pride.Well versed in the texts &amp; the practical applicant resulted in him starting his shala under the blessings of Guruji BKS Iyengar.</br></br>
 
@@ -18,7 +18,7 @@ include 'common/header.php';
 
 			Harsha is greatly influenced by the teachings of Swami Vivekananda &amp; his master Sri Ramakrishna Pramahamsa &amp; Sharada devi.</br></br>
 
-			He says its his birth right to thread the path of Yoga, thought it took him almost a decadeand a half to realize that.The reason for my birth &amp; to know the secrets of ones own life has always been his core question since birth.</br></br>
+			He says its his birth right to thread the path of Yoga, thought it took him almost a decade and a half to realize that. The reason for his birth &amp; to know the secrets of ones own life has always been his core question since birth.</br></br>
 
 
 			When his study of Yoga and Prasthanathrayas (Brahma Sutras, Upanisads ,the BhagavadGita) and the mother of all languages, Sanskrit began, he knew that he had found what he was searching for all these years. Studying these brought a whole new dimension in his thinking as he stood as a mere witness, spell bound.</br></br>
@@ -27,9 +27,9 @@ include 'common/header.php';
 
 			This ancient Indian knowledge has completely changed his life. Come and change yours as he is on a mission to reach out to every corner of the world.</br></br>
 
-			<b><i>* Learn * experience * contemplate *experiment * realize</b></i></br></br>
+			<b><i>Learn * Experience * Contemplate * Experiment * Realize</b></i></br></br>
 
-			<b><i>Be reborn every day!!!!</b></i>
+			<b><i>Be reborn every day !!!!</b></i>
             </p>
         </div>
         <div class="col-sm-6 thumb_wrap">

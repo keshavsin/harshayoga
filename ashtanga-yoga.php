@@ -18,7 +18,7 @@ The restraints; starting with Yama, disciplinary practices of niyamas &amp; the 
 Each and every anga is interrelated to one another though they are different in name.<br/>
 Yama=Niayama=Asana=Pranayama=Dharana=Dhyana=Samadhi
 <br/><br/>
-None can exist without the other ,the above are like eight rugs of the ladder. For one to climb to the 2nd rug, u have to start with the 1st.
+None can exist without the other ,the above are like eight rugs of the ladder. For one to climb to the second rug, you have to start with the first.
 Hence helping an individual acquire the knowledge knowing which everything becomes know.
 Being globally recognized for its importance in helping individuals over come one's own inhibitions, Ashtanga Yoga holds the key in changing the fate of an individual inside out.
 The true power of Ashtanga yoga can only be felt &amp; acquired by purity &amp; persistence practice. For without the underlying principle of yama &amp; Niyama, The mere practice becomes acrobatic.
