@@ -41,8 +41,8 @@ include 'common/header.php';
     	<p style="text-align:center">Classic pose, when practiced with discrimination and awareness, brings the body , mind and consciousness into a single , harmonious whole.
     </div>
   </section>
-  <section>
-    <div class="container-fluid">
+  <section class="container-fluid">
+    
       <div class="row table_container" >
       <div class="col-sm-6" >
 			 <img class="img-responsive" src="assets/images/abhyasa-bg.jpg" alt=""  >
@@ -54,7 +54,7 @@ include 'common/header.php';
         </div>
         
       </div>
-    </div>
+   
   </section>
   <section class="training_wrapper">
     	<div class="innr_container">
