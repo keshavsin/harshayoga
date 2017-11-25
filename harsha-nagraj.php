@@ -7,6 +7,10 @@ include 'common/header.php';
       <div class="about_innr">
       <div class="container-fluid">
         <div class="row">
+        <div class="col-sm-6 thumb_wrap">
+          <img src="assets/images/harsha-nagraj.jpg" alt="harsha nagraj" class="img-responsive" style="margin-left:10px;margin-top:-20px;">
+		  <h3 class="heading2 text-center">B.E, M.Sc (Yoga Vedanta)</h3>
+          </div>
          <div class="col-sm-6 about_text">
           <h2 class="heading1 colr_h">Harsha Nagraj</h2>
           <h3 class="heading2">Welcome to the path of realistic evolution.</h3>
@@ -32,10 +36,7 @@ include 'common/header.php';
 			<b><i>Be reborn every day !!!!</b></i>
             </p>
         </div>
-        <div class="col-sm-6 thumb_wrap">
-          <img src="assets/images/harsha-nagraj.jpg" alt="harsha nagraj" class="img-responsive" style="margin-left:10px;">
-		  <h3 class="heading2 text-center">B.E, M.Sc (Yoga Vedanta)</h3>
-          </div>
+        
         </div>
         </div>
       </div>
