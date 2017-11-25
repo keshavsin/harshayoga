@@ -222,6 +222,24 @@ body{font-size:18px;}
 .navbar-default .navbar-nav>.active>a{position:relative;background:none;color:#bb3639}
 .navbar-default .navbar-nav>.active>a:before{content:'';position:absolute;left:0;bottom:-2px;height:3px;right:0;background:#ec595c;}
 .navbar-default .navbar-nav>.active>a:hover,.navbar-default .navbar-nav>.active>a:focus{background:#f9f9f9;color:#bb3639;}
+
+.labelasana {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+.labelcolor {
+    background: rgba(238, 238, 238, .8);
+    color: rgba(0, 0, 0, 0.7);
+    margin:4px;
+  }
 .navbar-default .navbar-nav>.active>a:hover:before,.navbar-default .navbar-nav>.active>a:focus:before{content:none;}
 }
 @media all and (min-width:480px){
@@ -334,6 +352,8 @@ font-size:12px;
     float: left;
     margin-right: 10px;
 }
+
+
 
 
 
