@@ -1,4 +1,12 @@
 <?php
+//include 'sessioncheck.php';
+session_start();
+$currentPage = "classes";
+include 'common/header.php';
+?>
+
+
+<?php
 $currentPage = "Contact Form Success";
 include 'common/header.php';
 echo '<section id="about_harsha"><div class="message_wrapper"><div class="container-fluid"><div class="row"><div class="col-sm-12 contact_text">';
