@@ -1,7 +1,7 @@
 <?php
 //include 'sessioncheck.php';
 session_start();
-$currentPage = "classes";
+$currentPage = "contactSuccess";
 include 'common/header.php';
 ?>
 

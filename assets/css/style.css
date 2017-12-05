@@ -226,8 +226,8 @@ body{font-size:18px;}
 .labelasana {
     display: inline;
     padding: .2em .6em .3em;
-    font-size: 75%;
-    font-weight: 700;
+    font-size: 85%;
+    font-weight: 500;
     line-height: 1;
     color: #fff;
     text-align: center;
@@ -239,6 +239,7 @@ body{font-size:18px;}
     background: rgba(238, 238, 238, .8);
     color: rgba(0, 0, 0, 0.7);
     margin:4px;
+	padding: 0px 2px 0px 7px;
   }
 .navbar-default .navbar-nav>.active>a:hover:before,.navbar-default .navbar-nav>.active>a:focus:before{content:none;}
 }
