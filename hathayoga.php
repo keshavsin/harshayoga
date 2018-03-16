@@ -12,7 +12,7 @@ include 'common/header.php';
           <h3 class="heading2">Hatha Yoga , A journey towards the higher level of consciousness.</h3>
 			<p>
 			<img src="assets/images/hatha_thumb.jpg" class="floating_thumbr" alt="iyengar" />
-				The journey here starts by cleansing the boby in sex different ways(shatkarmas). All the internal organs are cleansed &amp; purity. Then starts the actual journery. For hatha yoga believes, without internal purity nothing can be accomplished.
+				The journey here starts by cleansing the body in six different ways(shatkarmas). All the internal organs are cleansed &amp; purity. Then starts the actual journery. For hatha yoga believes, without internal purity nothing can be accomplished.
 				<br/><br/>
 				Though there is a fiddling deviation from Ashtanga yoga, there is lot of resemblance between the teaching of yoga sutras &amp; hatha yoga except the history behind them.
 				<br/><br/>
